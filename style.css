@@ -1,0 +1,353 @@
+body{
+    background-color:#FFF3CE;
+}
+.page-header{
+    margin-top:10px;
+    margin-bottom:0px;
+    border-bottom: none;
+    padding-bottom:0px;
+}
+img{
+    width:100%;
+    height:auto;
+}
+#header-middle{
+    text-align:center;
+}
+#header-middle img.middle-top{
+    width:300px;
+}
+.menu_block{
+    width: 130px;
+    height: 50px;
+    top: -50px;
+    margin-bottom: -50px;
+    display: block;
+    position: relative;
+}
+.menu_1{
+}
+.menu_2{
+    left:130px;
+}
+.menu_3{
+    left:266px;
+}
+.menu_4{
+    left:402px;
+}
+.menu_5{
+    left:539px;
+}
+.menu_6{
+    left:675px;
+}
+.menu_7{
+    left:811px;
+}
+
+.hukidashi img{
+    max-width:130px;
+}
+.right{
+    float:right;
+}
+#top-main{
+    text-align:center;
+    
+}
+#top-main img.top_main_text{
+    width: 55%;
+    border-radius: 10px;
+    margin-bottom: -15px;
+    margin-top: 35px;
+}
+#top-main img.top_main_text_under{
+    width:85%;
+}
+.top-intro{
+    margin-left: auto;
+    margin-right: auto;
+}
+#top-main .top-intro .col-xs-4{
+    padding:2px;
+    border:none;
+    background-color:none;
+}
+#p2{
+    border: 2px solid #E63F26;
+    background-color:#fff;
+    margin-top:30px;
+    padding: 5px;
+    padding-top: 13px;
+}
+#p2 h2 img{
+    width:100%;
+}
+#p2 .block{
+    margin-bottom:30px;
+}
+#p2 .l-wrap {
+    background-color:#fff;
+    margin-top:20px;
+    padding:20px;
+}
+#p2 .l-wrap .bodytype_block img.left{
+    float:left;
+    width:38%;
+}
+#p2 .l-wrap .bodytype_block img.right{
+    float:left;
+    width:55%;
+    margin-top:-10px;
+}
+#p3{
+    margin-top:30px;
+}
+#popular_tukuba{
+}
+#popular_tukuba h2 img{
+    margin-left:20%;
+    width:60%;
+}
+#popular_tukuba ul{
+    width:80%;
+    margin-left:20%;
+    padding:20px 0px;
+}
+#popular_tukuba ul li a{
+    font-size:18px;
+    text-decoration:none;
+}
+#popular_tukuba ul li a:visited {
+    color:inherit;
+}
+#bukkenCas{
+    background-color:#fff;
+    padding:5px;
+}
+#footer{
+  /*  padding:100px; */
+    padding:100px 0 0 0;
+}
+.container2{
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 15px;
+    width: 100%;
+    margin-left: 0px;
+    border: 1px solid #E63F26;
+}
+.l-mainColumn{
+    width:100%;
+}
+.carInfoBox_h--FMC .txtColumn {
+    width: 327px;
+    margin-top: 15px;
+}
+.l-mainColumn2{
+    width: 100%;
+    background-color: #fff;
+    margin-top: 20px;
+    border: 1px solid #E63F26;
+    padding: 10px;
+}
+.ranking img{
+    width:185px;
+}
+.ranking{
+    text-align:left;
+}
+.page-template-default .l-container p{
+    margin: 0 5px 1em;
+    line-height: 1.9;
+}
+.page-template-default .l-container h1{
+    font-weight:bold;
+    margin: 0 0 20px 0;
+    border-bottom: 1px dotted #999999;
+    padding: 10px 0;
+    background: url(../img/share/bg_grid_g.png) repeat-x;
+    font-size: 185%;
+    font-weight: normal;
+    line-height: 1.3;
+}
+.page-template-default .l-container h2{
+    margin: 0 5px 0.45em 0;
+    padding: 0.2em 0 0.2em 18px;
+    font-size: 150%;
+    font-weight: bold;
+    line-height: 1.4;
+    border-left:8px solid #c13a65;
+}
+.page-template-default .l-container h3{
+    margin: 0 5px 0.8em;
+    padding: 3px 8px;
+    color: #BF3965;
+    font-size: 112.5%;
+    font-weight:bold;
+    line-height: 1.4;
+    background-color:#EBEBEB;
+}
+img.top_under_hukidasi{
+    width:20%;
+    display:block;
+    margin-top: -240px;
+    margin-left: -30px;
+    margin-bottom: 125px;
+}
+#footer{
+    text-align:center;
+}
+img.footer_baner{
+    width:60%;
+    margin-bottom:40px;
+}
+p.copy_right{
+    background-color:#444444;
+    color:#fff;
+    padding:25px;
+}
+p.copy_right span{
+    color:#356eb3;
+}
+.l-box.caset--bkn__miniImgs .price.price--big span{
+    font-size:30px!important;
+    font-weight:bold;
+}
+p.page-title{
+    font-size: 36px;
+    margin: 0;
+    margin-bottom: 0px!important;
+    font-weight: bold;
+    text-align:center;
+}
+#tab_menu_img a{
+    display: block;
+    width: 33.333%;
+    height: 94px;
+    float: left;
+}
+#tab-link-box{
+    position:relative;
+    margin-top:-94px;
+}
+.tab_menu img{
+    height:94px;
+    width:100%;
+}
+#tab-contents-2,#tab-contents-3{
+    display:none;
+}
+.l-box.txt-r input[type='submit'],input.search_button{
+height: 50px;
+    line-height: 50px;
+    padding: 0 40px;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #0088ea;
+    background: linear-gradient(to bottom, #0088ea 10%, #0070C0 90%);
+    color: #fff;
+    box-shadow: 0 1px 0 rgba(2, 55, 120, 0.3);
+    border: solid 1px #72A1DB;
+}
+.l-box.txt-r input[type='submit']:hover ,input.search_button:hover{
+    background: #eff6ff;
+    background: linear-gradient(to bottom, #eff6ff 10%, #dbecff 90%);
+    color: #0070C0;
+    box-shadow: 0 1px 0 rgba(2, 55, 120, 0.3);
+    border: solid 1px #c7e0fc;
+}
+.panel select{
+    font-size:25px;
+}
+#contact_form{
+    text-align:left;
+}
+#contact_form table {
+    width: 100%;
+    border: 1px solid gray;
+}
+#contact_form th {
+    background-color: #ebebeb;
+    width: 25%;
+    padding: 5px;
+    border-bottom: 1px gray solid;
+    border-right: 1px gray dotted;
+}
+caption, th {
+    text-align: left;
+    vertical-align: middle;
+}
+#contact_form td {
+    border-bottom: 1px gray solid;
+    padding: 5px;
+}
+#contact_form .contact_element{
+    width:250px;
+}
+#contact_form textarea{
+    width: 592px;
+    height: 100px;
+}
+#contact_form input[type="submit"] {
+    box-shadow: 0px -10px 20px 3px rgba(0, 0, 0, 0.2) inset;
+    font-size: 2em;
+    width: 500px;
+    height: 70px;
+    padding: 0;
+    text-align: center;
+    border: 2px solid;
+    display: inline-block;
+    color: white;
+    margin-left:200px;
+    margin-top:10px;
+    background-color: #0081ff;
+    border-width: 0;
+    border: #0065c9 solid 1px;
+    border-right-width: 0;
+    border-radius: 50px;
+    background-image: none;}
+
+div.wpcf7 img.ajax-loader {
+    border: none;
+    vertical-align: middle;
+    margin-left: 4px;
+    width: 25px;
+}
+.pageTtl {
+    margin-top: -20px;
+}
+#sortTable{
+    display:none;
+}
+#bukkenCas{
+    padding-top:0px !important;
+}
+#clselecters{
+    display:none;
+}
+#panelForm .cftsearch_submit{
+    margin-top:30px;
+}
+#panelForm #rest{
+    margin-top:28px;
+}
+.resultBar{
+    display:none;
+}
+.l-box.top-multi__box select{
+    font-size:50px;
+}
+table.top-search{
+    width:100%;
+}
+table.top-search th{
+    padding-right:10px;
+    padding-top: 15px;
+}
+table.top-search input{
+    width:100%;
+    height:40px;
+    margin-top: 15px;
+}

@@ -1,0 +1,149 @@
+body{
+    background-color: #FFF3CE;
+}
+.container{
+    padding:0px;
+}
+.navbar-inverse {
+    background-color:  #FFF3CE;
+    border-color:  #FFF3CE;
+}
+#SlideInMenu{
+    z-index:10000;
+}
+.navbar-header button{
+    background-color:#ccc;
+}
+.menu-close-button{
+    display:none;
+}
+.nav li{
+    border-bottom: 1px inset #565656;
+    background-color:#333;
+}
+.nav li.title_bar{
+    color:#fff;
+    font-size: 9px;
+    padding: 5px;
+    background-color:#000;
+}
+.nav li a{
+    color:#fff;
+}
+.navbar-header button {
+    background-color:#FFF3CE;
+    border:none;
+}
+.navbar-header button:hover {
+    background-color:#FFF3CE !important;
+    border:none;
+}
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #FFF3CE !important;
+}
+
+.navbar-header .fav {
+    background-color: #ccc;
+    margin-top:20px;
+}
+.navbar-header .fav {
+    display: block;
+    width: 75px;
+    height: 54px;
+    position: absolute;
+    right: 79px;
+    top: -1px;
+}
+.navbar-toggle {
+    width:92px;
+}
+body, html{
+    height:100%;
+}
+img{
+    width:100%;
+    height:auto;
+}
+h1.top{
+    text-align:center;
+}
+h1.top img{
+    margin-bottom:30px;
+    width: 80%;
+    margin-top: -30px;
+}
+h2.top img{
+    width: 100%;
+    margin-top: -30px;
+}
+.block h3{
+    text-align: left;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: -1px;
+}
+#SlideInMenu{
+    position:fixed;
+}
+.slideLinkL li{
+    background-color:#fff;
+}
+.osiraseBox .box_R {
+    background-color:#fff;
+}
+
+.bknBox_A{
+    background-color:#fff;
+}
+h2.name_car{
+    text-align:left;
+}
+.navbar{
+    margin-top:-13px;
+}
+#p2-c{
+    position: relative;
+    top: 110px;
+}
+#p3-c{
+    position: relative;
+    top: -110px;
+}
+
+.indexBar td span {
+    background-color:#ccc;
+}
+h1{
+    text-align:left;
+}
+.bknDtlMainPhoto img{
+    margin:0px;
+    width:70%;
+}
+.pageBody{
+    background-color:#fff;
+}
+.pageHeader{
+    margin-top:-40px;
+    background-color:#fff;
+}
+#tab_menu_img a{
+    display: block;
+    width: 33.333%;
+    height: 94px;
+    float: left;
+}
+#tab-link-box{
+    position:relative;
+    margin-top:-94px;
+}
+.tab_menu img{
+    height:94px;
+    width:100%;
+}
+#tab-contents-2,#tab-contents-3{
+    display:none;
+}
+.bknBox_A .bknBox_mid {
+    min-height: 0; 
+}
