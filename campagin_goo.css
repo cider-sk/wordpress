@@ -1,0 +1,31 @@
+@charset "EUC-JP";
+
+/*  #contents #main
+---------------------------------------------------------- */
+/*-- box_campaign --*/
+#main .box_campaign {
+    margin: 0 0 10px 0;
+}
+
+#main .box_campaign h2{
+    background: url(/common_v2/img/icon_h_campaign.png) no-repeat 0 1px;
+}
+
+#main .box_campaign h2 em{
+    padding: 0 color: #FF6600;
+    font-size: 134%;
+    font-weight: bold;
+    margin: 0 0 7px;
+}
+
+#main .box_campaign span,
+#main .box_campaign em{
+    display: block;
+    margin-bottom: 10px;
+}
+
+#main .box_campaign em{
+    margin: 0 0 5px 0;
+    font-weight: bold;
+}
+

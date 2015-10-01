@@ -1,0 +1,36 @@
+@charset "EUC-JP";
+
+/*  reset
+---------------------------------------------------------- */
+body,div,dl,dt,dd,ul,ol,li,p,form,h1,h2,h3,h4,h5,h6,input,table,tr,th,td{
+    margin: 0;
+    padding: 0;
+}
+
+address,h1,h2,h3,h4,h5,h6,th,em,strong{
+    font-style: normal;
+    font-weight: normal;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+}
+
+table{
+    border-spacing: 0;
+    border-collapse: separate;
+    *border-collapse:collapse;
+}
+
+img{
+    border: 0;
+    vertical-align: top;
+}
+
+th{
+    text-align: left;
+}
+
+li{
+    list-style: none;
+}

@@ -1,0 +1,286 @@
+@charset "EUC-JP";
+
+/*  #contents #main
+---------------------------------------------------------- */
+/*-- box_shopDetails --*/
+#contents .box_shopDetails .box_roundWhite{
+    padding: 10px;
+    margin: 0 0 6px 0;
+}
+
+/*-- img --*/
+#contents .box_shopDetails div.img{
+    float: left;
+    width: 260px;
+}
+
+#co.txt .details .other{
+    float: left;
+    width: 400px;
+}
+
+#contents .box_shopDetails div.txt .details .side ul.carIcon{
+    overflow: hidden;
+    margin: 0 0 5px 0;
+}
+
+#contents .box_shopDetails div.txt .details .side ul.carIcon li.judgmentShop{
+    margin-top: 1px;
+    width: 115px;
+}
+
+#contents .box_shopDetails div.txt .details table{
+    width: 100%;
+    margin: 0 0 10px 0;
+}
+
+#contents .box_shopDetails div.txt .details table:first-child{
+    margin-left: 0;
+}
+
+#contents .box_shopDetails div.txt .details table th{
+    width: 60px;
+}
+
+#contents .box_shopDetails div.txt .details ul.icon{
+    clear: both;
+    margin: 10px 0 0 0;
+}
+
+#contents .box_shopDetails div.txt .details ul.icon li{
+    float: left;
+    margin: 0 2px 2px 0;
+}
+
+#contents .box_shopDetails div.txt .contact{
+    clear:both;
+}
+
+#contents .box_shopDetails div.txt .contact .box{
+    padding: 5px 10px 9px 10px;
+}
+
+#contents .box_shopDetails div.txt .contact .box dt{
+    width: 200px;
+}
+
+#contents .box_shopDetails div.txt .contact .box img{
+    vertical-align: middle;
+    margin: -5px 7px 0 0;
+}
+
+#contents .box_shopDetails div.txt .contact .box dt{
+    padding-bottom: 5px;
+}
+
+#contents .box_shopDetails div.txt .contact .box dt span.tel{
+    color: #FF0000;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+#contents .box_shopDetails div.txt .contact .box dt span.date{
+    display: block;
+}
+
+#contents .box_shopDetails div.txt .contact .box dd{
+    padding-top: 6px;
+    border-top: 1px solid #e5e5e5;
+}
+
+#contents .box_shopDetails div.txt .contact .box dd span{
+    display: block;
+    font-size: 84%;
+}
+
+#contents .box_shopDetails div.txt .contact .box dd em{
+    color: #FF0000;
+}
+
+#contents .box_shopDetails .link{
+    float: right;
+}
+
+#contents .box_shopDetails .link li:first-child{
+    border: none;
+    padding: 0 10px 0 0;
+}
+
+#contents .box_shopDetails .link li{
+    float: left;
+    border-left: 1px solid #e5e5e5;
+    padding: 0 10px 0 10px;
+}
+
+#contents .box_shopDetails .link li.homepage a{
+    padding: 4px 0 3px 14px;
+    background: url(../img/icon_homepage_blue.gif) no-repeat 0 0;
+}
+
+#contents .box_shopDetails .link li.print span {
+    background: url(../img/icon_print_blue.gif) no-repeat 0 1px;
+    color: #0b709f;
+    padding: 4px 0 3px 22px;
+}
+#contents .box_shopDetails .link li.userreview a {
+    background: url(../img/icon_review.gif) no-repeat 0 3px;
+    padding: 4px 0 3px 18px;
+}
+
+#contents .box_shopDetails .link li a,
+#contents .box_shopDetails .link li span{
+    display: inline-block;
+    line-height: 1;
+}
+
+/*-- #tab_detail --*/
+#tab_detail{
+    margin: 0 0 10px 0;
+}
+
+#tab_detail ul{
+    overflow: hidden;
+}
+
+#tab_detail ul li{
+    display: table-cell;
+    vertical-align: middle;
+    *display: inline;
+    *zoom: 1;
+    width: 87px;
+    height: 39px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.2;
+    background: url(../img/bg_tab_link.jpg) -87px 0 no-repeat;
+    border-bottom: 1px solid #cccccc;
+    cursor: pointer;
+}
+
+#tab_detail ul li a{
+    display: block;
+    padding: 6px 0 5px 0;
+}
+
+#tab_detail ul li.current{
+    border-bottom: 1px solid #ffffff;
+    background-position: -87px -40px;
+}
+
+#tab_detail ul li.current a{
+    color: #333333;
+}
+
+#tab_detail ul li.first{
+    background-position: 0 0;
+}
+
+#tab_detail ul li.first.current{
+    background-position: 0 -40px;
+}
+
+#tab_detail ul li.eleventh{
+    background-position: -873px 0;
+    border-left: 1px solid #cccccc;
+}
+
+#tab_detail ul li.eleventh.current{
+    background-position: -873px -40px;
+}
+
+/*-- tab_result --*/
+#main .tab_result{
+    width: 960px;
+    z-index: 10;
+    height: 52px;
+    border-bottom: 1px solid #cccccc;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+}
+
+#main .tab_result .box_roundGray .roundB{
+    paedding-top: 12px;
+}
+
+#main .tab_result ul.tabLink{
+    height: 52px;
+}
+
+#main .tab_result ul.tabLink li{
+    width: 480px;
+    background: url(../img/bg_result_tab_link.jpg) no-repeat 0 0;
+}
+
+#main .tab_result ul.tabLink li a{
+    padding: 10px 0 0 0;
+    height: 31px;
+    border-bottom: none;
+}
+
+#main .tab_result ul.tabLink li.current a{
+    color: #333333;
+}
+
+#main .tab_result ul.tabLink li a span{
+    padding: 0 0 0 25px;
+}
+
+#main .tab_result ul.tabLink li.first{
+    background-position: 0 -41px;
+}
+
+#main .tab_result ul.tabLink li.first.current{
+    background-position: 0 0;
+}
+
+#main .tab_result ul.tabLink li.second{
+    background-position: -480px -41px;
+}
+
+#main .tab_result ul.tabLink li.second.current{
+    background-position: -480px 0;
+}
+
+#main .tab_result ul.tabLink li.first a span{
+    background: url(../img/icon_stock_blue.gif) no-repeat 0 2px;
+}
+
+#main .tab_result ul.tabLink li.first.current a span{
+    background: url(../img/icon_stock_gray.png) no-repeat 0 2px;
+}
+
+#main .tab_result ul.tabLink li.second a span{
+    background: url(../img/icon_showroom_blue.gif) no-repeat 4px 3px;
+}
+
+#main .tab_result ul.tabLink li.second.current a span{
+    background: url(../img/icon_showroom_gray.png) no-repeat 4px 3px;
+}
+
+/* ANG_PRJ-1077 GooPLUS組み込み対応 140227 ikema
+----------------------------------------- */
+#contents .box_shopDetails div.txt .details .side ul.carIcon li.kanteiShop {
+    width: 115px;
+    margin-right: 5px;
+}
+
+/* ANG_PRJ-1737 【GN・GW両方】Goo保証追加 */
+#contents .box_shopDetails div.txt .details .side ul.carIcon li.gooplusShop {
+    width: 115px;
+    margin-right: 5px;
+}
+
+#contents .box_shopDetails div.txt .details .side ul.carIcon li.goohoshoShop {
+    width: 115px;
+    margin-right: 5px;
+}
+/*IE6 */
+* html #contents .box_shopDetails div.txt .details .side ul.carIcon li.kanteiShop {
+    display: inline;
+}
+
+#contents .box_shopDetails div.txt .details .side ul.carIcon li.gooplusShop {
+    float: right;
+    width: 115px;
+}

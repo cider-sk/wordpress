@@ -92,7 +92,7 @@ function create_post_type() {
 //
 function custom_user_contactmethods( $user_contactmethods ) {
     return array(
-        'goo_car'  => 'グー販売店URL',
+        'goo_car'  => 'グー販売店URL(detail.htmlは削除)',
         'carsensor'    => 'カーセンサーURL',
         'tel'  => '電話番号',
         'address'    => '住所',

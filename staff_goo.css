@@ -1,0 +1,62 @@
+@charset "EUC-JP";
+
+/*  #contents #main
+---------------------------------------------------------- */
+/*-- box_storeStaff --*/
+#main .box_storeStaff h2.tit{
+    background: url(/common_v2/img/img_h_staff.png) no-repeat 0 3px;
+}
+
+#main .box_storeStaff .box_roundWhite{
+    padding: 0 10px 10px 10px;
+}
+
+#main .box_storeStaff .list{
+    margin: 10px 0 0 0;
+    padding: 10px 0 0 0;
+    border-top: 1px solid #e5e5e5;
+}
+
+#main .box_storeStaff .list:first-child{
+    border: none;
+}
+
+#main .box_storeStaff .list div.line{
+    width: 449px;
+    padding: 0 0 0 10px;
+    float: left;
+    border-left: 1px solid #e5e5e5;
+}
+
+#main .box_storeStaff .list div.line:first-child{
+    border-left: none;
+    border-right: 1px solid #e5e5e5;
+    margin-right: -1px;
+    padding-left: 0;
+    padding-right: 10px;
+}
+
+#main .box_storeStaff .list div.img{
+    float: left;
+    width: 180px;
+}
+
+#main .box_storeStaff .list div.img img{
+    width: 170px;
+    height: 128px;
+}
+
+#main .box_storeStaff .list div.txt{
+    float: left;
+    width: 269px;
+}
+
+#main .box_storeStaff .list div.txt em.tit{
+    display: block;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+}
+
+#main .box_storeStaff .list div.txt p{
+    line-height: 1.6;
+}

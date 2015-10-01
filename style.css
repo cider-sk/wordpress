@@ -351,3 +351,23 @@ table.top-search input{
     height:40px;
     margin-top: 15px;
 }
+
+body #contents{
+    background-color: #fff;
+    width: 941px;
+    padding: 10px;
+}
+table.tbl_type01{
+    width:620px !important;
+}
+.details .side,.icon{
+    display:none;
+}
+#contents #main.w960{
+}
+.box_roundGray a{
+    display:none !important;
+}
+#tab_detail ul li{
+    border-bottom:none;
+}

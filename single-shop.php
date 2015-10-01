@@ -1,5 +1,6 @@
-<?php get_header(); ?>
-
+<?php if(!get_post_meta($post->ID, "is_goo", true)){ 
+    get_header();
+?>
 <style>
 header .tbl--skeleton{
     width: 980px;
@@ -123,4 +124,123 @@ switch($_GET["page"]){
 </div>
 </div>
 
+<?php get_footer(); ?>
+
+<?php 
+}else{
+    get_header("goo");
+    
+query_posts($query_string);
+if (have_posts()) : ?>
+<?php while (have_posts()) : the_post(); ?>
+
+
+<div id="contents" class="hreview-aggregate">
+
+<div class="box_roundGray">
+    <div class="roundT">
+        <div class="roundB">
+            <div class="box_shopDetails">
+                <?php the_content(); ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- タブ -->
+<div id="tab_detail">
+    <ul class="tabLink">
+    <li class="first current"><a href="?page=detail">販売店<br>詳細</a></li>
+<li class=""><a href="?page=map">販売店<br>地図</a></li> 
+<li class=""><a href="?page=campaign">キャンペーン</a></li>    
+<li class=""><a href="?page=afterservice">アフターサービス・保証</a></li>    
+<li class=""><a href="?page=staff">販売店<br>スタッフ</a></li>    
+</ul>
+</div>
+
+    <!-- /shop_common -->
+
+    <div id="main" class="w960">
+        <div class="box_roundGray">
+            <div class="roundT">
+                <div class="roundB">
+<?php 
+    switch($_GET["page"]){
+    case "map":?>
+                    <div class="map">
+<iframe width="800" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.jp/maps?q=<?php echo get_post_meta($post->ID, "address", true); ?>&amp;z=14&amp;output=embed" style="border:#ccc 1px solid; margin-left:0px;"></iframe>
+
+                    </div>
+<?php
+        break;
+    case "stocklist": ?>
+                    <div class="box_campaign">
+<?php echo get_post_meta($post->ID, "stocklist", true); ?>
+                    </div>
+<?php
+        break;
+    case "staff": ?>
+                    <div class="box_storeStaff">
+<?php echo get_post_meta($post->ID, "staff", true); ?>
+                    </div>
+<?php
+        break;
+    case "maintenance":?>
+                    <div class="box_maintenance">
+<?php echo get_post_meta($post->ID, "detail", true); ?>
+                    </div>
+<?php
+        break;
+    case "afterservice":?>
+                    <div class="box_afterservice">
+<?php echo get_post_meta($post->ID, "afterservice", true); ?>
+                    </div>
+<?php
+        break;
+    case "campaign":?>
+                    <div class="box_campaign">
+<?php echo get_post_meta($post->ID, "campaign", true); ?>
+                    </div>
+<?php
+        break;
+    case "review":?>
+                    <div class="box_campaign">
+<?php echo get_post_meta($post->ID, "detail", true); ?>
+                    </div>
+<?php
+        break;
+    case "shoplist":?>
+                    <div class="box_shoplist">
+<?php echo get_post_meta($post->ID, "group", true); ?>
+                    </div>
+<?php
+        break;
+    default:?>
+                    <div class="box_campaign">
+<?php echo get_post_meta($post->ID, "detail", true); ?>
+                    </div>
+<?php
+        break;
+    }
+?>
+
+                </div>
+            </div>
+        </div>
+        <!-- /aside -->
+    </div>
+    <!-- /main -->
+
+<!-- /contents -->
+</div>
+<?php break; ?>
+<?php endwhile; ?><?php else : ?>
+<?php endif; ?>
+
+
+<?php 
+}
+?>
+</div>
+</div>
 <?php get_footer(); ?>

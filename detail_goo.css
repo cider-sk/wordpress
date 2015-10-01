@@ -1,0 +1,302 @@
+@charset "EUC-JP";
+/*  #contents #mainスタート
+---------------------------------------------------------- */
+/*-- box_shopInfo --*/
+#main .box_shopInfo h2.tit{
+    background: url(/common_v2/img/icon_h_info.gif) no-repeat 0 4px;
+}
+#main .box_shopInfo .box_roundWhite{
+    padding: 10px;
+}
+#main .box_shopInfo .list{
+    margin: 10px 0 0 0;
+    padding: 10px 0 0 0;
+    border-top: 1px solid #e5e5e5;
+}
+#main .box_shopInfo .list div{
+    width: 315px;
+    float: left;
+}
+#main .box_shopInfo .list div.line{
+    border-right: 1px solid #e5e5e5;
+}
+#main .box_shopInfo .list em.name{
+    font-weight: bold;
+}
+#main .box_shopInfo .list em.name img{
+    float: left;
+    width: 100px;
+    height: 75px;
+    margin: 0 10px 0 0;
+}
+#main .box_shopInfo .list div.noline{
+    width: 310px;
+    padding: 0 0 0 10px;
+}
+#main .box_shopInfo .list div .txt{
+    margin: 2px 0 0 0;
+    width: 200px;
+}
+/*-- box_shopIntroduce --*/
+#main .box_shopIntroduce h2.tit{
+    background: url(/usedcar_shop/img/icon_h2_shop_introduce.gif) no-repeat 0 4px;
+}
+#main .box_shopIntroduce .box_roundWhite{
+    padding: 10px 10px 0 10px ;
+}
+#main .box_shopIntroduce .list{
+    padding: 10px 0 10px 0;
+    border-top: 1px solid #e5e5e5;
+}
+#main .box_shopIntroduce .list img{
+    width: 312px;
+    height: 234px;
+}
+#main .box_shopIntroduce .list.top{
+    padding-top: 0;
+    border-top: none;
+}
+#main .box_shopIntroduce .list div{
+    float: left;
+    width: 322px;
+    position: relative;
+}
+#main .box_shopIntroduce .list div span{
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+#main .box_shopIntroduce .list div.line span{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#main .box_shopIntroduce .list div img{
+    margin: 0 0 5px 0;
+}
+#main .box_shopIntroduce .list div.line{
+    padding: 0 0 0 10px;
+    width: 312px;
+    border-left: 1px solid #e5e5e5;
+}
+/*-- box_buyerReview --*/
+#main .box_buyerReview h2.tit{
+    background: url(/usedcar_shop/img/icon_h2_buyer_review.gif) no-repeat 0 4px;
+}
+#main .box_buyerReview .box_roundWhite{
+    padding: 10px;
+}
+#main .box_buyerReview table{
+    width: 317px;
+    float: left;
+    margin: 0 0 20px 0;
+}
+#main .box_buyerReview table th{
+    width: 140px;
+}
+#main .box_buyerReview table td{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#main .box_buyerReview td img{
+    margin: 3px 0 0 0;
+}
+#main .box_buyerReview table td em{
+    color: #ff0000;
+    font-size: 117%;
+    font-weight: bold;
+    margin: 0 0 0 5px;
+}
+#main .box_buyerReview .all{
+    width: 100%;
+    margin: 0 0 10px 0;
+}
+#main .box_buyerReview .all th{
+    vertical-align: middle;
+}
+#main .box_buyerReview .all th,
+#main .box_buyerReview .all td{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+#main .box_buyerReview .all td span{
+    margin: 0 10px 0 10px;
+}
+#main .box_buyerReview .all td em{
+    font-size: 134%;
+}
+#main .box_buyerReview .review{
+    padding: 0 0 7px 0;
+    margin: 0 0 10px 0;
+    clear: both;
+    overflow: hidden;
+    border-bottom: 1px dotted #999999;
+}
+#main .box_buyerReview .review .user p.img,
+#main .box_buyerReview .review .shop p.img{
+    float: left;
+    width: 80px;
+}
+#main .box_buyerReview .review .user .box_roundGrayB,
+#main .box_buyerReview .review .shop .box_roundOrange{
+    float: left;
+    width: 545px;
+    padding: 10px;
+    margin: 0 0 10px 0;
+}
+#main .box_buyerReview .review .user p.img{
+    background: url(/usedcar_shop/img/bg_buyer_review.gif) no-repeat 100% 11px;
+}
+#main .box_buyerReview .review .shop p.img{
+    background: url(/common_v2/img/bg_box_balloon_orange.gif) no-repeat 100% 3px;
+}
+#main .box_buyerReview .review .shop p.img span{
+    display: block;
+    margin: 6px 0 0 0;
+    color: #ff6701;
+}
+#main .box_buyerReview .review dl{
+    clear: both;
+    margin: 10px 0 0 0;
+}
+#main .box_buyerReview .review dl dt{
+    padding: 0 0 5px 0;
+    font-weight: bold;
+}
+#main .box_buyerReview .review dl ul{
+    margin: 0 0 0 -10px;
+}
+#main .box_buyerReview .review dl ul li{
+    float: left;
+    padding: 0 10px 0 10px;
+    border-left: 1px solid #e5e5e5;
+}
+#main .box_buyerReview .review dl ul li:first-child{
+    border-left: none;
+}
+#main .box_buyerReview .review dl ul li em{
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 117%;
+}
+#main .box_buyerReview .review dl ul li span{
+    margin: 0 5px 0 5px;
+    position: relative;
+    top: 3px;
+}
+#main .box_buyerReview .txt_moreReview{
+    text-align: right;
+}
+/*-- box_shopMap --*/
+#main .box_shopMap h2.tit{
+    background: url(/usedcar_shop/img/icon_h2_shop_map.png) no-repeat 0 4px;
+}
+#main .box_shopMap .box_roundWhite{
+    padding: 10px;
+}
+#main .box_shopMap .map{
+    float: left;
+    width: 400px;
+}
+#main .box_shopMap .info{
+    float: right;
+    width: 235px;
+}
+#main .box_shopMap .info table{
+    margin: 0 0 10px 0;
+}
+#main .box_shopMap .info table th{
+    width: 60px;
+}
+/*-- box_payment --*/
+#main .box_payment h2.tit{
+    background: url(/usedcar_shop/img/icon_h2_payment.png) no-repeat 0 4px;
+}
+#main .box_payment h2.tit em{
+    padding-left: 17px;
+}
+#main .box_payment .box_roundWhite{
+    padding: 10px 1px 4px 7px;
+}
+#main .box_payment p.lead{
+    margin: 0 0 10px 0;
+    padding: 0 7px 0 7px;
+}
+#main .box_payment .list div.box{
+    float: left;
+    padding: 8px 10px;
+    width: 297px;
+    height: auto;
+    margin: 0 7px 6px 0;
+}
+#main .box_payment .list div .img{
+    width: 90px;
+    float: right;
+    text-align: right;
+}
+#main .box_payment .list div .img img{
+    width: 80px;
+    height: 60px;
+}
+#main .box_payment .list div div.txt{
+    overflow: hidden;
+}
+#main .box_payment .list div div.txt em{
+    display: block;
+    margin: 0 0 4px 0;
+    font-weight: bold;
+}
+/*  #contents #aside
+---------------------------------------------------------- */
+#contents #aside .box_shopInfo .contact{
+    padding-bottom: 0;
+}
+#contents #aside .box_shopInfo .contact .link{
+/*  border-bottom: 1px solid #e5e5e5;*/
+    padding: 9px 0 10px 0;
+    margin: 0 0 10px 0;
+}
+
+#contents #aside .box_campaign3 .box_shopInfo {
+    margin: 0;
+}
+
+#contents #aside .box_campaign3 .box_roundBorderTopGray .inner {
+    padding: 10px 8px 5px;
+}
+
+#contents #aside .box_campaign3 .box_shopInfo .contact {
+    padding-top: 0;
+}
+
+#contents #aside .box_campaign3 .box_shopInfo .contact .link {
+    margin: 0;
+    padding: 0;
+}
+
+#main .box_buyerReview .review .txt_more,
+#main .box_buyerReview .review .link_close{
+    display: none;
+}
+
+
+.movie_over {
+ position: relative;
+ margin-bottom: 10px;
+ width: 244px;
+ height: 184px;
+}
+.movie_over div { display: block; }
+.movie_pic {
+ border: 1px solid #777;
+ width: 242px;
+ height: 182px;
+}
+.movie_ov {
+ position: absolute;
+ top: 0px;
+ left: 0px;
+ width: 242px;
+ height: 182px;
+}
+
