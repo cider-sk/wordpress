@@ -194,7 +194,7 @@ function croll_shop_info_goo($url, $slug, $shop_id, $tel, $address){
 
 
 //更新に使われる
-function croll_shop_info($url, $slug, $shop_id, $tel, $address, $is_what){
+function croll_shop_info($url, $slug, $shop_id, $tel, $address){
     $html = file_get_html( $url.$slug );
     update_post_meta($shop_id, 'tel', $tel); 
     update_post_meta($shop_id, 'address', $address); 
