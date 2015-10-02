@@ -365,9 +365,19 @@ echo get_post_meta($post->ID, "fix-history", true); ?>
                                         <div class="l-box caset--bkn__miniImgs">
                                             <div class="">
                                                     <p class="price price--big">
-                                                    維持費<span style="color:red;font-size:18px;"><?php $fuel=get_post_meta($post->ID,'fuel',true); 
-                                                    $fuel = (130*480)/$fuel;
-                                                    echo number_format($fuel);?></span>円/月
+                                                    維持費<span style="color:red;font-size:18px;"><?php 
+    if(get_post_meta($post->ID, "is_goo")){
+        $fuel=get_post_meta($post->ID,'fuel',true) * 4;
+    }else{
+        $fuel=get_post_meta($post->ID,'fuel',true); 
+        if(!$fuel){
+            $fuel = 12;
+        }
+    }
+$fuel = (130*480)/$fuel;
+echo number_format($fuel);
+?></span>円/月
+</div>
                                                     </p>
                                             </div>
                                         </div>
@@ -425,6 +435,8 @@ $user_info = get_userdata($user_id);
             <?php endwhile; ?><?php else : ?>
 検索結果がありません
             <?php endif; ?>
+<?php wp_pagenavi(); ?>
+
     </div>
 </div>
 

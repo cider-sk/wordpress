@@ -148,9 +148,18 @@ echo $address = get_user_meta($user_id, "address", true); ?></td>
     position: absolute;
     margin-top: -35px;
 ">
-維持費<span style="color:red;font-size:18px;"><?php $fuel=get_post_meta($post->ID,'fuel',true); 
-$fuel = (130*$fuel_array[$i])/$fuel;
-echo number_format($fuel);?></span>円/月
+    維持費<span style="color:red;font-size:18px;"><?php 
+        if(get_post_meta($post->ID, "is_goo")){
+        $fuel=get_post_meta($post->ID,'fuel',true) * 4;
+    }else{
+        $fuel=get_post_meta($post->ID,'fuel',true); 
+        if(!$fuel){
+            $fuel = 12;
+        }
+    }
+$fuel = (130*480)/$fuel;
+echo number_format($fuel);
+?></span>円/月
 </div>
                                             </a>
                 </div><!-- /.bknBox_A -->
@@ -158,28 +167,11 @@ echo number_format($fuel);?></span>円/月
 <?php endwhile; ?><?php else : ?>
 <?php endif; wp_reset_query(); ?>
                                     
-               
-            
-            
-                <p class="pagenation"  style="display:none;">
-                                <span class="noPage">最初</span><span class="noPage">&lt;</span><span class="pageNo">1p/1p</span><span class="noPage">&gt;</span><span class="noPage">最後</span>               </p>
-                    <div class="sm-footerBox" id="sm_usedcar_search_footer" style="display:none;">
-                        <div class="searchTitle"><span id="sm_shashu_name"></span>下記条件で絞込</div>
-                        <div class="sm-SearchBox_C">
-                            <a href="#" class="conditions" id="sm_fmcc_footer">最新（現行）モデル</a>
-                            <a href="#" class="conditions" id="sm_soukou_footer">走行距離5000km以下</a>
-                            <a href="#" class="conditions" id="sm_optrep_footer">修復歴なし</a>
-                            <a href="#" class="conditions" id="sm_optrnu_footer">登録(届出)済未使用車</a>
-                        </div>
-                    </div>
-                    <div class="refineLink" id="sm_opt_soukou" style="display:none;">
-                        <p class="refineLink_title" id="sm_opt_soukou_txt"></p>
-                        <button class="refineLink_btn" id="sm_opt_soukou_btn"></button>
-                </div>  
+ <?php wp_pagenavi(); ?>
+          
             </div><!-- /.pageBody -->
         </section>
         </div>
 
     </div><!-- /.container -->
-aaaa
 <?php get_footer("sp"); ?>

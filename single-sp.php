@@ -17,7 +17,7 @@ $user_id = $blogusers[0]->ID;
         <div class="flickElement"><!-- ← フリックエレメント -->
           <div class="container" style="left: 45px; position: relative;"><!-- ← フリックさせる要素 -->
             <div class="containerInner" id="containerInner" style="width: 7705px; height: 215px; position: relative; left: 0px;">
-                                                  <div class="item" style="float: left;">
+            <div class="item <?php if(get_post_meta($post->ID, "is_goo", true)){ echo "goo_img" } ?>" style="float: left;">
                                                   <img id="img1" src="<?php 
  $imgs = get_post_meta($post->ID, "imgList", true); 
 $images = explode(",", $imgs);

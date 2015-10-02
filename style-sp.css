@@ -147,3 +147,15 @@ h1{
 .bknBox_A .bknBox_mid {
     min-height: 0; 
 }
+.wp-pagenavi{
+    padding: 20px;
+    font-size: 24px;
+}
+.wp-pagenavi span, .wp-pagenavi a {
+    margin: 10px;
+    border: 1px solid;
+    padding: 5px;
+}
+.item.is_goo img{
+    width:300px;
+}

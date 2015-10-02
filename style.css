@@ -457,3 +457,7 @@ table.tbl_type01{
 
 #wpcf7-f11-p14-o2 p.wpcf7c-elm-step2 { display: inline; }
 
+.wp-pagenavi{
+    padding: 14px;
+    font-size: 18px;
+}
