@@ -57,14 +57,15 @@
 <img src="<?php bloginfo("template_url"); ?>/dist/img/logo.png" alt="">
           </a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+	<div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-            <li class="title_bar">マイメニュー</li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="title_bar">メニュー</li>
+            <li><a href="<?php bloginfo("url") ?>?s=">中古車を選ぶ</a></li>
+            <li><a href="http://tsukucar.com/toriyose/">中古車資料一括取り寄せ</a></li>
+            <li class="active"><a href="http://tsukucar.com/abouttsukucar/">ツクカーとは</a></li>
+            <li><a href="http://tsukucar.com/buy/">車購入の流れ</a></li>
+	    <li><a href=http://tsukucar.com/buy/"">豪華三大特典</a></li>
+ <li><a href="http://tsukucar.com/kaitori/">買い取りについて</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

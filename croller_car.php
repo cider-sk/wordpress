@@ -38,7 +38,6 @@ function get_car_by_shop_goo($shop_url, $shop_name){
     $cat_id = make_category($shop_name);
     //for($i = 1; $i < 20 ; $i ++){
     $html = file_get_html($shop_url."stock.html");
-    echo $shop_url."stock.html";
     $user_id = get_user_id_by_shop_url($shop_url);
     //車のURL取得
     foreach($html->find("table.itemDetail") as $car){

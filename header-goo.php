@@ -58,7 +58,7 @@
                     <img src="<?php bloginfo("template_url"); ?>/dist/img/tukubaito.png" alt="">
                 </div>
             </div>
-        </div>
+	</div>
         <div id="menu">
             <div class="hukidashi">
                 <span><img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/吹き出し（あなたに合った）.png" alt=""></span>
@@ -67,25 +67,25 @@
             </div>
             <img src="<?php bloginfo("template_url"); ?>/dist/img/titlebar.png" alt="">
             <span>
-                <a href="./" class="menu_1 menu_block" style=""></a>
+	    <a href="<?php bloginfo("url") ?>?s=" class="menu_1 menu_block" style=""></a>
             </span>
             <span>
-                <a href="./" class="menu_2 menu_block" style=""></a>
+                <a href="http://tsukucar.com/toriyose/" class="menu_2 menu_block" style=""></a>
             </span>
             <span>
-                <a href="./" class="menu_3 menu_block" style=""></a>
+                <a href="" class="menu_3 menu_block" style=""></a>
             </span>
             <span>
-                <a href="./" class="menu_4 menu_block" style=""></a>
+		<a href="http://tsukucar.com/abouttsukucar/" class="menu_4 menu_block" style=""></a>
             </span>
             <span>
-                <a href="./" class="menu_5 menu_block" style=""></a>
+                <a href="http://tsukucar.com/buy/" class="menu_5 menu_block" style=""></a>
             </span>
             <span>
-                <a href="<?php bloginfo("url") ?>/%E8%B1%AA%E8%8F%AF%E4%B8%89%E5%A4%A7%E7%89%B9%E5%85%B8%E3%81%A8%E3%81%AF/" class="menu_6 menu_block" style=""></a>
+                <a href="http://tsukucar.com/campaign/" class="menu_6 menu_block" style=""></a>
             </span>
             <span>
-                <a href="./" class="menu_7 menu_block" style=""></a>
+                <a href="http://tsukucar.com/kaitori/" class="menu_7 menu_block" style=""></a>
             </span>
 
         </div>

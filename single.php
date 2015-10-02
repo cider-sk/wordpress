@@ -64,7 +64,7 @@ echo $tel = get_user_meta($user_id, "tel", true);
 
       <!-- 画像 -->
       <section class="l-seclv1">
-        <div class="bknDtl_mainImg" id="photoBox">
+      <div class="bknDtl_mainImg" id="photoBox" <?php if(get_post_meta($post->ID, "is_goo", true)){ ?>style="width:200px;"<?php } ?>>
         <img src="<?php 
  $imgs = get_post_meta($post->ID, "imgList", true); 
 $images = explode(",", $imgs);
@@ -313,8 +313,9 @@ echo get_post_meta($post->ID, "shop_url", true);
   </div>
 
   <p class="goPageTop"><a href="#">トップへ</a></p>
-
+<div id="contact_form">
 <?php echo do_shortcode('[contact-form-7 id="5" title="個別中古車への問い合わせフォーム"]'); ?>
+</div>
 </div>
 
             </div>
