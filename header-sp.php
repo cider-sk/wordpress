@@ -23,6 +23,8 @@
 
     <link href="<?php bloginfo("template_url"); ?>/select_style-sp.css" rel="stylesheet">
     <link href="<?php bloginfo("template_url"); ?>/style-sp.css" rel="stylesheet">
+    <link href="<?php bloginfo("template_url"); ?>/shop_search_sp.css" rel="stylesheet">
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="<?php bloginfo("template_url"); ?>/assets-sp/js/ie8-responsive-file-warning.js"></script><![endif]-->
