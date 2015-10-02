@@ -3,58 +3,65 @@
 include "./simple_html_dom.php";
 include "../../../wp-load.php";
 include "../../../wp-admin/includes/taxonomy.php";
-
-query_posts("post_type=shop&posts_per_page=100");
+query_posts("post_type=shop&posts_per_page=100&post_status=publish");
 if (have_posts()) : 
 ?>
 <?php while (have_posts()) : the_post(); ?>
 <?php
-   if(!get_post_meta($post->ID, "is_goo", true)){
-       get_car_by_shop(get_post_meta($post->ID, "shop_url", true), get_the_title());
-   }else{
-      get_car_by_shop_goo(get_post_meta($post->ID, "shop_url", true), get_the_title()); 
+$user_id = get_post_meta($post->ID, "user_id", true);
+$car_url = get_user_meta($user_id, "carsensor", true);
+if(get_post_meta($post->ID, "is_goo", true)){
+       get_car_by_shop_goo($goo_url, get_the_title(), $user_id, get_the_permalink()); 
+}elseif($car_url){
+	get_car_by_shop($car_url, get_the_title(), $user_id, get_the_permalink());
    }
 ?>
 <?php endwhile; ?><?php else : ?>
 <?php endif; 
 
-function get_car_by_shop($shop_url, $shop_name){
+function get_car_by_shop($shop_url, $shop_name, $user_id, $tuku_shop_url){
     $cat_id = make_category($shop_name);
-    for($i = 1; $i < 20 ; $i ++){
+    for($i = 1; $i < 5 ; $i ++){
         $html = file_get_html($shop_url."stocklist/?PAGE=". $i);
-        $user_id = get_user_id_by_shop_url($shop_url);
-        //車のURL取得
+	//車のURL取得
+	if($html){
         foreach($html->find(".caset") as $car){
             $car_single_url = "http://www.carsensor.net".$car->find(".caset--bkn__mainInfo a", 0)->href;
             $car_title = $car->find(".caset--bkn__mainInfo a", 0)->plaintext;
             $car_id = is_car_regitered($car_single_url);
-            regist_car($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $car_id);
-        }
+	    regist_car($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $car_id, $tuku_shop_url);
+	}
 	$html->clear();
+	unset($html);
+	}
+	//
     }
 }
 
-function get_car_by_shop_goo($shop_url, $shop_name){
+function get_car_by_shop_goo($shop_url, $shop_name, $user_id, $tuku_shop_url){
     $cat_id = make_category($shop_name);
-    //for($i = 1; $i < 20 ; $i ++){
+    for($i = 1; $i < 5 ; $i ++){
     $html = file_get_html($shop_url."stock.html");
-    $user_id = get_user_id_by_shop_url($shop_url);
-    //車のURL取得
+ //車のURL取得
+ echo $shop_url.PHP_EOL;
+    if($html){
     foreach($html->find("table.itemDetail") as $car){
-        $car_single_url = "http://www.goo-net.com/".$car->find("a", 0)->href;
+        $car_single_url = "http://www.goo-net.com".$car->find("a", 0)->href;
         $car_title = $car->find(".first .tit2 a", 0)->plaintext;
         $car_img = $car->find(".img2 img", 0)->src;
         $car_id = is_car_regitered($car_single_url);
-        regist_car_goo($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $car_id, $car_img);
+	regist_car_goo($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $car_id, $car_img, $tuku_shop_url);
     }
     $html->clear();
+    unset($html);
+    }
+    }
 }
 
-function regist_car_goo($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $car_id, $car_img){
+function regist_car_goo($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $car_id, $car_img, $tuku_shop_url){
     $html = file_get_html($car_single_url);
     if($html){
         foreach($html->find('#contents') as $art) {
-            
             $item["is_goo"] = true;
             //画像
             $item['imgList'] = "";
@@ -63,27 +70,10 @@ function regist_car_goo($car_single_url, $cat_id, $car_title, $user_id, $shop_ur
             $item['imgList'] .= $car_img .",";
             //}
             //お店
-            $item["shop_url"] = get_the_permalink($car_id);
-            //燃費
-            $item["fuel1"] = $art->find('.l-sideColumn table.tbl--skeleton', 0);
-            if($item["fuel1"]){
-                $item["fuel1"]->find("tr", 4)->find("td", 0)->plaintext;
-            }else{
-                $item["fuel1"]="-";
-            }
-            preg_match("/([0-9]*)/", $item['fuel1'], $match1);
-
-            $item["fuel2"] = $art->find('.l-sideColumn table.tbl--skeleton', 0);
-            if($item["fuel2"]){
-                $item["fuel2"]->find("tr", 5)->find("td", 0)->plaintext;
-            }else{
-                $item["fuel2"]="-";
-            }
-
-            preg_match("/([0-9]*)/", $item['fuel2'], $match2);
-
-            if($item["fuel1"]) $item["fuel"] =  $item["fuel1"];
-            if($item["fuel2"]) $item["fuel"] =  $item["fuel2"];
+            $item["shop_url"] = $tuku_shop_url;
+	    //燃費
+	    //echo $art->find("#carReview", 3);
+            $item["fuel"] = $art->find("#carReview ul li .num", 3)->plaintext;
             $item['car-name'] = $car_title;
             $item['car-url'] = $car_single_url;
             //検索項目
@@ -136,14 +126,13 @@ function regist_car_goo($car_single_url, $cat_id, $car_title, $user_id, $shop_ur
             $item['non-smoking'] = $art->find('.statusBlock table tr td', 6)->plaintext;
             $item['regist-offer'] =   $art->find('.statusBlock table tr td', 3)->plaintext;
             $item['echo-car'] =  $art->find('.statusBlock table', 1)->find('td', 10)->plaintext;
-            $item['one-owner'] =  $art->find('.statusBlock table', 1)->find('td', 7)->plaintext;
+	    $item['one-owner'] =  $art->find('.statusBlock table', 1)->find('td', 7)->plaintext;
 
             //option
             foreach($art->find(".statusBlock .on") as $option){
                 $item['option'] .= $option->plaintext. ",";
-            }
+	    }
             if(!$car_id){
-                /*投稿へ格納*/
                 $post_value = array(
                     'post_author' => $user_id,//
                     'post_title' => $car_title,// 投稿のタイトル。
@@ -152,26 +141,29 @@ function regist_car_goo($car_single_url, $cat_id, $car_title, $user_id, $shop_ur
                     'post_category' => array($cat_id),
                     'post_type' => 'post', // 投稿タイプ名。
                 );
-                $insert_id = wp_insert_post($post_value);
-            }else{
-                $insert_id = $car_id;
-            }
-            if($insert_id){
+              $car_id = wp_insert_post($post_value);
+	    } 
+ 	    if($car_id){
                 foreach($item as $key => $value){
-                    update_post_meta($insert_id, $key, $value);
+                    update_post_meta($car_id, $key, $value);
                 }
             }
-            return $insert_id;
+            return $car_id;
         }
-        $html->clear();
+	$html->clear();
+	unset($html);
     }
 }
 
 
-function regist_car($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $car_id){
+function regist_car($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $car_id, $tuku_shop_url){
     $html = file_get_html($car_single_url);
     if($html){
-        foreach($html->find('.l-container') as $art) {
+	    if($data = $html->find('.l-mainColumn-2')){
+	    }else{
+		    $data = $html->find('.l-mainColumn');
+	    }
+        foreach($data as $art) {
             //画像
             $item['imgList'] = "";
             //現状は一枚のみ
@@ -179,11 +171,31 @@ function regist_car($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $
                 $item['imgList'] .= $img->src .",";
             }
             //お店
-            $item["shop_url"] = get_the_permalink($car_id);
-            //燃費
-            if($item["fuel1"]){
-                $item["fuel"] = $art->find(".reviewBox .various li dd .num", 3)->plaintext;
-            }
+            $item["shop_url"] = $tuku_shop_url;
+	    //燃費
+	    $text = file_get_contents($car_single_url);
+	    preg_match("/([0-9]*\.[0-9]*)（km\/L）/", $text, $match);
+	    $item["fuel"] = $match[1];
+
+	    //echo $car_single_url;
+	    /*foreach($art->find('.sidebar') as $search){
+		    echo $search->innertext;
+		    if($search->find('h2', 0)->plaintext == "新車時の基本スペック"){
+			    $item["fuel1"] = $search->find("table td", 3)->plaintext;
+			    preg_match("/([0-9]*\.[0-9]*)/", $item['fuel1'], $match1);
+			    print_r($match1);
+			    $item['fuel1'] = $match1[1];
+			    $item["fuel2"] = $search->find("table td", 4)->plaintext;
+			    preg_match("/([0-9]*\.[0-9]*)/", $item['fuel2'], $match2);
+			 print_r($match2);
+			    $item['fuel2'] = $match1[2];
+			    if($item["fuel1"]) $item["fuel"] =  $item["fuel1"];
+			    if($item["fuel2"]) $item["fuel"] =  $item["fuel2"];
+			    $item["fuel"];
+			    break;
+		    }
+	    }*/
+
             $item['car-name'] = $car_title;
             $item['car-url'] = $car_single_url;
             //検索項目
@@ -253,11 +265,9 @@ function regist_car($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $
             //option
             foreach($art->find(".l-seclv1", 3)->find(".is-on") as $option){
                 $item['option'] .= $option->plaintext. ",";
-            }
-
-
+	    }
+	    print_r($item);
             if(!$car_id){
-                /*投稿へ格納*/
                 $post_value = array(
                     'post_author' => $user_id,//
                     'post_title' => $car_title,// 投稿のタイトル。
@@ -266,19 +276,18 @@ function regist_car($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $
                     'post_category' => array($cat_id),
                     'post_type' => 'post', // 投稿タイプ名。
                 );
-                $insert_id = wp_insert_post($post_value);
-            }else{
-                $insert_id = $car_id;
-            }
-            if($insert_id){
+                $car_id = wp_insert_post($post_value);
+	    } 
+ 	    if($car_id){
                 foreach($item as $key => $value){
-                    update_post_meta($insert_id, $key, $value);
+                    update_post_meta($car_id, $key, $value);
                 }
             }
-            return $insert_id;
+            return $car_id;
         }
-        $html->clear();
     }
+    $html->clear();
+    unset($html);
 }
 
 function get_user_id_by_shop_url($shop_url){

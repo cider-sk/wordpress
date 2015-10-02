@@ -24,11 +24,43 @@
     <tr style="height: 35px;">
       <th><p class="lh12">メーカー</p></th>
       <td style="width:130px;">
-        <input type="text" name="cftsearch[maker][0][]" value=""><br>
+
+<select name="cftsearch[maker][0][]">
+<?php 
+$maker_array = array(
+	"トヨタ",
+	"日産",
+	"ホンダ",
+	"マツダ",
+	"スズキ",
+	"三菱",
+	"ダイハツ"
+);
+foreach($maker_array as $maker){ ?>
+	<option value="<?php echo $maker; ?>"><?php echo $maker; ?></option>
+<?php } ?>
+</select>
       </td>
       <th><p class="lh12">モデル・<br>グレード</p></th>
       <td style="width:130px;">
-<input type="text" name="cftsearch[model][0][]" value="">        
+<select name="cftsearch[model][0][">
+<?php 
+	global $wpdb;
+	$models = $wpdb->get_results( 
+		"
+		SELECT *
+		FROM  wp_postmeta
+		WHERE meta_key =  'model'
+		GROUP BY meta_value
+		order by meta_value
+		"
+	);
+foreach ( $models as $model ) 
+{
+?>
+	<option value="<?php echo $model->meta_value; ?>"><?php echo $model->meta_value; ?></option>
+<?php } ?>
+</select>
       </td>
       <td rowspan="2">
         <table class="tbl tbl--panel mb20">
@@ -39,9 +71,7 @@
 <option value="50">50万円</option>
 <option value="100">100万円</option>
 <option value="200">200万円</option>
-<option value="300">300万円</option>
-<option value="400">400万円</option>
-<option value="500">500万円</option>
+<option value="250">250万円</option>
 <option value="10000">上限なし</option>
 </select>
 〜
@@ -49,9 +79,7 @@
 <option value="50">50万円</option>
 <option value="100">100万円</option>
 <option value="200">200万円</option>
-<option value="300">300万円</option>
-<option value="400">400万円</option>
-<option value="500">500万円</option>
+<option value="250">250万円</option>
 <option value="10000">上限なし</option>
 </select>
             </td>
@@ -177,7 +205,7 @@
         </div>
       </td>
     </tr>
-    <tr>
+    <tr style="display:none;">
         <th><p class="lh12">車名</p></th>
       <td style="width:130px;">
         <input type="text" name="cftsearch[car-name][0][]" value="">        
@@ -260,7 +288,6 @@ $(function(){spbl.base.init({"brandShashuNames":[],"fmcGradeNames":[],"areaNames
     <div id="fixedBlock" class="fixedBlock--bknAll" style="z-index: 101; display: none; position: absolute; top: 0px; left: 0px;">
       <div id="fav_sub" class="l-wrap mb10">
         <div class="l-box">
-          <b class="numXXL va-mid">343,628</b><span class="txt va-btm">台</span>
 <h2><?php echo $s; ?>の検索結果 : <?php echo $wp_query->found_posts; ?>件</h2>
         </div>
         <div class="l-box txt-r va-mid">

@@ -394,7 +394,11 @@ table.tbl_type01{
 margin-left: 23%;
     margin-top: 40px;
 }
-#contact_form input[type="submit"]:hover { box-shadow: 0px -10px 20px 10px rgba(0, 0, 0, 0.2) inset; background-color: #0052a4; text-decoration: none; margin: 12px auto 8px auto; }
+#contact_form input[type="submit"]:hover { 
+margin-left: 23% !important;
+    margin-top: 40px !important;
+box-shadow: 0px -10px 20px 10px rgba(0, 0, 0, 0.2) inset; background-color: #0052a4; text-decoration: none; margin: 12px auto 8px auto; }
+
 #contact_form input[type="button"] { margin: 20px 20px -10px 0 !important; font-size: 30px; width: 500px; height: 60px; text-align: center; margin-top: 20px; line-height: 1.428571429; font-weight: normal; color: #7c7c7c; background-color: #e6e6e6; background-repeat: repeat-x; background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6); background-image: linear-gradient(top, #f4f4f4, #e6e6e6); border: 1px solid #d2d2d2; border-radius: 3px; box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1); }
 
 .arrow1 { margin-top: 20px; float: left; padding-top: 5px; width: 150px; height: 25px; background: #87c4ed; position: relative; }

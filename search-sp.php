@@ -68,15 +68,6 @@
                             <button type="submit" id="sm_area_price_search_act_top" data-role="none">絞込</button>
                         </div><!-- /.searchBoxSideBtn -->
                     </form>
-                    <div id="sm_usedcar_search" style="display:none;">
-                        <div class="searchTitle">下記条件で絞込</div>
-                        <div class="sm-SearchBox_C">
-                            <a href="#" class="conditions" id="sm_fmcc_top">最新（現行）モデル</a>
-                            <a href="#" class="conditions" id="sm_soukou_top">走行距離5000km以下</a>
-                            <a href="#" class="conditions" id="sm_optrep_top">修復歴なし</a>
-                            <a href="#" class="conditions" id="sm_optrnu_top">登録(届出)済未使用車</a>
-                        </div>
-                    </div>              
 </header>
                         <div class="pageBody">
                 <div class="bknAllTopBar" style="display:none;">

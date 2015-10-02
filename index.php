@@ -47,8 +47,31 @@ echo $wp_query->found_posts . ' 件';
                                 <div class="l-box top-multi__box--L h50">
 <table class="top-search">
     <tr>
-        <th>車名</th>
-        <td><input type="text" name="cftsearch[car-name][0][]" value=""></td>
+	<th>グレード/モデル</th>
+<td>
+<select name="cftsearch[model][0][]" style="
+    width: 100%;
+    font-size: 20px;
+    margin-top: 11px;
+">
+<?php 
+	global $wpdb;
+	$models = $wpdb->get_results( 
+		"
+		SELECT *
+		FROM  wp_postmeta
+		WHERE meta_key =  'model'
+		GROUP BY meta_value
+		order by meta_value
+		"
+	);
+foreach ( $models as $model ) 
+{
+?>
+	<option value="<?php echo $model->meta_value; ?>"><?php echo $model->meta_value; ?></option>
+<?php } ?>
+</select>
+</td>
     </tr>
 </table>
                                 </div>
@@ -289,7 +312,7 @@ $fuel_array = array(
 for($k = 1; $k < 4; $k++){ ?>
 <div id="tab-contents-<?php echo $k ?>">
 <?php
-query_posts('posyt_type=post&posts_per_page=8&paged='.$paged);
+query_posts('posyt_type=post&orderby=title&posts_per_page=8&paged='.$paged);
 ?>
      <?php if (have_posts()) : ?>
 				<?php while (have_posts()) : the_post(); ?>

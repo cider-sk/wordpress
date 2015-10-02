@@ -74,7 +74,6 @@ if (have_posts()) : ?>
           <li><a href="?page=maintenance" title="整備" class="sn_header__tabBtn  <?php if($_GET["page"]=="maintenance"){ ?>is-this<?php } ?>">整備</a></li>
           <li><a href="?page=afterservice" title="アフターサービス" class="sn_header__tabBtn  <?php if($_GET["page"]=="afterservice"){ ?>is-this<?php } ?>">アフターサービス</a></li>
           <li><a href="?page=fairevent" title="フェア&amp;イベント" class="sn_header__tabBtn  <?php if($_GET["page"]=="fairevent"){ ?>is-this<?php } ?>">フェア&amp;イベント</a></li>
-          <li><a href="?page=review" title="お店のクチコミ" class="sn_header__tabBtn  <?php if($_GET["page"]=="review"){ ?>is-this<?php } ?>">お店のクチコミ</a></li>
           <li><a href="?page=shoplist" title="系列店の一覧" class="sn_header__tabBtn  <?php if($_GET["page"]=="shoplist"){ ?>is-this<?php } ?>">系列店の一覧</a></li>
         </ul>
       </nav>

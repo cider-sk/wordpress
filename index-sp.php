@@ -220,6 +220,7 @@
      ); 
 for($i=1;$i <= 3; $i++){ ?>
 <div id="tab-contents-<?php echo $i ?>">
+<?php query_posts('posyt_type=post&orderby=title&posts_per_page=8&paged='.$paged); ?>
      <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
 <?php
