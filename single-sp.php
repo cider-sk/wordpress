@@ -376,7 +376,9 @@ echo get_post_meta($post->ID, "shop_url", true);
                     <div class="btnBox">
         </div>
       </div><!-- /.actionArea -->
+<div id="contact_form">
 <?php echo do_shortcode('[contact-form-7 id="5" title="個別中古車への問い合わせフォーム"]'); ?>
+</div>
 <?php /*
       <ul class="snsList">
         <li><a href="mailto:?subject=%E3%83%9B%E3%83%B3%E3%83%80%20%E3%83%95%E3%82%A3%E3%83%83%E3%83%88%E3%81%AE%E7%89%A9%E4%BB%B6%E6%83%85%E5%A0%B1&amp;body=%E2%80%BB%E3%81%93%E3%81%AE%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%AF%E3%82%AB%E3%83%BC%E3%82%BB%E3%83%B3%E3%82%B5%E3%83%BC%E3%81%AE%E3%83%A1%E3%83%BC%E3%83%AB%E8%BB%A2%E9%80%81%E6%A9%9F%E8%83%BD%E3%81%AB%E3%82%88%E3%82%8A%E8%BB%A2%E9%80%81%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%E3%80%82%0D%0A%0D%0A--------------------------------%0D%0A%e2%96%a0%E3%83%9B%E3%83%B3%E3%83%80%20%E3%83%95%E3%82%A3%E3%83%83%E3%83%88%0D%0A1.3%20L%20ETC%E3%82%AD%E3%83%BC%E3%83%AC%E3%82%B9%E7%A4%BE%E5%A4%9614%E3%82%A4%E3%83%B3%E3%83%81AW%0D%0Ahttp%3A%2F%2Fwww.carsensor.net%2Fusedcar%2Fdetail%2FCU3808985612%2Findex.html%3FSTID%3DSMPH0002%26RESTID%3DSMPH0001%26vos%3Dsmph201402041%0D%0A%0D%0A--------------------------------%0D%0ARECRUIT" onclick="reqVos('SMPH1501');">

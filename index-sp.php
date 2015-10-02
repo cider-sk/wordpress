@@ -277,20 +277,23 @@ echo $address = get_user_meta($user_id, "address", true); ?></td>
     position: absolute;
     margin-top: -35px;
 ">
-    維持費<span style="color:red;font-size:18px;"><?php 
-    if(get_post_meta($post->ID, "is_goo")){
-        $fuel=get_post_meta($post->ID,'fuel',true) * 4;
-    }else{
-        $fuel=get_post_meta($post->ID,'fuel',true); 
-        if(!$fuel){
-            $fuel = 12;
-        }
-    }
+	維持費<span style="color:red;font-size:18px;"><?php 
+	if(get_post_meta($post->ID, "is_goo")){
+		$fuel=get_post_meta($post->ID,'fuel',true) * 4;
+		if(!$fuel || $fuel=="-"){
+			$fuel = 12;
+		}
+	}else{
+		$fuel=get_post_meta($post->ID,'fuel',true); 
+		if(!$fuel || $fuel=="-"){
+			$fuel = 12;
+		}
+	}
 $fuel = (130*$fuel_array[$i])/$fuel;
 echo number_format($fuel);
 ?></span>円/月
 </div>
-                                            </a>
+					    </a>
                 </div><!-- /.bknBox_A -->
 
 <?php endwhile; ?><?php else : ?>
