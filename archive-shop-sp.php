@@ -3,7 +3,9 @@
         <div class="starter-template main">
             <section class="siteBody">
         <header class="pageHeader" id="top_pageHeader">
-            <h1 class="pageTtl_long">中古車販売店</h1>
+            <h1 class="pageTtl_long" style="
+    margin-top: 12px;
+">中古車販売店</h1>
         </header>
         <div id="lockline_main"></div>
         <div class="pageBody">

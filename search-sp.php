@@ -155,8 +155,10 @@ echo $address = get_user_meta($user_id, "address", true); ?></td>
                             <!--  -->
                         </div><!-- /.bknBox_mid -->
 <div class="fuel-fee" style="
-    position: absolute;
-    margin-top: -35px;
+        position: absolute;
+    margin-top: -47px;
+    font-size: 14px;
+
 ">
     維持費<span style="color:red;font-size:18px;"><?php 
         if(get_post_meta($post->ID, "is_goo")){

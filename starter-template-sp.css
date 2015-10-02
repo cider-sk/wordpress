@@ -2,11 +2,11 @@ body {
   padding-top: 50px;
 }
 .starter-template {
-  padding: 130px 0px 0px 0px;
+  padding: 10px 0px 0px 0px;
   text-align: center;
 }
 .starter-template.cat {
-  padding: 100px  0px 0px 0px;
+  padding: 10px  0px 0px 0px;
   text-align: center;
 }
 p{
