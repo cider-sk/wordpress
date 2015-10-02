@@ -35,7 +35,6 @@ foreach($users as $user){
     //販売店の登録
     $user_info = get_userdata($user->data->ID);
     $user_info->first_name;
-
     //flag
     $is_what = "";
     if($url_car){ 
@@ -49,8 +48,10 @@ foreach($users as $user){
     if(!$shop_id){
         $shop_id = regist_shop($user_info->first_name, $url_car, $is_what);
     }
-    echo $is_what;
     if($shop_id){
+        //user_idを記録
+        update_post_meta($shop_id, 'user_id', $user->data->ID);
+        
         if($is_what == "carsensor"){
             foreach($url_array as $slug){
                 //croll and save meta

@@ -113,9 +113,12 @@ function custom_user_contactmethods( $user_contactmethods ) {
         'carsensor'    => 'カーセンサーURL',
         'tel'  => '電話番号',
         'address'    => '住所',
+        'holyday' => '定休日',
         'times' => '営業時間',
         'present' => '特典プレゼント',
-        'poststatus' => '1:デフォルトで公開する<br>2:デフォルトで下書きにする'
+        'poststatus' => '1:デフォルトで公開する<br>2:デフォルトで下書きにする',
+        'shop_image' => 'お店の写真URL',
+        'shop_desc' => 'お店の紹介文'
     );
 }
 add_filter( 'user_contactmethods', 'custom_user_contactmethods' );
