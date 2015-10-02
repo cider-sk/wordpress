@@ -1,88 +1,109 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+<?php get_header(); ?>
+	<div class="row" id="top-main">
+	    <div class="col-xs-12">
+<article class="l-mainColumn">
+		<h2 class="hd2nd mb10">中古車販売店</h2>
 
-    <title>Starter Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
-    <link href="sp_cmn.css" rel="stylesheet">
-    <link href="top.css" rel="stylesheet">
-    <link href="bk_all.css" rel="stylesheet">
+			<div class="caset caset--shopAll blockLink" onclick="location.href='/shop/tokyo/050110025/'">
+					<div class="l-wrap--fixed">
+				<div class="l-box va-mid">
+					<a href="/shop/tokyo/050110025/" title="ケーユー 本店">
+								<img src="/shopinfo/images/050/110/025/main.jpg" alt="ケーユー 本店" width="80" height="60" title="ケーユー 本店" onerror="imgerr(this);">
+							</a>
+					<p class="txt txt-c va-btm mt10">東京都<br>多摩</p>
+				</div>
 
-    <link href="style.css" rel="stylesheet">
+				<div class="l-gutter20"></div>
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+				<div class="l-box w680 va-btm">
+					<div class="va-top">
+						<h3 class="hd2nd lh12">
+							<a href="/shop/tokyo/050110025/" title="ケーユー 本店">ケーユー 本店</a>
+						</h3>
+								<p class="ttl mt10">選べる楽しさ３０００台　クルマ探しはケーユーにお任せ</p>
+							</div>
+					<table>
+								<tbody><tr>
+							<td class="subTxt txt--sub txt-r w80 pr10 pt10">クチコミ件数</td>
+							<td class="pt10">
+								<table>
+									<tbody><tr>
+										<td class="pr10"><a class="daisu daisu__s" href="/shop/tokyo/050110025/review/" title="ケーユー 本店 259件">259</a><span class="subTxt txt--sub">件</span></td>
+										<td class="subTxt txt--sub pr10"><span class="pr5">総合評価</span><span class="txt--em"><i class="icon icon_star"></i><i class="icon icon_star"></i><i class="icon icon_star"></i><i class="icon icon_star"></i><i class="icon icon_star"></i></span><span class="numS"><b>5.0</b></span></td>
+										<td><span class="subTxt txt--sub txt-c">接客：</span><span class="numS">5.0<span class="txt--sub pr10 pl10">|</span></span></td>
+										<td><span class="subTxt txt--sub txt-c">雰囲気：</span><span class="numS">5.0<span class="txt--sub pr10 pl10">|</span></span></td>
+										<td><span class="subTxt txt--sub txt-c">アフター：</span><span class="numS">5.0<span class="txt--sub pr10 pl10">|</span></span></td>
+										<td><span class="subTxt txt--sub txt-c">品質：</span><span class="numS">5.0</span></td>
+									</tr>
+								</tbody></table>
+							</td>
+						</tr>
+										<tr>
+							<td class="subTxt txt--sub txt-r w80 pr10 pt10">定休日</td>
+							<td class="pt10">年中無休（１２／２９　１２／３０　１２／３１は全店年末休業とさせて頂きます）</td>
+						</tr>
+										<tr>
+							<td class="subTxt txt--sub txt-r w80 pr10 pt10">営業時間</td>
+							<td class="pt10">
+											10:30
+														～
+														20:00
+														　平日
+			　
+											10:00
+														～
+														20:00
+														　土日祝
+										</td>
+						</tr>
+										<tr>
+							<td class="va-btm subTxt txt--sub txt-r w80 pr10 pt10">お店の情報</td>
+							<td class="va-btm pt10">
+								<ul>
+									<li class="txt--sub txt-c fontS label--review mr5">スタッフ</li>
+									<li class="txt--sub txt-c fontS label--review mr5">アフター</li>
+									<li class="txt--sub txt-c fontS label--review mr5">フェア</li>
+									<li class="txt--sub txt-c fontS label--review mr5">買取</li>
+									<li class="txt--sub txt-c fontS label--review mr5">保証</li>
+									<li class="txt--sub txt-c fontS label--review mr5">整備</li>
+									<li class="txt--sub txt-c fontS label--review label--review__on mr5">クチコミ</li>
+									<li class="txt--sub txt-c fontS label--review">クーポン</li>
+								</ul>
+							</td>
+						</tr>
+							</tbody></table>
+				</div>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
+				<div class="l-gutter20 l-gutter20__bl"></div>
 
-  <body>
+				<div class="l-box w180 va-btm">
+					<table>
+								<tbody><tr>
+							<td class="va-btm">
+								<div class="daisuBox subTxt txt--sub">
+									<span>掲載台数</span><a class="daisu" href="/shop/tokyo/050110025/stocklist/" title="ケーユー 本店 521台">521</a>台
+								</div>
+							</td>
+						</tr>
+								<tr>
+							<td class="va-btm">
+								<ul>
+									<li class="label label--disable w143 mb10">カーセンサー認定車</li>
+									<li class="label label--disable w143 mb10">カーセンサーアフター保証車</li>
+									<li class="label label--disable w143">購入プラン付き車両</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody></table>
+				</div>
+			</div><!-- /.l-wrap -->
+		</div>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <img src="./dist/img-sp/colapse.png" alt="">
-        </button>
-        <span class="fav">
-            <a href="./">
-                <img src="./dist/img-sp/fav.png" alt="">
-            </a>
-        </span>
-
-          <a class="navbar-brand" href="#">
-            <img src="./dist/img-sp/logo.png" alt="">
-          </a>
+	</article>
+            </div>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-            <li class="title_bar">マイメニュー</li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    </div> <!-- /container -->
 
-    <div class="container">
-
-        <div class="starter-template main">
-        </div>
-
-    </div><!-- /.container -->
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    <script src="./bootstrapSlideInMenu-1.0.0.min.js"></script>
-    <script type="text/javascript" charset="UTF-8">
-        $(document).ready(function() {
-                $(document).SlideInMenu();
-                });
-            </script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-</html>
+<?php get_footer(); ?>

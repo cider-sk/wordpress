@@ -23,7 +23,7 @@
     <link href="<?php bloginfo("template_url"); ?>/bank_car.css" rel="stylesheet">
     <link href="<?php bloginfo("template_url"); ?>/shop.css" rel="stylesheet">
     <link href="<?php bloginfo("template_url"); ?>/shop2.css" rel="stylesheet">
-
+    <link href="<?php bloginfo("template_url"); ?>/shop_list.css" rel="stylesheet">
 
     <link href="<?php bloginfo("template_url"); ?>/style.css" rel="stylesheet">
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -82,7 +82,7 @@
                 <a href="http://tsukucar.com/toriyose/" class="menu_2 menu_block" style=""></a>
             </span>
             <span>
-                <a href="" class="menu_3 menu_block" style=""></a>
+                <a href="http://tsukucar.com/shop/" class="menu_3 menu_block" style=""></a>
             </span>
             <span>
 		<a href="http://tsukucar.com/abouttsukucar/" class="menu_4 menu_block" style=""></a>
