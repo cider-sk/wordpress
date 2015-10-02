@@ -91,12 +91,21 @@
 
      <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
+
+<?php
+$user_id = $post->post_author;
+$address = get_user_meta($user_id, "address", true);
+$present = get_user_meta($user_id, "present", true);
+$user_info = get_userdata($user_id);
+?>
                                 <div class="bknBox bknBox_A" id="bkn_CU3933292882">
                                     <a href="<?php the_permalink(); ?>">
                         <div class="bknBox_top">
                                                         <div class="nameBar">
                                 <b class="name_maker"><?php echo get_post_meta($post->ID, "model", true); ?></b>
-                                                                                                <h2 class="name_car"><?php the_title(); ?></h2>
+												<h2 class="name_car"><?php the_title(); ?></h2>
+
+<?php if($present){ ?><p class="present"><?php echo $present ?></p><?php } ?>
                                                             </div>
                                                     </div><!-- /.bknBox_top -->
                         <div class="bknBox_mid">
@@ -134,8 +143,9 @@ echo get_post_meta($post->ID, "fix-history", true); ?></td>
                                     </tr>
                                     <tr>
                                         <th>住所</th>
-                                        <td colspan="3"><?php $blogusers = get_users('blog_id='.$post->ID);
-$user_id = $blogusers[0]->ID;
+					<td colspan="3"><?php 
+$user_id = $post->post_author;
+
 echo $address = get_user_meta($user_id, "address", true); ?></td>
                                     </tr>
                                 </tbody>
@@ -150,7 +160,10 @@ echo $address = get_user_meta($user_id, "address", true); ?></td>
 ">
     維持費<span style="color:red;font-size:18px;"><?php 
         if(get_post_meta($post->ID, "is_goo")){
-        $fuel=get_post_meta($post->ID,'fuel',true) * 4;
+		$fuel=get_post_meta($post->ID,'fuel',true) * 4;
+		if(!$fuel || $fuel=="-"){
+			$fuel = 12;
+		}
     }else{
         $fuel=get_post_meta($post->ID,'fuel',true); 
         if(!$fuel){

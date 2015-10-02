@@ -9,7 +9,7 @@
                 <article class="l-mainColumn2">
 
       <div id="listTitle">
-        <h2 class="hd2nd mb10">中古車一覧(全国)</h2>
+        <h2 class="hd2nd mb10">中古車一覧</h2>
       </div>
 
 
@@ -307,7 +307,14 @@ query_posts( array(
 );
 
          if (have_posts()) : ?>
-        <?php while (have_posts()) : the_post(); ?>
+	<?php while (have_posts()) : the_post(); ?>
+
+<?php
+$user_id = $post->post_author;
+$address = get_user_meta($user_id, "address", true);
+$present = get_user_meta($user_id, "present", true);
+$user_info = get_userdata($user_id);
+?>
                                 <div class="caset caset--bkn js_listTableCassette blockLink">
                                     <div class="l-wrap caset--bkn__line1">
                                         <div class="l-box caset--bkn__mainImgBox">
@@ -330,7 +337,9 @@ echo $images[0];
                                             </div>
 
                                             <h3 class="hd2nd mb0 lh12">
-                                            <a href="<?php the_permalink(); ?>" class="js_mpjump_OUTKBN=1&amp;BKKN=CU3715581854&amp;HANCD=U&amp;HJNCD=309094&amp;MADCD=001&amp;KNCD1=Ba3" target="_blank"><?php the_title(); ?></a>
+					    <a href="<?php the_permalink(); ?>" class="js_mpjump_OUTKBN=1&amp;BKKN=CU3715581854&amp;HANCD=U&amp;HJNCD=309094&amp;MADCD=001&amp;KNCD1=Ba3" target="_blank"><?php the_title(); ?></a>
+
+<?php if($present){ ?><p class="present"><?php echo $present ?></p><?php } ?>
                                             </h3>
                                             <p class="barTxts subTxt">
 <?php 
@@ -367,7 +376,11 @@ echo get_post_meta($post->ID, "fix-history", true); ?>
                                                     <p class="price price--big">
                                                     維持費<span style="color:red;font-size:18px;"><?php 
     if(get_post_meta($post->ID, "is_goo")){
-        $fuel=get_post_meta($post->ID,'fuel',true) * 4;
+	    $fuel=get_post_meta($post->ID,'fuel',true) * 4;
+		if(!$fuel || $fuel=="-"){
+			$fuel = 12;
+		}
+
     }else{
         $fuel=get_post_meta($post->ID,'fuel',true); 
         if(!$fuel){
@@ -377,7 +390,6 @@ echo get_post_meta($post->ID, "fix-history", true); ?>
 $fuel = (130*480)/$fuel;
 echo number_format($fuel);
 ?></span>円/月
-</div>
                                                     </p>
                                             </div>
                                         </div>
@@ -405,8 +417,7 @@ echo number_format($fuel);
                                     <div class="caset__btm">
                                         <div class="l-wrap">
 <?php
-$blogusers = get_users('blog_id='.$post->ID);
-$user_id = $blogusers[0]->ID;
+$user_id = $post->post_author;
 $address = get_user_meta($user_id, "address", true);
 $user_info = get_userdata($user_id);
 
@@ -430,7 +441,6 @@ $user_info = get_userdata($user_id);
                                         </div>
                                     </div>
                                 </div><!-- /.caset -->
-
 
             <?php endwhile; ?><?php else : ?>
 検索結果がありません

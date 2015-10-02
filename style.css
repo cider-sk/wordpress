@@ -1,6 +1,6 @@
 body{
     background-color:#FFF3CE;
-    font-family: "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Arial, Verdana, sans-serif;
+    font-family: "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Arial, Verdana, sans-serif !important;
 }
 .page-header{
     margin-top:10px;
@@ -205,6 +205,7 @@ img.footer_baner{
     margin-bottom:40px;
 }
 p.copy_right{
+	clear:both;
     background-color:#444444;
     color:#fff;
     padding:25px;
@@ -388,34 +389,34 @@ table.tbl_type01{
 #contact_form td input[name="your-message"] { width: 50%; margin: 0; }
 #contact_form li { width: 33%; float: left; font-size: 11px; }
 #contact_form textarea { width: 70%; }
-#contact_form p { text-align: center; margin: 0 !important; }
+#contact_form p { margin: 0 !important; }
 #contact_form input[type="submit"] { box-shadow: 0px -10px 20px 3px rgba(0, 0, 0, 0.2) inset; font-size: 2em; width: 500px; height: 70px; padding: 0; text-align: center; border: 2px solid; display: inline-block; color: white; margin: 10px auto; background-color: #0081ff; border-width: 0; border: #0065c9 solid 1px; border-right-width: 0; border-radius: 50px; background-image: none; }
 #contact_form input[type="submit"]:hover { box-shadow: 0px -10px 20px 10px rgba(0, 0, 0, 0.2) inset; background-color: #0052a4; text-decoration: none; margin: 12px auto 8px auto; }
 #contact_form input[type="button"] { margin: 20px 20px -10px 0 !important; font-size: 30px; width: 500px; height: 60px; text-align: center; margin-top: 20px; line-height: 1.428571429; font-weight: normal; color: #7c7c7c; background-color: #e6e6e6; background-repeat: repeat-x; background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6); background-image: linear-gradient(top, #f4f4f4, #e6e6e6); border: 1px solid #d2d2d2; border-radius: 3px; box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1); }
 
 .arrow1 { margin-top: 20px; float: left; padding-top: 5px; width: 150px; height: 25px; background: #87c4ed; position: relative; }
-.arrow1:after { border-left: 25px solid #87c4ed; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: 0; margin-left: 75px; }
+.arrow1:after { border-left: 25px solid #87c4ed; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: -2.5px; margin-left: 75px; }
 .arrow1 span { position: relative; padding-left: 5px; z-index: 3; font-size: 15px; font-weight: bold; line-height: 1.4; text-shadow: 2px 2px 1px white; }
 
 .arrow2 { margin-top: 20px; float: left; margin-left: 25px; padding-top: 5px; width: 75px; height: 25px; background: #87c4ed; position: relative; }
-.arrow2:after { border-left: 25px solid #87c4ed; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: 0; margin-left: 37px; }
+.arrow2:after { border-left: 25px solid #87c4ed; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: -2.5px; margin-left: 37px; }
 .arrow2 span { position: relative; padding-left: 5px; z-index: 3; font-size: 15px; font-weight: bold; line-height: 1.4; text-shadow: 2px 2px 1px white; }
 
 .arrow3 { margin-top: 20px; float: left; margin-left: 25px; padding-top: 5px; width: 75px; height: 25px; background: #87c4ed; position: relative; }
-.arrow3:after { border-left: 25px solid #87c4ed; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: 0; margin-left: 37px; }
+.arrow3:after { border-left: 25px solid #87c4ed; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: -2.5px; margin-left: 37px; }
 .arrow3 span { position: relative; padding-left: 5px; z-index: 3; font-size: 15px; font-weight: bold; line-height: 1.4; text-shadow: 2px 2px 1px white; }
 
 .arrow1.wpcf7c-elm-step1 {margin-bottom: 13px; float: left; padding-top: 5px; width: 150px; height: 25px; background: #1e98e9; position: relative; }
 
-.arrow1.wpcf7c-elm-step1:after { border-left: 25px solid #1e98e9; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: 0; margin-left: 75px; }
+.arrow1.wpcf7c-elm-step1:after { border-left: 25px solid #1e98e9; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: -2.5px; margin-left: 75px; }
 
 .arrow2.wpcf7c-elm-step2 { float: left; padding-top: 5px; width: 75px; height: 25px; background: #1e98e9; position: relative; }
 
-.arrow2.wpcf7c-elm-step2:after { border-left: 25px solid #1e98e9; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: 0; margin-left: 37px; }
+.arrow2.wpcf7c-elm-step2:after { border-left: 25px solid #1e98e9; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: -2.5px; margin-left: 37px; }
 
 .arrow3.wpcf7c-elm-step3 { float: left; padding-top: 5px; width: 75px; height: 25px; background: #1e98e9; position: relative; }
 
-.arrow3.wpcf7c-elm-step3:after { border-left: 25px solid #1e98e9; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: 0; margin-left: 37px; }
+.arrow3.wpcf7c-elm-step3:after { border-left: 25px solid #1e98e9; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: -2.5px; margin-left: 37px; }
 
 #wpcf7-f11-p14-o1 table { width: 100%; border: 1px solid gray; }
 #wpcf7-f11-p14-o1 th { background-color: #ebebeb; width: 25%; padding: 5px; border-bottom: 1px gray solid; border-right: 1px gray dotted; }
@@ -462,3 +463,29 @@ table.tbl_type01{
     padding: 14px;
     font-size: 18px;
 }
+.present{
+	font-size: 15px;
+	color: red;
+	background-color: red;
+	color: #fff;
+	padding: 3px;
+	width: 30%;
+	display: inline;
+	border-radius: 10px;
+	-webkit-border-radius: 5px;
+	text-align: center;
+	-moz-border-radius: 10px;
+}
+.top-multi__box select{
+	width:100%;
+}
+.footer_row{
+	clear:both;
+}
+.footer_logo {
+	float:left;
+	    width: 20%;
+	        margin: 2.5%;
+	}
+
+

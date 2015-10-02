@@ -3,7 +3,7 @@
             <div class="col-xs-12">
                 <h2>
                     <img src="<?php bloginfo("template_url"); ?>/dist/img/top_main_text.png" alt="" class="top_main_text">
-                    <a href="<?php bloginfo("url") ?>/%E8%B1%AA%E8%8F%AF%E4%B8%89%E5%A4%A7%E7%89%B9%E5%85%B8%E3%81%A8%E3%81%AF/">
+                    <a href="http://tsukucar.com/campaign/">
                     <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/紹介者と購入者にもれなく….png" alt="" class="top_main_text_under">
                     <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/全店送迎付！1.png" alt="" class="top_under_hukidasi">
                     </a>
@@ -17,15 +17,24 @@
                     <a href="#p3"><img src="<?php bloginfo("template_url"); ?>/dist/img/ijihimaruwakari.png" alt=""></a>
                 </div>
                 <div class="col-xs-4">
-                    <a href="./"><img src="<?php bloginfo("template_url"); ?>/dist/img/chuukoshajouhouikkini.png" alt=""></a>
+                    <a href="http://tsukucar.com/toriyose/"><img src="<?php bloginfo("template_url"); ?>/dist/img/chuukoshajouhouikkini.png" alt=""></a>
                 </div>
             </div>
         </div>
         <div class="row">
         <div id="p2" class="col-xs-9">
-            <div class="block">
+	    <div class="block">
+<h1 style="
+    padding: 10px;
+">
+現在の掲載数<?php 
+global $wp_query;
+ 
+echo $wp_query->found_posts . ' 件';
+?>
+<h1>
                 <h2>
-                    <img src="<?php bloginfo("template_url"); ?>/dist/img/search_maker.jpg" alt="メーカーで探す">
+                    <img src="<?php bloginfo("template_url"); ?>/dist/img/search_maker.jpg" alt="中古車で探す">
                 </h2>
                 <div class="l-wrap">
                     <div class="l-box">
@@ -138,7 +147,7 @@
                     </div><!-- /.l-box -->
                     <div class="l-box">
                         <section class="top__panel__maker">
-                        <h3 class="top__panel__ttl" style="color:#fff;">メーカー検索</h3>
+                        <h3 class="top__panel__ttl">メーカー検索</h3>
                         <div class="emblems">
                             
                             <a href="/?STID=CS210610&cftsearch%5Bmaker%5D%5B0%5D%5B%5D=トヨタ&cftsearch%5Bmodel%5D%5B0%5D%5B%5D=&cftsearch%5Bvalue%5D%5B1%5D%5B%5D=&cftsearch%5Bvalue%5D%5B2%5D%5B%5D=&cftsearch%5Byear%5D%5B1%5D%5B%5D=&cftsearch%5Byear%5D%5B2%5D%5B%5D=&cftsearch%5Bdistance%5D%5B1%5D%5B%5D=&cftsearch%5Bdistance%5D%5B2%5D%5B%5D=&cftsearch%5Bcar-name%5D%5B0%5D%5B%5D=&cftsearch%5Bcolor%5D%5B0%5D%5B%5D=&cftsearch_submit=1" title="トヨタの中古車" class="makerBtn">
@@ -270,13 +279,27 @@
                                 </table>
                             </div>
 
-                            <div id="bukkenCas">
-                                <div id="tab-contents-1">
+			    <div id="bukkenCas">
+<?php 
+$fuel_array = array(
+	1 => 160,
+	2 => 480,
+	3 => 1600
+);
+for($k = 1; $k < 4; $k++){ ?>
+<div id="tab-contents-<?php echo $k ?>">
 <?php
 query_posts('posyt_type=post&posts_per_page=8&paged='.$paged);
 ?>
      <?php if (have_posts()) : ?>
-                                <?php while (have_posts()) : the_post(); ?>
+				<?php while (have_posts()) : the_post(); ?>
+<?php
+$user_id = $post->post_author;
+$address = get_user_meta($user_id, "address", true);
+$present = get_user_meta($user_id, "present", true);
+$user_info = get_userdata($user_id);
+?>
+
                                 <div class="caset caset--bkn js_listTableCassette blockLink">
                                     <div class="l-wrap caset--bkn__line1">
                                         <div class="l-box caset--bkn__mainImgBox">
@@ -299,7 +322,8 @@ echo $images[0];
                                             </div>
 
                                             <h3 class="hd2nd mb0 lh12">
-                                            <a href="<?php the_permalink(); ?>" class="js_mpjump_OUTKBN=1&amp;BKKN=CU3715581854&amp;HANCD=U&amp;HJNCD=309094&amp;MADCD=001&amp;KNCD1=Ba3" target="_blank"><?php the_title(); ?></a>
+					    <a href="<?php the_permalink(); ?>" class="js_mpjump_OUTKBN=1&amp;BKKN=CU3715581854&amp;HANCD=U&amp;HJNCD=309094&amp;MADCD=001&amp;KNCD1=Ba3" target="_blank"><?php the_title(); ?></a>
+					    <?php if($present){ ?><p class="present"><?php echo $present ?></p><?php } ?>
                                             </h3>
                                             <p class="barTxts subTxt">
 <?php 
@@ -346,7 +370,7 @@ if(get_post_meta($post->ID, "is_goo", true)){
 		$fuel = 12;
 	}
 }
-$fuel = (130*160)/$fuel;
+$fuel = (130*$fuel_array[$k])/$fuel;
 echo $fuel = number_format($fuel);?></span>円/月
                                                     </p>
                                             </div>
@@ -374,13 +398,6 @@ echo $fuel = number_format($fuel);?></span>円/月
 
                                     <div class="caset__btm">
                                         <div class="l-wrap">
-<?php
-$blogusers = get_users('blog_id='.$post->ID);
-$user_id = $blogusers[0]->ID;
-$address = get_user_meta($user_id, "address", true);
-$user_info = get_userdata($user_id);
-
-?>
                                             <div class="l-box caset--bkn__area">
 <?php echo $address; ?>            
 </div>
@@ -403,269 +420,8 @@ $user_info = get_userdata($user_id);
                                 <?php endwhile; ?><?php else : ?>
                                 <?php endif; wp_reset_query(); ?>
 
-                                </div><!-- /#tab-contents-1 -->
-                                <div id="tab-contents-2">
-<?php
-query_posts('posyt_type=post&posts_per_page=8&paged='.$paged);
-?>
-     <?php if (have_posts()) : ?>
-                                <?php while (have_posts()) : the_post(); ?>
-                                <div class="caset caset--bkn js_listTableCassette blockLink">
-                                    <div class="l-wrap caset--bkn__line1">
-                                        <div class="l-box caset--bkn__mainImgBox">
-                                        <a href="<?php the_permalink(); ?>" class="" target="_blank">
-                                        <img src="<?php 
- $imgs = get_post_meta($post->ID, "imgList", true); 
-$images = explode(",", $imgs);
-echo $images[0];
-
-?>" width="160" height="120" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" class="js_lazy" style="display: inline;"></a>
-                                        </div>
-                                        <div class="l-gutter10"></div>
-                                        <div class="l-box caset--bkn__mainInfo">
-                                            <div class="l-wrap caset--bkn__maker_label">
-                                                <div class="l-box caset--bkn__maker va-mid">
-                                                    <span class="subTxt"><?php echo get_post_meta($post->ID, "model", true); ?></span>
-                                                </div>
-                                                <div class="l-box txt-r">
-                                                </div>
-                                            </div>
-
-                                            <h3 class="hd2nd mb0 lh12">
-                                            <a href="<?php the_permalink(); ?>" class="js_mpjump_OUTKBN=1&amp;BKKN=CU3715581854&amp;HANCD=U&amp;HJNCD=309094&amp;MADCD=001&amp;KNCD1=Ba3" target="_blank"><?php the_title(); ?></a>
-                                            </h3>
-                                            <p class="barTxts subTxt">
-<?php 
-$options = explode(",", get_post_meta($post->ID, "option", true));
-$i = 0;
-foreach($options as $option){
-    $i ++;
-    if($i == 8) break;
-    echo "<span>".$option. "</span>";
-}
-?>
-                                            </p>
-                                        </div>
-
-                                        <div class="l-gutter10"></div>
-                                        <div class="l-box caset--bkn__spec">
-                                            <table class="caset--bkn__specTbl">
-                                                <tbody><tr>
-                                                <td><span class="numM"><?php echo $year=get_post_meta($post->ID,'year',true); ?></span><br><?php changeYear($year); ?></td>
-                                                <td><span class="numM"><?php echo get_post_meta($post->ID,'distance',true); ?></span><br>万km</td>
-                                                <td><span class="numM"><?php echo get_post_meta($post->ID,'displacement',true); ?></span><br>cc</td>
-                                                        <!-- <td><span class="numM">2017</span><br>（H29）<br>年01月</td> -->
-                                                        <td>
-                                                        修復歴<br><?php 
-echo get_post_meta($post->ID, "fix-history", true); ?>
-                                                        </td>
-                                                    </tr>
-                                            </tbody></table>
-                                        </div>
-                                    </div>
-                                    <div class="l-wrap caset--bkn__line2">
-                                        <div class="l-box caset--bkn__miniImgs">
-                                            <div class="">
-                                                    <p class="price price--big">
-						    維持費<span style="color:red;font-size:18px;"><?php 
-if(get_post_meta($post->ID, "is_goo", true)){
-	$fuel=get_post_meta($post->ID,'fuel',true) * 4;
-		if(!$fuel || $fuel=="-"){
-			$fuel = 12;
-		}
-}else{
-	$fuel=get_post_meta($post->ID,'fuel',true); 
-	if(!$fuel || $fuel=="-"){
-		$fuel = 12;
-	}
-}
-$fuel = (130*480)/$fuel;
-echo number_format($fuel);?></span>円/月
-                                                    </p>
-                                            </div>
-                                        </div>
-                                        <div class="l-gutter10"></div>
-                                        <div class="l-box caset--bkn__prices">
-                                            <div class="l-wrap--fixed caset--bkn__priceBox">
-                                                <div class="l-box caset--bkn__priceBox__hontai">
-                                                    <p class="price price--big">
-                                                    本体価格<span class="numXXL price--hontai"><?php $value=get_post_meta($post->ID,'value',true); valueFont($value); ?></span>万円
-                                                    </p>
-                                                </div>
-                                                <div class="l-box caset--bkn__priceBox__sougaku">
-                                                    <p class="price price--big">
-                                                    支払総額<b class="numXXL"><?php $value=get_post_meta($post->ID,'sum-value',true); valueFont($value); ?></b>万円</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="l-gutter10"></div>
-                                        <div class="l-box caset--bkn__btns">
-                                        <button class="btn btn--inq btn--inq--tate btn--big--caset js_inq" onclick="location.href='<?php the_permalink(); ?>#contact_form'; return false;"><span class="btn--inq--tate__cap">無<br>料</span>在庫確認・見積依頼</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="caset__btm">
-                                        <div class="l-wrap">
-<?php
-$blogusers = get_users('blog_id='.$post->ID);
-$user_id = $blogusers[0]->ID;
-$address = get_user_meta($user_id, "address", true);
-$user_info = get_userdata($user_id);
-?>
-                                            <div class="l-box caset--bkn__area">
-<?php echo $address; ?>            
-</div>
-                                            <div class="l-box caset--bkn__shopInfo">
-                                                <div class="l-wrap caset--bkn__shopInfoLine">
-                                                    <div class="l-box va-mid">
-                                                    <p class="txt js_shop">
-<a href="<?php echo get_post_meta($post->ID, "shop_url", true); ?>" title="" class="js_mpjump_OUTKBN=1&amp;BKKN=CU3715581854&amp;HANCD=U&amp;HJNCD=309094&amp;MADCD=001&amp;KNCD1=Ba4"><?php echo $user_info->first_name; ?></a></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="l-gutter10"></div>
-                                            <div class="l-box  caset--bkn__shopInfo--kakudai">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- /.caset -->
-                                <?php endwhile; ?><?php else : ?>
-                                <?php endif; wp_reset_query(); ?>
-                                </div><!-- /#tab-contents-2 -->
-                                <div id="tab-contents-3">
-<?php
-query_posts('posyt_type=post&posts_per_page=8&paged='.$paged);
-?>
-     <?php if (have_posts()) : ?>
-                                <?php while (have_posts()) : the_post(); ?>
-                                <div class="caset caset--bkn js_listTableCassette blockLink">
-                                    <div class="l-wrap caset--bkn__line1">
-                                        <div class="l-box caset--bkn__mainImgBox">
-                                        <a href="<?php the_permalink(); ?>" class="" target="_blank">
-                                        <img src="<?php 
- $imgs = get_post_meta($post->ID, "imgList", true); 
-$images = explode(",", $imgs);
-echo $images[0];
-
-?>" width="160" height="120" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" class="js_lazy" style="display: inline;"></a>
-                                        </div>
-                                        <div class="l-gutter10"></div>
-                                        <div class="l-box caset--bkn__mainInfo">
-                                            <div class="l-wrap caset--bkn__maker_label">
-                                                <div class="l-box caset--bkn__maker va-mid">
-                                                    <span class="subTxt"><?php echo get_post_meta($post->ID, "model", true); ?></span>
-                                                </div>
-                                                <div class="l-box txt-r">
-                                                </div>
-                                            </div>
-
-                                            <h3 class="hd2nd mb0 lh12">
-                                            <a href="<?php the_permalink(); ?>" class="js_mpjump_OUTKBN=1&amp;BKKN=CU3715581854&amp;HANCD=U&amp;HJNCD=309094&amp;MADCD=001&amp;KNCD1=Ba3" target="_blank"><?php the_title(); ?></a>
-                                            </h3>
-                                            <p class="barTxts subTxt">
-<?php 
-$options = explode(",", get_post_meta($post->ID, "option", true));
-$i = 0;
-foreach($options as $option){
-    $i ++;
-    if($i == 8) break;
-    echo "<span>".$option. "</span>";
-}
-?>
-                                            </p>
-                                        </div>
-
-                                        <div class="l-gutter10"></div>
-                                        <div class="l-box caset--bkn__spec">
-                                            <table class="caset--bkn__specTbl">
-                                                <tbody><tr>
-                                                <td><span class="numM"><?php echo $year=get_post_meta($post->ID,'year',true); ?></span><br><?php changeYear($year); ?></td>
-                                                <td><span class="numM"><?php echo get_post_meta($post->ID,'distance',true); ?></span><br>万km</td>
-                                                <td><span class="numM"><?php echo get_post_meta($post->ID,'displacement',true); ?></span><br>cc</td>
-                                                        <!-- <td><span class="numM">2017</span><br>（H29）<br>年01月</td> -->
-                                                        <td>
-                                                        修復歴<br><?php 
-echo get_post_meta($post->ID, "fix-history", true); ?>
-                                                        </td>
-                                                    </tr>
-                                            </tbody></table>
-                                        </div>
-                                    </div>
-                                    <div class="l-wrap caset--bkn__line2">
-                                        <div class="l-box caset--bkn__miniImgs">
-                                            <div class="">
-                                                    <p class="price price--big">
-						    維持費<span style="color:red;font-size:18px;"><?php 
-if(get_post_meta($post->ID, "is_goo", true)){
-	$fuel=get_post_meta($post->ID,'fuel',true) * 4;
-		if(!$fuel || $fuel=="-"){
-			$fuel = 12;
-		}
-}else{
-	$fuel=get_post_meta($post->ID,'fuel',true); 
-	if(!$fuel || $fuel=="-"){
-		$fuel = 12;
-	}
-}
-
-$fuel = (130*1600)/$fuel;
-echo number_format($fuel);?></span>円/月
-                                                    </p>
-                                            </div>
-                                        </div>
-                                        <div class="l-gutter10"></div>
-                                        <div class="l-box caset--bkn__prices">
-                                            <div class="l-wrap--fixed caset--bkn__priceBox">
-                                                <div class="l-box caset--bkn__priceBox__hontai">
-                                                    <p class="price price--big">
-                                                    本体価格<span class="numXXL price--hontai"><?php $value=get_post_meta($post->ID,'value',true); valueFont($value); ?></span>万円
-                                                    </p>
-                                                </div>
-                                                <div class="l-box caset--bkn__priceBox__sougaku">
-                                                    <p class="price price--big">
-                                                    支払総額<b class="numXXL"><?php $value=get_post_meta($post->ID,'sum-value',true); valueFont($value); ?></b>万円</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="l-gutter10"></div>
-                                        <div class="l-box caset--bkn__btns">
-                                        <button class="btn btn--inq btn--inq--tate btn--big--caset js_inq" onclick="location.href='<?php the_permalink(); ?>#contact_form'; return false;"><span class="btn--inq--tate__cap">無<br>料</span>在庫確認・見積依頼</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="caset__btm">
-                                        <div class="l-wrap">
-<?php
-$blogusers = get_users('blog_id='.$post->ID);
-$user_id = $blogusers[0]->ID;
-$address = get_user_meta($user_id, "address", true);
-$user_info = get_userdata($user_id);
-
-?>
-                                            <div class="l-box caset--bkn__area">
-<?php echo $address; ?>            
-</div>
-                                            <div class="l-box caset--bkn__shopInfo">
-
-                                                <div class="l-wrap caset--bkn__shopInfoLine">
-                                                    <div class="l-box va-mid">
-                                                    <p class="txt js_shop">
-<a href="<?php echo get_post_meta($post->ID, "shop_url", true); ?>" title="" class="js_mpjump_OUTKBN=1&amp;BKKN=CU3715581854&amp;HANCD=U&amp;HJNCD=309094&amp;MADCD=001&amp;KNCD1=Ba4"><?php echo $user_info->first_name; ?></a></p>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="l-gutter10"></div>
-                                            <div class="l-box  caset--bkn__shopInfo--kakudai">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- /.caset -->
-                                <?php endwhile; ?><?php else : ?>
-                                <?php endif; wp_reset_query(); ?>
-                                </div><!-- /#tab-contents-3 -->
+</div><!-- /#tab-contents-<?php echo $i ?> -->
+<?php } ?>
 
 <?php wp_pagenavi(); ?>
                             </div>

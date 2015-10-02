@@ -1,3 +1,12 @@
+<footer>
+
+<a href="http://tsukucar.com/toriyose/">
+	<img src="http://dev2.hardunity.com/wp-content/uploads/2015/09/最大15社から！.png" alt="" class="footer_baner" style="width:100%;"  />
+</a>
+
+</footer>
+</div>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -31,7 +40,13 @@ $(function(){
         $("#tab-contents-2").hide();
         $("#tab-contents-3").show();
     });
+
+    //contact form
+    $(document).ready(function(){
+	    $("input[name='text-134']").val("<?php the_title(); ?>");
+	});
 });
 </script>
+<?php wp_footer(); ?>
   </body>
 </html>

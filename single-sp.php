@@ -1,7 +1,6 @@
 <?php get_header("sp") ?>
 <?php
-$blogusers = get_users('blog_id='.$post->ID);
-$user_id = $blogusers[0]->ID;
+$user_id = $post->post_author;
 ?>
     <div class="container">
 
@@ -31,26 +30,47 @@ echo $images[0];
               </figure>
 
       <div class="bknDtl__priceTbl">
-        <p><a class="helpBtn" href="/help/CS/help_smph.html?help=zei&amp;header=1" rel="external">本体価格<span>（税込）</span></a>
+        <p>本体価格<span>（税込）</span>
           <span class="bknDtl__priceHontai"><b><?php echo get_post_meta($post->ID, "value", true); ?></b>万円</span>
         </p>
         <p>
-          <a class="helpBtn" href="/help/CS/help_smph.html?help=sougaku&amp;header=1" rel="external">支払総額<span>（税込）</span></a>
+          支払総額<span>（税込）</span>
           <span class="bknDtl__priceSum"><b><?php echo get_post_meta($post->ID, "sum-value", true); ?></b>万円</span>
-        </p><p>
-      </p></div>
+	</p><p>
+	<p style="
+    		padding: 4px 0;
+	">
+          維持費
+          <span class="bknDtl__priceSum"><span style="color:red;font-size:18px;"><?php 
+        if(get_post_meta($post->ID, "is_goo")){
+		$fuel=get_post_meta($post->ID,'fuel',true) * 4;
+		if(!$fuel || $fuel=="-"){
+			$fuel = 12;
+		}
+    }else{
+        $fuel=get_post_meta($post->ID,'fuel',true); 
+        if(!$fuel){
+            $fuel = 12;
+        }
+    }
+$fuel = (130*480)/$fuel;
+echo number_format($fuel);
+?></span>円/月
+</span>
+        </p>
+      </p>
+</div>
 
      
                   <div class="actionArea">
         <p class="bknDtl__shopInfo">
-            <span class="bknDtl__shopName"><?php 
-        $user_info = get_userdata($user_id);
+	<span class="bknDtl__shopName" style="margin-top:10px;"><?php 
+echo $user_id;
+$user_info = get_userdata($user_id);
         echo $user_info->first_name;
  ?></span>
-            <span class="bknDtl__shopAddress"><?php 
-$blogusers = get_users('blog_id='.$post->ID);
-$user_id = $blogusers[0]->ID;
-
+            <span class="bknDtl__shopAddress" style="margin-top:10px;"><?php 
+$user_id = $post->post_author;
 echo $address = get_user_meta($user_id, "address", true); ?></span>
         </p>
       </div>

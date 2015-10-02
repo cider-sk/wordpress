@@ -1,5 +1,22 @@
 <?php 
 
+//user名からお店のurlをget
+function get_shop_url_by_name($shop_name){
+/*	query_posts("post_type=shop&posts_per_page=100");
+?>
+<?php if (have_posts()) : ?>
+<?php while (have_posts()) : the_post(); ?>
+<?php 
+	if($shop_name == get_the_title()){
+		return get_the_permalink();
+	}
+?>
+<?php endwhile; ?><?php else : ?>
+<?php endif; ?>
+<?php
+*/
+}
+
 function get_userinfo_by_user_ID($user_id){
     global $wpdb;
     $result = $wpdb->get_results( 

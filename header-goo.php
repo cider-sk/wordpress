@@ -37,6 +37,14 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-68277995-1', 'auto');
+  ga('send', 'pageview');
+  </script>
 <?php wp_head(); ?>
   </head>
 
@@ -50,13 +58,16 @@
                     </a>
                 </div>
                 <div class="col-xs-7" id="header-middle">
-                    <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/筑波大生専門中古車情報サイト（一番上）.png" alt="" class="middle-top">
-                    <img src="<?php  ?>/wp-content/uploads/2015/09/購入者全員に.png" alt="">
+		    <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/筑波大生専門中古車情報サイト（一番上）.png" alt="" class="middle-top">
+<a href="http://tsukucar.com/campaign/">
+		    <img src="<?php  ?>/wp-content/uploads/2015/09/購入者全員に.png" alt="">
+</a>
                 </div>
-                <div class="col-xs-2">
-                    <img src="<?php bloginfo("template_url"); ?>/dist/img/tukuie.png" alt="">
-                    <img src="<?php bloginfo("template_url"); ?>/dist/img/tukubaito.png" alt="">
-                </div>
+		<div class="col-xs-2">
+
+                    <a href="http://tsukuba-daigaku.com/"><img src="<?php bloginfo("template_url"); ?>/dist/img/tukuie.png" alt=""></a>
+		    <a href="http://tsukubaito.com/"><img src="<?php bloginfo("template_url"); ?>/dist/img/tukubaito.png" alt=""></a>
+                                    </div>
             </div>
 	</div>
         <div id="menu">

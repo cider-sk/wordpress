@@ -3,8 +3,24 @@
             <div class="col-xs-12">
                 <div class="l-container">
 
+<style>
+.btn--inq--tate__cap{
+width: 17px;
+    writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    -moz-writing-mode: vertical-rl;
+    -o-writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+}
+</style>
   <div class=" l-wrap" style="text-align:left;">
-
+<?php
+$user_id = $post->post_author;
+$address = get_user_meta($user_id, "address", true);
+$time = get_user_meta($user_id, "time", true);
+$present = get_user_meta($user_id, "present", true);
+$shop_url = get_post_meta($post->ID, "shop_url", true);
+ ?>
     <article class="l-mainColumn-2" itemscope="" itemtype="http://schema.org/Product">
       <header class="l-pageHeader">
         <div class="l-wrap">
@@ -12,7 +28,30 @@
             <h2 class="pageTtl bknDtl_ttl" itemprop="name">
             <span class="subTxt  bknDtl_ttl__maker"><?php echo get_post_meta($post->ID, "maker", true); ?></span><br>
               <span class=" bknDtl_ttl__car"><?php echo get_post_meta($post->ID, "model", true); ?></span><br>
-              <span class="subTxt bknDtl_ttl__grd"><?php echo get_post_meta($post->ID, "meta-desc", true); ?></span>
+	      <span class="subTxt bknDtl_ttl__grd"><?php echo get_post_meta($post->ID, "meta-desc", true); ?></span>
+
+	      <span class="subTxt bknDtl_ttl__grd" style="color:red">特典：<?php echo $present; ?></span>
+
+ <p class="price price--big">
+                                                    維持費<span style="color:red;font-size:27px;"><?php 
+    if(get_post_meta($post->ID, "is_goo")){
+	    $fuel=get_post_meta($post->ID,'fuel',true) * 4;
+		if(!$fuel || $fuel=="-"){
+			$fuel = 12;
+		}
+
+    }else{
+        $fuel=get_post_meta($post->ID,'fuel',true); 
+        if(!$fuel){
+            $fuel = 12;
+        }
+    }
+$fuel = (130*480)/$fuel;
+echo number_format($fuel);
+?></span>円/月
+</p>
+
+
             </h2>
           </div>
           <div class="l-gutter5"></div>
@@ -41,12 +80,7 @@
           <div class="l-box">
             <div class="ppc ppc--normal">
               <p class="ppc__ttl">お電話でのお問い合わせ<a class="js_question" href="/help/CS/help_freedial.html" target="_blank"></a></p>
-              <p class="ppc__num numXL"><?php 
-$blogusers = get_users('blog_id='.$post->ID);
-$user_id = $blogusers[0]->ID;
-
-$address = get_user_meta($user_id, "address", true);
-$time = get_user_meta($user_id, "time", true);
+	      <p class="ppc__num numXL"><?php 
 echo $tel = get_user_meta($user_id, "tel", true);
 ?></p>
     <p class="ppc__note">営業時間：<span class="txt--bk"><?php echo $time ?></span></p>
@@ -94,8 +128,8 @@ echo $images[0];
                   <button class="btn btn--inq btn--inq--tate btn--big  mb10" type="button" onclick="location.href='#contact_form'" onkeypress="return true"><span class="btn--inq--tate__cap">無料</span>在庫確認・見積依頼</button><br>
 
           <div>
-          <a href="<?php 
-echo get_post_meta($post->ID, "shop_url", true);
+	  <a href="<?php 
+echo $shop_url;
 ?>?page=map" class="subTxt" target="_blank">お店の地図を見る</a>
           </div>
         </div>
@@ -203,7 +237,7 @@ echo get_post_meta($post->ID, "shop_url", true);
 <button class="btn btn--inq btn--inq--tate btn--big  mb10" type="button" onclick="location.href='#contact_form'" onkeypress="return true"><span class="btn--inq--tate__cap">無料</span>在庫確認・見積依頼</button><br>
 
           <div>
-          <a href="<?php echo get_post_meta($post->ID, "shop_url", true); ?>?page=map" class="subTxt" target="_blank">お店の地図を見る</a>
+          <a href="<?php echo $shop_url; ?>?page=map" class="subTxt" target="_blank">お店の地図を見る</a>
             </div>
         </div>
       </div>
@@ -216,7 +250,7 @@ echo get_post_meta($post->ID, "shop_url", true);
       <section class="l-seclv1  sideBar">
         <h2 class="hd2nd">販売店情報</h2>
         <section class="l-seclv2">
-        <h3 class="hd3rd"><a href="<?php echo get_post_meta($post->ID, "shop_url", true); ?>" class="hd3rd__subLink"><?php 
+        <h3 class="hd3rd"><a href="<?php echo $shop_url; ?>" class="hd3rd__subLink"><?php 
         $user_info = get_userdata($user_id);
         echo $user_info->first_name;
  ?>&nbsp;</a></h3>
@@ -249,7 +283,7 @@ echo get_post_meta($post->ID, "shop_url", true);
 
           <p class="subTxt lh12 fontM mb10"></p>
 
-          <button class="btn btn--funcL2 btn--small w100p mb10" onclick="location.href='<?php echo get_post_meta($post->ID, "shop_url", true); ?>?page=map'">お店の地図を見る</button>
+          <button class="btn btn--funcL2 btn--small w100p mb10" onclick="location.href='<?php echo $shop_url; ?>?page=map'">お店の地図を見る</button>
           <p class="subTxt lh12 mb10">地図は印刷できます。
           <div class="l-wrap--fixed mb5">
             <div class="l-box va-mid">
@@ -266,7 +300,7 @@ echo get_post_meta($post->ID, "shop_url", true);
           </div>
 
 
-          <p class="txt txt-r"><a href="<?php echo get_post_meta($post->ID, "shop_url", true); ?>?page=stocklist">お店の在庫一覧を見る</a></p>
+          <p class="txt txt-r"><a href="<?php echo $shop_url; ?>?page=stocklist">お店の在庫一覧を見る</a></p>
         </section>
 
       </section>
@@ -313,11 +347,15 @@ echo get_post_meta($post->ID, "shop_url", true);
   </div>
 
   <p class="goPageTop"><a href="#">トップへ</a></p>
+		    <a href="http://tsukucar.com/campaign/">
+		    <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/紹介者と購入者にもれなく….png" alt="" class="top_main_text_under">
+		    <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/全店送迎付！1.png" alt="" class="top_under_hukidasi">
+		    </a>
+
 <div id="contact_form">
 <?php echo do_shortcode('[contact-form-7 id="5" title="個別中古車への問い合わせフォーム"]'); ?>
 </div>
 </div>
-
             </div>
         </div>
 </div> <!-- /container -->

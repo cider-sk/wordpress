@@ -63,7 +63,7 @@ function regist_car_goo($car_single_url, $cat_id, $car_title, $user_id, $shop_ur
             $item['imgList'] .= $car_img .",";
             //}
             //お店
-            $item["shop_url"] = $shop_url;
+            $item["shop_url"] = get_the_permalink($car_id);
             //燃費
             $item["fuel1"] = $art->find('.l-sideColumn table.tbl--skeleton', 0);
             if($item["fuel1"]){
@@ -179,7 +179,7 @@ function regist_car($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $
                 $item['imgList'] .= $img->src .",";
             }
             //お店
-            $item["shop_url"] = $shop_url;
+            $item["shop_url"] = get_the_permalink($car_id);
             //燃費
             if($item["fuel1"]){
                 $item["fuel"] = $art->find(".reviewBox .various li dd .num", 3)->plaintext;

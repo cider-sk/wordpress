@@ -5,8 +5,10 @@
             <h1 class="top">
 <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/筑波大生専門中古車情報サイト（一番上）.png" alt="" class="middle-top">
             </h1>
-            <h2 class="top">
-            <img src="<?php bloginfo("template_url"); ?>/image-sp/morenaku.png" alt="">
+	    <h2 class="top">
+<a href="http://tsukucar.com/campaign/">
+	    <img src="<?php bloginfo("template_url"); ?>/image-sp/morenaku.png" alt="">
+</a>
             </h2>
             <div class="block">
                 <h3>こだわりの条件がある人</h3>
@@ -19,7 +21,7 @@
             <div id="p2-c"></div>
             <div class="block">
                 <h3>どれを買おうか悩んでいる人</h3>
-                <a href="./"><img src="<?php bloginfo("template_url"); ?>/image-sp/chukosha.png" alt=""></a>
+                <a href="http://tsukucar.com/toriyose/"><img src="<?php bloginfo("template_url"); ?>/image-sp/chukosha.png" alt=""></a>
             </div>
             <div id="p2">
 <?php /*
@@ -220,12 +222,21 @@ for($i=1;$i <= 3; $i++){ ?>
 <div id="tab-contents-<?php echo $i ?>">
      <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
+<?php
+$user_id = $post->post_author;
+$address = get_user_meta($user_id, "address", true);
+$present = get_user_meta($user_id, "present", true);
+$user_info = get_userdata($user_id);
+?>
+
                                 <div class="bknBox bknBox_A" id="bkn_CU3933292882">
                                     <a href="<?php the_permalink(); ?>">
                         <div class="bknBox_top">
                                                         <div class="nameBar">
                                 <b class="name_maker"><?php echo get_post_meta($post->ID, "model", true); ?></b>
-                                                                                                <h2 class="name_car"><?php the_title(); ?></h2>
+				<h2 class="name_car"><?php the_title(); ?></h2>
+
+<?php if($present){ ?><p class="present"><?php echo $present ?></p><?php } ?>
                                                             </div>
                                                     </div><!-- /.bknBox_top -->
                         <div class="bknBox_mid">
@@ -263,8 +274,8 @@ echo get_post_meta($post->ID, "fix-history", true); ?></td>
                                     </tr>
                                     <tr>
                                         <th>住所</th>
-                                        <td colspan="3"><?php $blogusers = get_users('blog_id='.$post->ID);
-$user_id = $blogusers[0]->ID;
+                                        <td colspan="3"><?php 
+$user_id = $post->post_author;
 echo $address = get_user_meta($user_id, "address", true); ?></td>
                                     </tr>
                                 </tbody>
@@ -322,7 +333,6 @@ echo number_format($fuel);
 </div>
         </div>
 
-    </div><!-- /.container -->
 
 <?php 
 get_footer("sp");
