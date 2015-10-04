@@ -254,8 +254,8 @@
         </tbody>
       </table>
     </div>
-
-                        <div class="tab_menu clearfix">
+<div id="tab_menu_img" >
+			<div class="tab_menu clearfix">
                             <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/left-check.png" alt="">
                             <div id="tab-link-box">
                             <a id="left-img" href="javascript:void(0);"></a>
