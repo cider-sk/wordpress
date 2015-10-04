@@ -396,8 +396,12 @@ echo get_post_meta($post->ID, "shop_url", true);
                     <div class="btnBox">
         </div>
       </div><!-- /.actionArea -->
-<div id="contact_form">
-<?php echo do_shortcode('[contact-form-7 id="5" title="個別中古車への問い合わせフォーム"]'); ?>
+<div id="global_contents">
+<div id="contact_form" style="
+    text-align: left;
+">
+<?php echo do_shortcode('[contact-form-7 id="707" title="個別中古車への問い合わせフォーム_copy"]'); ?>
+</div>
 </div>
 <?php /*
       <ul class="snsList">
