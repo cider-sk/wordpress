@@ -65,8 +65,12 @@
 
 <?php */ ?>
 
-          <a class="navbar-brand" href="<?php bloginfo("url"); ?>">
-<img src="<?php bloginfo("template_url"); ?>/dist/img/logo.png" alt="">
+          <a class="navbar-brand" href="<?php bloginfo("url"); ?>"  style="
+    width: 283px;
+    position: absolute;
+    top: 10px;
+">
+<img src="<?php bloginfo("template_url"); ?>/dist-sp/img-sp/logo-sp.png" alt="">
           </a>
         </div>
 	<div id="navbar" class="collapse navbar-collapse">

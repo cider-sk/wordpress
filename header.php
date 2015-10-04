@@ -11,7 +11,7 @@
 
     <link rel="icon" href="favicon.ico">
 
-    <title>ツクカー</title>
+    <title><?php bloginfo("name"); ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php bloginfo("template_url"); ?>/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -56,15 +56,22 @@
                     </a>
                 </div>
                 <div class="col-xs-7" id="header-middle">
-		    <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/筑波大生専門中古車情報サイト（一番上）.png" alt="" class="middle-top">
+            <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/筑波大生専門中古車情報サイト（一番上）.png" alt="" class="middle-top" style="
+    float: left;
+    margin-left: 45px;
+">
+<img src="<?php bloginfo("template_url"); ?>/dist/img/header-right.png" alt="" style="
+    width: 120px;
+    float: left;
+">
 
 <a href="http://tsukucar.com/campaign/">
 		    <img src="<?php  ?>/wp-content/uploads/2015/09/購入者全員に.png" alt="">
 </a>
                 </div>
                 <div class="col-xs-2">
-                    <a href="http://tsukuba-daigaku.com/"><img src="<?php bloginfo("template_url"); ?>/dist/img/tukuie.png" alt=""></a>
-		    <a href="http://tsukubaito.com/"><img src="<?php bloginfo("template_url"); ?>/dist/img/tukubaito.png" alt=""></a>
+                    <a href="http://tsukuba-daigaku.com/"><img src="<?php bloginfo("template_url"); ?>/dist/img/tukuie-logo.png" alt=""></a>
+		    <a href="http://tsukubaito.com/"><img src="<?php bloginfo("template_url"); ?>/dist/img/tukubaito-logo.png" alt=""></a>
                 </div>
             </div>
         </div>

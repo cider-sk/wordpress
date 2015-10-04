@@ -1,13 +1,13 @@
-    <div id="footer">
+<div id="footer">
 <a href="http://tsukucar.com/toriyose/">
-	<img src="http://dev2.hardunity.com/wp-content/uploads/2015/09/最大15社から！.png" alt="" class="footer_baner" />
+<img src="<?php bloginfo("url"); ?>/wp-content/uploads/2015/09/最大15社から！.png" alt="" class="footer_baner" />
 </a>
 <div class="footer_row">
 <div class="footer_logo">
-<a href="http://tsukuba-daigaku.com/"><img src="<?php bloginfo("template_url"); ?>/dist/img/tukuie.png" alt=""></a>
+<a href="http://tsukuba-daigaku.com/"><img src="<?php bloginfo("template_url"); ?>/dist/img/tukuie-logo.png" alt=""></a>
 </div>
 <div class="footer_logo">
-<a href="http://tsukubaito.com/"><img src="<?php bloginfo("template_url"); ?>/dist/img/tukubaito.png" alt=""></a>
+<a href="http://tsukubaito.com/"><img src="<?php bloginfo("template_url"); ?>/dist/img/tukubaito-logo.png" alt=""></a>
 </div>
 <div class="footer_logo">
 <a href="http://offer.tsukucari.com/" target="_blank">
