@@ -36,19 +36,19 @@
 <script>
 $(function(){
     $("#left-img").click(function(){
-        $(".tab_menu img").attr('src','http://dev2.hardunity.com/wp-content/uploads/2015/09/left-check.png');
+        $(".tab_menu img").attr('src','<?php bloginfo("url"); ?>/wp-content/uploads/2015/09/left-check.png');
         $("#tab-contents-1").show();
         $("#tab-contents-2").hide();
         $("#tab-contents-3").hide();
     });
     $("#middle-img").click(function(){
-        $(".tab_menu img").attr('src','http://dev2.hardunity.com/wp-content/uploads/2015/09/middle-check-1.png');
+        $(".tab_menu img").attr('src','<?php bloginfo("url"); ?>/wp-content/uploads/2015/09/middle-check-1.png');
         $("#tab-contents-1").hide();
         $("#tab-contents-2").show();
         $("#tab-contents-3").hide();
     });
     $("#right-img").click(function(){
-        $(".tab_menu img").attr('src','http://dev2.hardunity.com/wp-content/uploads/2015/09/right-check-1.png');
+        $(".tab_menu img").attr('src','<?php bloginfo("url"); ?>/wp-content/uploads/2015/09/right-check-1.png');
         $("#tab-contents-1").hide();
         $("#tab-contents-2").hide();
         $("#tab-contents-3").show();
