@@ -24,17 +24,15 @@
         <div class="row">
         <div id="p2" class="col-xs-9">
 	    <div class="block">
-<h1 style="
-    padding: 10px;
-">
-現在の掲載数<?php 
+<h1 class="search-num">
+現在の掲載数<span><?php 
 global $wp_query;
  
-echo $wp_query->found_posts . ' 件';
-?>
+echo $wp_query->found_posts;
+?></span>件
 <h1>
-                <h2>
-                    <img src="<?php bloginfo("template_url"); ?>/dist/img/search_maker.jpg" alt="中古車で探す">
+                <h2 class="search-num" >
+                    中古車を探す
                 </h2>
                 <div class="l-wrap">
                     <div class="l-box">
@@ -235,6 +233,9 @@ foreach ( $models as $model )
         <div class="col-xs-3" style="margin-top:30px;">
         </div>
         </div>
+        <a href="./">
+        <img style="margin-top: 40px;" src="http://dev2.hardunity.com/wp-content/uploads/2015/10/guidefortukuba.png" alt="ガイド">
+        </a>
         <div id="p3">
             <div class="row">
                 <div class="col-xs-12">

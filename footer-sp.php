@@ -3,7 +3,9 @@
 <a href="http://tsukucar.com/toriyose/">
 	<img src="http://dev2.hardunity.com/wp-content/uploads/2015/09/最大15社から！.png" alt="" class="footer_baner" style="width:100%;"  />
 </a>
-
+<p class="copy-right">
+&copy;2015<span>CRONO FACTORY, Inc.</span> inc. ALL RIGHT RESERVED
+</p>
 </footer>
 </div>
 

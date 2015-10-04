@@ -5,9 +5,10 @@
             <h1 class="top">
 <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/筑波大生専門中古車情報サイト（一番上）.png" alt="" class="middle-top">
             </h1>
+        <img class="top-baner-2" src="/wp-content/uploads/2015/09/購入者全員に.png" alt="">
 	    <h2 class="top">
 <a href="http://tsukucar.com/campaign/">
-	    <img src="<?php bloginfo("template_url"); ?>/image-sp/morenaku.png" alt="">
+	    <img src="/wp-content/uploads/2015/09/紹介者と購入者にもれなく….png" alt="">
 </a>
             </h2>
             <div class="block">
@@ -15,12 +16,12 @@
                 <a href="#p2-c"><img src="<?php bloginfo("template_url"); ?>/image-sp/sagasu.png" alt=""></a>
             </div>
             <div class="block">
-                <h3>毎月の維持費が心配な人</h3>
+                <h3>毎月の維持費を知りたい人</h3>
                 <a href="#p3-c"><img src="<?php bloginfo("template_url"); ?>/image-sp/ijihi.png" alt=""></a>
             </div>
             <div id="p2-c"></div>
             <div class="block">
-                <h3>どれを買おうか悩んでいる人</h3>
+                <h3>中古車情報が一気に欲しい人</h3>
                 <a href="http://tsukucar.com/toriyose/"><img src="<?php bloginfo("template_url"); ?>/image-sp/chukosha.png" alt=""></a>
             </div>
             <div id="p2">

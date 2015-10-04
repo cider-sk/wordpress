@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+<meta name="viewport" content="width=420" />
     <link rel="icon" href="../../favicon.ico">
 
     <title><?php bloginfo("name") ?></title>
@@ -78,6 +79,7 @@
             <li><a href="http://tsukucar.com/buy/">車購入の流れ</a></li>
 	    <li><a href=http://tsukucar.com/buy/"">豪華三大特典</a></li>
  <li><a href="http://tsukucar.com/kaitori/">車買取</a></li>
+<li><a href="./">ツクカーBLOG</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

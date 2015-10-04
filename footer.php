@@ -10,7 +10,7 @@
 <a href="http://tsukubaito.com/"><img src="<?php bloginfo("template_url"); ?>/dist/img/tukubaito.png" alt=""></a>
 </div>
 <div class="footer_logo">
-<a href="http://tsukucari.com/" target="_blank">
+<a href="http://offer.tsukucari.com/" target="_blank">
 <img src="<?php bloginfo("template_url"); ?>/dist/img/tukukyari-logo.png" />
 </a>
 </div>

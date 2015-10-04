@@ -403,15 +403,15 @@ box-shadow: 0px -10px 20px 10px rgba(0, 0, 0, 0.2) inset; background-color: #005
 
 .arrow1 { margin-top: 20px; float: left; padding-top: 5px; width: 150px; height: 25px; background: #87c4ed; position: relative; }
 .arrow1:after { border-left: 25px solid #87c4ed; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: -2.5px; margin-left: 75px; }
-.arrow1 span { position: relative; padding-left: 5px; z-index: 3; font-size: 15px; font-weight: bold; line-height: 1.4; text-shadow: 2px 2px 1px white; }
+.arrow1 span {top: -6px; position: relative; padding-left: 5px; z-index: 3; font-size: 15px; font-weight: bold; line-height: 1.4; text-shadow: 2px 2px 1px white; }
 
 .arrow2 { margin-top: 20px; float: left; margin-left: 25px; padding-top: 5px; width: 75px; height: 25px; background: #87c4ed; position: relative; }
 .arrow2:after { border-left: 25px solid #87c4ed; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: -2.5px; margin-left: 37px; }
-.arrow2 span { position: relative; padding-left: 5px; z-index: 3; font-size: 15px; font-weight: bold; line-height: 1.4; text-shadow: 2px 2px 1px white; }
+.arrow2 span {top: -6px; position: relative; padding-left: 5px; z-index: 3; font-size: 15px; font-weight: bold; line-height: 1.4; text-shadow: 2px 2px 1px white; }
 
 .arrow3 { margin-top: 20px; float: left; margin-left: 25px; padding-top: 5px; width: 75px; height: 25px; background: #87c4ed; position: relative; }
 .arrow3:after { border-left: 25px solid #87c4ed; border-top: 15px solid transparent; border-bottom: 15px solid transparent; content: ""; position: absolute; left: 50%; top: -2.5px; margin-left: 37px; }
-.arrow3 span { position: relative; padding-left: 5px; z-index: 3; font-size: 15px; font-weight: bold; line-height: 1.4; text-shadow: 2px 2px 1px white; }
+.arrow3 span {top: -6px; position: relative; padding-left: 5px; z-index: 3; font-size: 15px; font-weight: bold; line-height: 1.4; text-shadow: 2px 2px 1px white; }
 
 .arrow1.wpcf7c-elm-step1 {margin-bottom: 13px; float: left; padding-top: 5px; width: 150px; height: 25px; background: #1e98e9; position: relative; }
 
@@ -478,29 +478,52 @@ box-shadow: 0px -10px 20px 10px rgba(0, 0, 0, 0.2) inset; background-color: #005
 	padding: 3px;
 	width: 30%;
 	display: inline;
-	border-radius: 10px;
-	-webkit-border-radius: 5px;
-	text-align: center;
-	-moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 5px;
+    text-align: center;
+    -moz-border-radius: 10px;
 }
 .top-multi__box select{
-	width:100%;
+    width:100%;
 }
 .footer_row{
-	clear:both;
+    clear:both;
 }
 .footer_logo {
-	float:left;
-	    width: 20%;
-	        margin: 2.5%;
-	}
+    float:left;
+    width: 20%;
+    margin: 2.5%;
+}
 
 
-	.l-mainColumn {
-		text-align:left;
-		    width: 100%;
-		        background-color: #fff;
-			    margin-top: 20px;
-			        border: 1px solid #E63F26;
-				    padding: 10px;
-			    }
+.l-mainColumn {
+    text-align:left;
+    width: 100%;
+    background-color: #fff;
+    margin-top: 20px;
+    border: 1px solid #E63F26;
+    padding: 10px;
+}
+h1.search-num{
+    margin-right:10px;
+    float:right;
+}
+h1.search-num span{
+    color:#ed6103;
+    font-size:35px;
+    font-weight:bold;
+}
+h2.search-num{
+    padding-bottom:5px;
+    font-size:30px;
+    font-weight:bold;
+    padding-left:9px;
+    margin-bottom:-20px;
+    border-bottom:5px solid #E63F26;
+}
+.top__panel__ttl {
+    font-weight:bold;
+}
+span.btn--inq--tate__cap{
+    font-size:12px!important;
+}

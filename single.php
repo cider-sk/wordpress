@@ -348,8 +348,7 @@ echo $shop_url;
 
   <p class="goPageTop"><a href="#">トップへ</a></p>
 		    <a href="http://tsukucar.com/campaign/">
-		    <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/紹介者と購入者にもれなく….png" alt="" class="top_main_text_under">
-		    <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/全店送迎付！1.png" alt="" class="top_under_hukidasi">
+		    <img src="http://tsukucar.com/wp-content/uploads/2015/09/%E4%B8%89%E5%A4%A7%E7%89%B9%E5%85%B8%E3%83%90%E3%83%8A%E3%83%BC.png" alt="">
 		    </a>
 
 <div id="contact_form">
