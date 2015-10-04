@@ -255,13 +255,39 @@
       </table>
     </div>
 
-    <div id="bukkenCas" style="padding-top:66px;position:relative;height:100%;">
+                        <div class="tab_menu clearfix">
+                            <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/left-check.png" alt="">
+                            <div id="tab-link-box">
+                            <a id="left-img" href="javascript:void(0);"></a>
+                            <a id="middle-img" href="javascript:void(0);"></a>
+                            <a id="right-img" href="javascript:void(0);"></a>
+                            </div>
+                        </div>
+                    </div>
 
+    <div id="bukkenCas" style="padding-top:66px;position:relative;height:100%;">
+			    <div id="bukkenCas">
 <?php 
-$cat_id = get_cat_id_by_name(get_the_title());
-query_posts("post_type=post&cat_id=".$cat_id."&posts_per_page=100"); ?>
-                                <?php if (have_posts()) : ?>
-                                <?php while (have_posts()) : the_post(); ?>
+$fuel_array = array(
+	1 => 160,
+	2 => 480,
+	3 => 1600
+);
+for($k = 1; $k < 4; $k++){ ?>
+<div id="tab-contents-<?php echo $k ?>">
+<?php
+    $cat_id = get_cat_id_by_name(get_the_title());
+query_posts("post_type=post&cat_id=".$cat_id."&posts_per_page=100&paged=".$paged);
+?>
+     <?php if (have_posts()) : ?>
+				<?php while (have_posts()) : the_post(); ?>
+<?php
+$user_id = $post->post_author;
+$address = get_user_meta($user_id, "address", true);
+$present = get_user_meta($user_id, "present", true);
+$user_info = get_userdata($user_id);
+?>
+
                                 <div class="caset caset--bkn js_listTableCassette blockLink">
                                     <div class="l-wrap caset--bkn__line1">
                                         <div class="l-box caset--bkn__mainImgBox">
@@ -284,7 +310,8 @@ echo $images[0];
                                             </div>
 
                                             <h3 class="hd2nd mb0 lh12">
-                                            <a href="<?php the_permalink(); ?>" class="js_mpjump_OUTKBN=1&amp;BKKN=CU3715581854&amp;HANCD=U&amp;HJNCD=309094&amp;MADCD=001&amp;KNCD1=Ba3" target="_blank"><?php the_title(); ?></a>
+					    <a href="<?php the_permalink(); ?>" class="js_mpjump_OUTKBN=1&amp;BKKN=CU3715581854&amp;HANCD=U&amp;HJNCD=309094&amp;MADCD=001&amp;KNCD1=Ba3" target="_blank"><?php the_title(); ?></a>
+					    <?php if($present){ ?><p class="present"><?php echo $present ?></p><?php } ?>
                                             </h3>
                                             <p class="barTxts subTxt">
 <?php 
@@ -317,25 +344,22 @@ echo get_post_meta($post->ID, "fix-history", true); ?>
                                     </div>
                                     <div class="l-wrap caset--bkn__line2">
                                         <div class="l-box caset--bkn__miniImgs">
-					    <div class="">
-
-<p class="price price--big">
-                                                    維持費<span style="color:red;font-size:18px;"><?php 
-    if(get_post_meta($post->ID, "is_goo")){
-	    $fuel=get_post_meta($post->ID,'fuel',true) * 4;
+                                            <div class="">
+                                                    <p class="price price--big">
+						    維持費<span style="color:red;font-size:18px;"><?php 
+if(get_post_meta($post->ID, "is_goo", true)){
+	$fuel=get_post_meta($post->ID,'fuel',true) * 4;
 		if(!$fuel || $fuel=="-"){
 			$fuel = 12;
 		}
-
-    }else{
-        $fuel=get_post_meta($post->ID,'fuel',true); 
-        if(!$fuel){
-            $fuel = 12;
-        }
-    }
-$fuel = (130*480)/$fuel;
-echo number_format($fuel);
-?></span>円/月
+}else{
+	$fuel=get_post_meta($post->ID,'fuel',true); 
+	if(!$fuel || $fuel=="-"){
+		$fuel = 12;
+	}
+}
+$fuel = (130*$fuel_array[$k])/$fuel;
+echo $fuel = number_format($fuel);?></span>円/月
                                                     </p>
                                             </div>
                                         </div>
@@ -362,13 +386,6 @@ echo number_format($fuel);
 
                                     <div class="caset__btm">
                                         <div class="l-wrap">
-<?php
-$blogusers = get_users('blog_id='.$post->ID);
-$user_id = $blogusers[0]->ID;
-$address = get_user_meta($user_id, "address", true);
-$user_info = get_userdata($user_id);
-
-?>
                                             <div class="l-box caset--bkn__area">
 <?php echo $address; ?>            
 </div>
@@ -390,6 +407,12 @@ $user_info = get_userdata($user_id);
                                 </div><!-- /.caset -->
                                 <?php endwhile; ?><?php else : ?>
                                 <?php endif; wp_reset_query(); ?>
+
+</div><!-- /#tab-contents-<?php echo $i ?> -->
+<?php } ?>
+
+<?php wp_pagenavi(); ?>
+
 
                 </div>
 </div>

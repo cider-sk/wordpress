@@ -262,47 +262,6 @@ foreach ( $models as $model )
                             </div>
                         </div>
                     </div>
-                    <div class="tab_menu_block_1">
-                        <div id="fixedTableArea" style="position:relative;z-index:11;height:100%;">
-                            <div id="fixedBlock" class="fixedBlock--bknAll" style="z-index: 101; display: none; position: absolute; top: 0px; left: 0px;">
-                                <div id="fav_sub" class="l-wrap mb10">
-                                    <div class="l-box">
-                                        <b class="numXXL va-mid">4</b><span class="txt va-btm">台</span>
-                                    </div>
-                                    <div class="l-box txt-r va-mid">
-                                        <button id="chgJoken" class="btn btn--search btn--small" style="padding:0 15px;" onclick="setLog('');return false;">検索条件変更</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="sortTable">
-                                <table class="sortTbl">
-                                    <tbody id="sortArea">
-                                        <tr>
-                                            <th width="130" rowspan="2" class="va-btm prev_sort"><a id="sort_0" href="javascript:void(0)">元の並び順に戻す</a></th>
-                                            <th width="120" class="txt-l">新着順</th>
-                                            <th width="215">本体価格</th>
-                                            <th width="215">支払総額 <a href="http://www.carsensor.net/help/CS/help_sougaku.html" class="js_questionSingle" title="クリックすると説明が表示されます"><i class="icon icon_help"></i></a></th>
-                                            <th width="60">年式</th>
-                                            <th width="60">走行距離</th>
-                                            <th width="60">排気量</th>
-                                            <th width="60">車検<a href="http://www.carsensor.net/help/CS/help_syaken.html" class="js_questionSingle" title="クリックすると説明が表示されます"><i class="icon icon_help"></i></a></th>
-                                            <th width="60">修復歴</th>
-                                        </tr>
-                                        <tr>
-                                            <input id="sort_url" value="/usedcar/freeword/A%E3%82%AF%E3%83%A9%E3%82%B9+A170+%E3%82%A2%E3%83%90%E3%83%B3%E3%82%AE%E3%83%A3%E3%83%AB%E3%83%89+%E3%83%AA%E3%83%9F%E3%83%86%E3%83%83%E3%83%89+HID/index.html" type="hidden">
-                                            <td class="txt-l"><a id="sort_19" href="javascript:void(0)">新</a>｜<a id="sort_20" href="javascript:void(0)">古</a></td>
-                                            <td><a id="sort_2" href="javascript:void(0)">安</a>｜<a id="sort_1" href="javascript:void(0)">高</a></td>
-                                            <td><a id="sort_22" href="javascript:void(0)">安</a>｜<a id="sort_21" href="javascript:void(0)">高</a></td>
-                                            <td><a id="sort_3" href="javascript:void(0)">新</a>｜<a id="sort_4" href="javascript:void(0)">古</a></td>
-                                            <td><a id="sort_5" href="javascript:void(0)">多</a>｜<a id="sort_6" href="javascript:void(0)">少</a></td>
-                                            <td><a id="sort_23" href="javascript:void(0)">多</a>｜<a id="sort_24" href="javascript:void(0)">少</a></td>
-                                            <td><a id="sort_11" href="javascript:void(0)">付</a>｜<a id="sort_12" href="javascript:void(0)">無</a></td>
-                                            <td><a id="sort_13" href="javascript:void(0)">無</a>｜<a id="sort_14" href="javascript:void(0)">有</a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
 			    <div id="bukkenCas">
 <?php 
 $fuel_array = array(
