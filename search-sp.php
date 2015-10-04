@@ -69,32 +69,43 @@
                         </div><!-- /.searchBoxSideBtn -->
                     </form>
 </header>
-                        <div class="pageBody">
-                <div class="bknAllTopBar" style="display:none;">
-                                    <p class="toolBar_result">12<span>台</span></p>
-                    <p class="toolBar_Btn w70"><a href="/usedcar/smph_others.php?page=where&amp;PTSTID=SMPH0001&amp;KW=test&amp;top=1" onclick="ShiborikomiLog(1);" rel="nofollow">絞り込み<br>▼</a></p>
-                    <p class="toolBar_Btn w70"><a href="javascript:void(0);" class="sort-btn" id="menuBtn_sort1" onclick="sort('', 1);">並べ替え<br>▼</a></p>
-                    <input type="hidden" id="input_notice_mail_url" value="https://www.carsensor.net/usedcar/smph_others.php?page=mailrequest_input&amp;KW=test&amp;top=1">
-                                </div>
-                <!-- /.bknAllTopBar -->
+<div id="tab_menu_img">
+                        <div class="tab_menu clearfix">
+                            <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/left-check.png" alt="">
+                            <div id="tab-link-box">
+                            <a id="left-img" href="javascript:void(0);"></a>
+                            <a id="middle-img" href="javascript:void(0);"></a>
+                            <a id="right-img" href="javascript:void(0);"></a>
+                            </div>
+                        </div>
+                    </div>
 
-            
-
+    <div class="pageBody">
+                <div id="lockline_main"></div>
+<?php 
+ $fuel_array = array(
+     1 => 160,
+     2 => 480,
+     3 => 1600
+     ); 
+for($i=1;$i <= 3; $i++){ ?>
+<div id="tab-contents-<?php echo $i ?>">
+<?php query_posts($query_string); ?>
      <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
-
 <?php
 $user_id = $post->post_author;
 $address = get_user_meta($user_id, "address", true);
 $present = get_user_meta($user_id, "present", true);
 $user_info = get_userdata($user_id);
 ?>
+
                                 <div class="bknBox bknBox_A" id="bkn_CU3933292882">
                                     <a href="<?php the_permalink(); ?>">
                         <div class="bknBox_top">
                                                         <div class="nameBar">
                                 <b class="name_maker"><?php echo get_post_meta($post->ID, "model", true); ?></b>
-												<h2 class="name_car"><?php the_title(); ?></h2>
+				<h2 class="name_car"><?php the_title(); ?></h2>
 
 <?php if($present){ ?><p class="present"><?php echo $present ?></p><?php } ?>
                                                             </div>
@@ -134,9 +145,8 @@ echo get_post_meta($post->ID, "fix-history", true); ?></td>
                                     </tr>
                                     <tr>
                                         <th>住所</th>
-					<td colspan="3"><?php 
+                                        <td colspan="3"><?php 
 $user_id = $post->post_author;
-
 echo $address = get_user_meta($user_id, "address", true); ?></td>
                                     </tr>
                                 </tbody>
@@ -146,35 +156,36 @@ echo $address = get_user_meta($user_id, "address", true); ?></td>
                             <!--  -->
                         </div><!-- /.bknBox_mid -->
 <div class="fuel-fee" style="
-        position: absolute;
+    position: absolute;
     margin-top: -47px;
     font-size: 14px;
 
 ">
-    維持費<span style="color:red;font-size:18px;"><?php 
-        if(get_post_meta($post->ID, "is_goo")){
+	維持費<span style="color:red;font-size:18px;"><?php 
+	if(get_post_meta($post->ID, "is_goo")){
 		$fuel=get_post_meta($post->ID,'fuel',true) * 4;
 		if(!$fuel || $fuel=="-"){
 			$fuel = 12;
 		}
-    }else{
-        $fuel=get_post_meta($post->ID,'fuel',true); 
-        if(!$fuel){
-            $fuel = 12;
-        }
-    }
-$fuel = (130*480)/$fuel;
+	}else{
+		$fuel=get_post_meta($post->ID,'fuel',true); 
+		if(!$fuel || $fuel=="-"){
+			$fuel = 12;
+		}
+	}
+$fuel = (130*$fuel_array[$i])/$fuel;
 echo number_format($fuel);
 ?></span>円/月
 </div>
-                                            </a>
+					    </a>
                 </div><!-- /.bknBox_A -->
 
 <?php endwhile; ?><?php else : ?>
 <?php endif; wp_reset_query(); ?>
-                                    
- <?php wp_pagenavi(); ?>
-          
+</div>
+<?php } ?>
+                                  
+<?php wp_pagenavi(); ?>
             </div><!-- /.pageBody -->
         </section>
         </div>
