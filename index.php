@@ -262,7 +262,34 @@ foreach ( $models as $model )
                             </div>
                         </div>
                     </div>
-			    <div id="bukkenCas">
+                <div id="bukkenCas">
+<div id="sortTable" style="z-index: 100;">
+      <table class="sortTbl">
+        <tbody id="sortArea">
+          <tr>
+            <th width="160" class="txt-l">燃費</th>
+            <th width="170" class="txt-l">新着順</th>
+            <th width="115">本体価格</th>
+            <th width="115">支払総額 <a href="http://www.carsensor.net/help/CS/help_sougaku.html" class="js_questionSingle" title="クリックすると説明が表示されます"><i class="icon icon_help"></i></a></th>
+            <th width="160">年式</th>
+            <th width="160">走行距離</th>
+            <th width="160">排気量</th>
+          </tr>
+          <tr>
+            <input id="sort_url" value="" type="hidden">
+            <td class="txt-l"><a id="sort_19" href="/?s=&post_type=post&orderby=fuel&order=DESC">低</a>｜<a id="sort_20" href="/?s=&post_type=post&orderby=fuel&order=ASC">高</a></td>
+            <td class="txt-l"><a id="sort_19" href="/?cftsearch_submit=1&post_type=post&orderby=date&order=DESC">新</a>｜<a id="sort_20" href="/?cftsearch_submit=1&post_type=post&orderby=date&order=ASC">古</a></td>
+            <td><a id="sort_2" href="/?s=&post_type=post&orderby=value&order=ASC">安</a>｜<a id="sort_1" href="/?s=&post_type=post&meta_key&orderby=value&order=DESC">高</a></td>
+            <td><a id="sort_22" href="/?s=&post_type=post&orderby=sum-value&order=ASC">安</a>｜<a id="sort_21" href="/?s=&post_type=post&orderby=sum-value&order=DESC">高</a></td>
+            <td><a id="sort_3" href="/?cftsearch_submit=1&post_type=post&orderby=year&order=DESC">新</a>｜<a id="sort_4" href="/?cftsearch_submit=1&post_type=post&orderby=year&order=ASC">古</a></td>
+            <td><a id="sort_5" href="/?s=&post_type=post&orderby=distance&order=DESC">多</a>｜<a id="sort_6" href="/?s=&post_type=post&orderby=distance&order=ASC">少</a></td>
+            <td><a id="sort_23" href="/?s=&post_type=post&orderby=displacement&order=ASC">多</a>｜<a id="sort_24" href="/?s=&post_type=post&orderby=displacement&order=ASC">少</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
 <?php 
 $fuel_array = array(
 	1 => 160,
@@ -272,8 +299,16 @@ $fuel_array = array(
 for($k = 1; $k < 4; $k++){ ?>
 <div id="tab-contents-<?php echo $k ?>">
 <?php
-query_posts('posyt_type=post&orderby=title&posts_per_page=8&paged='.$paged);
+    $args = array(
+        "post_type" => "post",
+        "meta_key"=> $_GET["orderby"],
+        "orderby"=> "meta_value_num",
+        "order"=>$_GET["order"],
+        "paged"=>$paged
+    );
+query_posts($args);
 ?>
+
      <?php if (have_posts()) : ?>
 				<?php while (have_posts()) : the_post(); ?>
 <?php
@@ -282,7 +317,6 @@ $address = get_user_meta($user_id, "address", true);
 $present = get_user_meta($user_id, "present", true);
 $user_info = get_userdata($user_id);
 ?>
-
                                 <div class="caset caset--bkn js_listTableCassette blockLink">
                                     <div class="l-wrap caset--bkn__line1">
                                         <div class="l-box caset--bkn__mainImgBox">

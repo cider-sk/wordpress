@@ -295,34 +295,6 @@ $(function(){spbl.base.init({"brandShashuNames":[],"fmcGradeNames":[],"areaNames
         </div>
       </div>
     </div>
-    <div id="sortTable" style="z-index: 100; position: absolute; top: 0px; left: 0px;">
-      <table class="sortTbl">
-        <tbody id="sortArea">
-          <tr>
-            <th width="130" rowspan="2" class="va-btm prev_sort"><a id="sort_0" href="javascript:void(0)">元の並び順に戻す</a></th>
-            <th width="120" class="txt-l">新着順</th>
-            <th width="215">本体価格</th>
-            <th width="215">支払総額 <a href="http://www.carsensor.net/help/CS/help_sougaku.html" class="js_questionSingle" title="クリックすると説明が表示されます"><i class="icon icon_help"></i></a></th>
-            <th width="60">年式</th>
-            <th width="60">走行距離</th>
-            <th width="60">排気量</th>
-            <th width="60">車検<a href="http://www.carsensor.net/help/CS/help_syaken.html" class="js_questionSingle" title="クリックすると説明が表示されます"><i class="icon icon_help"></i></a></th>
-            <th width="60">修復歴</th>
-          </tr>
-          <tr>
-            <input id="sort_url" value="/usedcar/index.html" type="hidden">
-            <td class="txt-l"><a id="sort_19" href="javascript:void(0)">新</a>｜<a id="sort_20" href="javascript:void(0)">古</a></td>
-
-            <td><a id="sort_22" href="javascript:void(0)">安</a>｜<a id="sort_21" href="javascript:void(0)">高</a></td>
-            <td><a id="sort_3" href="javascript:void(0)">新</a>｜<a id="sort_4" href="javascript:void(0)">古</a></td>
-            <td><a id="sort_5" href="javascript:void(0)">多</a>｜<a id="sort_6" href="javascript:void(0)">少</a></td>
-            <td><a id="sort_23" href="javascript:void(0)">多</a>｜<a id="sort_24" href="javascript:void(0)">少</a></td>
-            <td><a id="sort_11" href="javascript:void(0)">付</a>｜<a id="sort_12" href="javascript:void(0)">無</a></td>
-            <td><a id="sort_13" href="javascript:void(0)">無</a>｜<a id="sort_14" href="javascript:void(0)">有</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 <div id="tab_menu_img">
                         <div class="tab_menu clearfix">
                             <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/left-check.png" alt="">
@@ -333,7 +305,34 @@ $(function(){spbl.base.init({"brandShashuNames":[],"fmcGradeNames":[],"areaNames
                             </div>
                         </div>
                     </div>
-			    <div id="bukkenCas">
+                <div id="bukkenCas">
+<div id="sortTable" style="z-index: 100;">
+      <table class="sortTbl">
+        <tbody id="sortArea">
+          <tr>
+            <th width="160" class="txt-l">燃費</th>
+            <th width="160" class="txt-l">新着順</th>
+            <th width="115">本体価格</th>
+            <th width="115">支払総額 <a href="http://www.carsensor.net/help/CS/help_sougaku.html" class="js_questionSingle" title="クリックすると説明が表示されます"><i class="icon icon_help"></i></a></th>
+            <th width="160">年式</th>
+            <th width="160">走行距離</th>
+            <th width="160">排気量</th>
+          </tr>
+          <tr>
+            <input id="sort_url" value="" type="hidden">
+<td class="txt-l"><a id="sort_19" href="/?s=&post_type=post&orderby=fuel&order=DESC">低</a>｜<a id="sort_20" href="/?s=&post_type=post&orderby=fuel&order=ASC">高</a></td>
+            <td class="txt-l"><a id="sort_19" href="/?cftsearch_submit=1&post_type=post&orderby=date&order=DESC">新</a>｜<a id="sort_20" href="/?cftsearch_submit=1&post_type=post&orderby=date&order=ASC">古</a></td>
+            <td><a id="sort_2" href="/?s=&post_type=post&orderby=value&order=ASC">安</a>｜<a id="sort_1" href="/?s=&post_type=post&meta_key&orderby=value&order=DESC">高</a></td>
+            <td><a id="sort_22" href="/?s=&post_type=post&orderby=sum-value&order=ASC">安</a>｜<a id="sort_21" href="/?s=&post_type=post&orderby=sum-value&order=DESC">高</a></td>
+            <td><a id="sort_3" href="/?cftsearch_submit=1&post_type=post&orderby=year&order=DESC">新</a>｜<a id="sort_4" href="/?cftsearch_submit=1&post_type=post&orderby=year&order=ASC">古</a></td>
+            <td><a id="sort_5" href="/?s=&post_type=post&orderby=distance&order=DESC">多</a>｜<a id="sort_6" href="/?s=&post_type=post&orderby=distance&order=ASC">少</a></td>
+            <td><a id="sort_23" href="/?s=&post_type=post&orderby=displacement&order=ASC">多</a>｜<a id="sort_24" href="/?s=&post_type=post&orderby=displacement&order=ASC">少</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
 <?php 
 $fuel_array = array(
 	1 => 160,
@@ -343,12 +342,14 @@ $fuel_array = array(
 for($k = 1; $k < 4; $k++){ ?>
 <div id="tab-contents-<?php echo $k ?>">
 <?php
-    query_posts( array(
-    's' => $s,
-    'posyt_type'=>'post',
-    'posts_per_page'=>'8'
-    )
-);
+    $args = array(
+        "post_type" => "post",
+        "meta_key"=> $_GET["orderby"],
+        "orderby"=> "meta_value_num",
+        "order"=>$_GET["order"],
+        "paged"=>$paged
+    );
+query_posts($args);
 ?>
      <?php if (have_posts()) : ?>
 				<?php while (have_posts()) : the_post(); ?>

@@ -19,10 +19,6 @@ $url_array_goo = array(
     "detail.html",
     "map.html",
     "stock.html",
-    "campaign.html",
-    "after_service.html",
-    "staff.html",
-    "group.html",
     );
 
 $users = get_users( $args );
@@ -35,18 +31,21 @@ foreach($users as $user){
     //販売店の登録
     $user_info = get_userdata($user->data->ID);
     $user_info->first_name;
-    
     //flag
     $is_what = "";
     if($url_car){ 
         $is_what = "carsensor";
+        //カスタム投稿タイプに投稿
         $shop_id = is_shop_regitered($url_car);
         if(!$shop_id){
             $shop_id = regist_shop($user_info->first_name, $url_car, $is_what);
         }
     }elseif($url_goo){
         $is_what = "goo";
-        $url_car = $url_goo;
+        //カスタム投稿タイプに投稿
+        preg_match("/http\:\/\/www\.goo\-net\.com\/usedcar_shop\/([0-9]*)\//", $url_goo, $matches);
+        //sp用に変換
+        $url_car = "http://www.goo-net.com/ipn/usedcar_shop/". $matches[1]."/";
         //カスタム投稿タイプに投稿
         $shop_id = is_shop_regitered($url_car);
         if(!$shop_id){
@@ -71,8 +70,12 @@ foreach($users as $user){
 }
 
 function regist_shop($title, $url, $is_what){
+    $context = stream_context_create(array('http' => array(
+        'method' => 'GET',
+        'header' => 'User-Agent : Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53',//ユーザエージェント
+    )));
     if($is_what == "carsensor"){
-        $html = file_get_html( $url );
+        $html = file_get_html( $url, true, $context);
         if($html){
             foreach($html->find("img") as $data ){
                 if(strpos($data->src, "http://www.carsensor.net/") === false 
@@ -104,8 +107,7 @@ function regist_shop($title, $url, $is_what){
             return $insert_id;
         }
     }elseif($is_what=="goo"){
-        echo $url;
-        $html = file_get_html( $url );
+        $html = file_get_html( $url, true, $context);
         if($html){
             foreach($html->find("img") as $data ){
                 if(strpos($data->src, "http://www.goo-net.com/") === false 
@@ -140,11 +142,21 @@ function regist_shop($title, $url, $is_what){
 
 //更新に使われる
 function croll_shop_info_goo($url, $slug, $shop_id, $tel, $address){
-    $html = file_get_html( $url.$slug );
+    $context = stream_context_create(array('http' => array(
+        'method' => 'GET',
+        'header' => 'User-Agent : Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53',//ユーザエージェント
+    )));
+    $html = file_get_html( $url.$slug, true, $context );
     update_post_meta($shop_id, 'tel', $tel); 
-    update_post_meta($shop_id, 'address', $address); 
+    update_post_meta($shop_id, 'address', $address);
+    
+    //url
     update_post_meta($shop_id, 'shop_url', $url); 
+    update_post_meta($shop_id, 'sp', $url); 
+    echo $html->find("table.baserTable", 0);
     if($html){
+        
+        echo $url.$slug;
         foreach($html->find("img") as $data ){
             if(strpos($data->src, "http://picture1.goo-net.com/") === false 
                 && strpos($data->src, "http://www.goo-net.com/") === false
@@ -158,8 +170,8 @@ function croll_shop_info_goo($url, $slug, $shop_id, $tel, $address){
                 //}
             }
         switch($slug){
-        case "detail.html":   
-            $main_content = $html->find(".box_campaign", 0)->innertext;
+        case "detail.html":
+            $baser_table = $html->find("table.baserTable", 0)->innertext;
             update_post_meta($shop_id, 'detail', $main_content); 
             break;
         case "map.html":
@@ -171,22 +183,6 @@ function croll_shop_info_goo($url, $slug, $shop_id, $tel, $address){
             //$right_content = $html->find(".l-sideColumn", 0)->innertext;
             //update_post_meta($shop_id, 'staff-left', $left_content);
             //update_post_meta($shop_id, 'staff-right', $right_content); 
-            break;
-        case "campaign.html":
-            $main_content = $html->find(".box_campaign", 0)->innertext;
-            update_post_meta($shop_id, 'campaign', $main_content); 
-            break;
-        case "after_service.html":
-            $left_content = $html->find(".box_guarantee", 0)->innertext;
-            update_post_meta($shop_id, 'afterservice', $left_content); 
-            break;
-        case "staff.html":
-            $left_content = $html->find(".box_storeStaff", 0)->innertext;
-            update_post_meta($shop_id, 'staff', $left_content);
-            break;
-        case "group.html":
-            $content = $html->find(".box_groupList", 0)->innertext;
-            update_post_meta($shop_id, 'group', $content);
             break;
         default :
             break;
@@ -200,7 +196,11 @@ function croll_shop_info_goo($url, $slug, $shop_id, $tel, $address){
 
 //更新に使われる
 function croll_shop_info($url, $slug, $shop_id, $tel, $address){
-    $html = file_get_html( $url.$slug );
+    $context = stream_context_create(array('http' => array(
+        'method' => 'GET',
+        'header' => 'User-Agent : Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53',//ユーザエージェント
+    )));
+    $html = file_get_html( $url.$slug, true, $context );
     update_post_meta($shop_id, 'tel', $tel); 
     update_post_meta($shop_id, 'address', $address); 
     update_post_meta($shop_id, 'shop_url', $url); 

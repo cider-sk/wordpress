@@ -125,7 +125,6 @@ img{
 }
 #bukkenCas{
     background-color:#fff;
-    padding:5px;
 }
 #footer{
   /*  padding:100px; */
@@ -319,9 +318,6 @@ div.wpcf7 img.ajax-loader {
 }
 .pageTtl {
     margin-top: -20px;
-}
-#sortTable{
-    display:none;
 }
 #bukkenCas{
     padding-top:0px !important;

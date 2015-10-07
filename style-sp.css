@@ -519,3 +519,22 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 }
+#top_review{
+    display:none;
+}
+.telMesse{
+    display:none;
+}
+.free_call2_cv img{
+    display:none;
+}
+.contWrap_cv{
+    display:none;
+}
+.btnType1.contWrap{
+    display:none;
+
+}
+.btnType1{
+    display:none;
+}
