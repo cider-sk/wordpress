@@ -248,7 +248,7 @@
                 <ul class="tblBtn">
                     <li>
                         <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=DESC&cast=signed#tab-link-box'; ?>" id="s3">新しい順</a>
-                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=DESC&cast=signed#tab-link-box'; ?>" id="s4">古い順</a>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=ASC&cast=signed#tab-link-box'; ?>" id="s4">古い順</a>
                     </li>
                 </ul>
             </li>
@@ -256,8 +256,8 @@
                 <p class="tblTitle">排気量</p>
                 <ul class="tblBtn">
                     <li>
-                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=DESC&cast=signed#tab-link-box'; ?>" id="s24">小さい順</a>
-                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=ASC&cast=signed#tab-link-box'; ?>" id="s23">大きい順</a>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=ASC&cast=signed#tab-link-box'; ?>" id="s24">小さい順</a>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=DESC&cast=signed#tab-link-box'; ?>" id="s23">大きい順</a>
                     </li>
                 </ul>
             </li>

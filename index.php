@@ -277,16 +277,17 @@ foreach ( $models as $model )
           </tr>
           <tr>
 <?php
-    $str = "cftsearch_submit=1&post_type=post";
+    $str .= "cftsearch_submit=1&post_type=post";
 ?>
             <input id="sort_url" value="" type="hidden">
-<td class="txt-l"><a id="sort_19" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=DESC&cast=signed#tab-link-box'; ?>">低</a>｜<a id="sort_20" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=DESC&cast=signed#tab-link-box'; ?>">高</a></td>
-            <td class="txt-l"><a id="sort_19" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&order=DESC&cast=signed#tab-link-box'; ?>">新</a>｜<a id="sort_20" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&order=DESC&cast=signed#tab-link-box'; ?>">古</a></td>
-            <td><a id="sort_2" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=DESC&cast=signed#tab-link-box'; ?>">安</a>｜<a id="sort_1" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=DESC&cast=signed#tab-link-box'; ?>">高</a></td>
-            <td><a id="sort_22" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=DESC&cast=signed#tab-link-box'; ?>">安</a>｜<a id="sort_21" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=DESC&cast=signed#tab-link-box'; ?>">高</a></td>
-            <td><a id="sort_3" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=DESC&cast=signed#tab-link-box'; ?>">新</a>｜<a id="sort_4" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=DESC&cast=signed#tab-link-box'; ?>">古</a></td>
-            <td><a id="sort_5" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=distance&order=DESC&cast=signed#tab-link-box'; ?>">多</a>｜<a id="sort_6" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=distance&order=DESC&cast=signed#tab-link-box'; ?>">少</a></td>
-            <td><a id="sort_23" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=DESC&cast=signed#tab-link-box'; ?>">多</a>｜<a id="sort_24" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=DESC&cast=signed#tab-link-box'; ?>">少</a></td>
+<td class="txt-l"><a id="sort_19" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=ASC&cast=signed'; ?>">低</a>｜<a id="sort_20" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=DESC&cast=signed'; ?>">高</a></td>
+            <td class="txt-l"><a id="sort_19" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&order=DESC&cast=signed'; ?>">新</a>｜<a id="sort_20" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&order=ASC&cast=signed'; ?>">古</a></td>
+            <td><a id="sort_2" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=ASC&cast=signed'; ?>">安</a>｜<a id="sort_1" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=DESC&cast=signed'; ?>">高</a></td>
+            <td><a id="sort_22" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=ASC&cast=signed'; ?>">安</a>｜<a id="sort_21" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=DESC&cast=signed'; ?>">高</a></td>
+            <td><a id="sort_3" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=DESC&cast=signed'; ?>">新</a>｜<a id="sort_4" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=ASC&cast=signed'; ?>">古</a></td>
+            <td><a id="sort_5" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=distance&order=DESC&cast=signed'; ?>">多</a>｜<a id="sort_6" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=distance&order=ASC&cast=signed'; ?>">少</a></td>
+            <td><a id="sort_23" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=DESC&cast=signed'; ?>">多</a>｜<a id="sort_24" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=ASC&cast=signed'; ?>">少</a></td>
+
           </tr>
         </tbody>
       </table>
