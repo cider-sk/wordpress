@@ -25,155 +25,129 @@
                 <a href="http://tsukucar.com/toriyose/"><img src="<?php bloginfo("template_url"); ?>/image-sp/chukosha.png" alt=""></a>
             </div>
             <div id="p2">
-<?php /*
                 <section id="tabBarSection">
                     <nav class="tabBar_R">
                         <ul id="tabBar" class="tabBar_top">
                             <li><div class="tabBtn tabBtn--1 IS_open" id="makerTabId"><b>メーカー検索</b></div></li>
                             <li><div class="tabBtn tabBtn--2 IS_close" id="bodyTabId"><b>車のタイプ検索</b></div></li>
-                            <li><div class="tabBtn tabBtn--3 IS_close"><b>複数条件検索</b></div></li>
+                            <li><div class="tabBtn tabBtn--3 IS_close" id="searchTabId"><b>複数条件検索</b></div></li>
                         </ul>
                     </nav>
                     <div class="tabBox  tabBox--1 IS_open">
                         <ul class="makerBtns">
-                          <li><a href="/usedcar/shashu/bTO/index.html" rel="external" class="ui-link"><span id="btn_toyota"></span><span>トヨタ</span></a></li>
-                          <li><a href="/usedcar/shashu/bNI/index.html" rel="external" class="ui-link"><span id="btn_nissan"></span><span>日産</span></a></li>
-                          <li><a href="/usedcar/shashu/bHO/index.html" rel="external" class="ui-link"><span id="btn_honda"></span><span>ホンダ</span></a></li>
-                          <li><a href="/usedcar/shashu/bMA/index.html" rel="external" class="ui-link"><span id="btn_mazda"></span><span>マツダ</span></a></li>
-                          <li><a href="/usedcar/shashu/bSB/index.html" rel="external" class="ui-link"><span id="btn_subaru"></span><span>スバル</span></a></li>
-                          <li><a href="/usedcar/shashu/bSZ/index.html" rel="external" class="ui-link"><span id="btn_suzuki"></span><span>スズキ</span></a></li>
-                          <li><a href="/usedcar/shashu/bMI/index.html" rel="external" class="ui-link"><span id="btn_mitsubishi"></span><span>三菱</span></a></li>
-                          <li><a href="/usedcar/shashu/bDA/index.html" rel="external" class="ui-link"><span id="btn_daihatsu"></span><span>ダイハツ</span></a></li>
-                      </ul>
+                        <?php 
+                        $array = array(
+                            "toyota" => "トヨタ",
+                            "nissan" => "日産",
+                            "honda" => "ホンダ",
+                            "mazda" => "マツダ",
+                            "suzuki" => "スズキ",
+                            "mitsubishi" => "三菱",
+                            "daihatsu" => "ダイハツ"
+                        );
+                        foreach($array as $k =>$d){
+                        ?>
+                          <li><a href="/?cftsearch%5Bmaker%5D%5B0%5D%5B%5D=<?php echo $d ?>&post_type=post&cftsearch_submit=1" rel="external" class="ui-link"><span id="btn_<?php echo $k ?>"></span><span><?php echo $d ?></span></a></li>
+                          <?php } ?>
+                     </ul>
                   </div><!-- /.tabBox -->
                   <div class="tabBox  tabBox--2 IS_close">
                         <ul class="bodytypeBtns">
-                            <li><a href="/usedcar/spK/index.html?fed=topsptypeb201506153ue" rel="external" class="ui-link"><span id="btn_kcar"></span><span class="text">軽自動車</span></a></li>
-                            <li><a href="/usedcar/spH/index.html?fed=topsptypeb201506154ue" rel="external" class="ui-link"><span id="btn_hybrid"></span><span class="text">ハイブリッド</span></a></li>
-                            <li><a href="/usedcar/btM/index.html?fed=topsptypeb201506155ue" rel="external" class="ui-link"><span id="btn_miniVan"></span><span class="text">ミニバン</span></a></li>
-                            <li><a href="/usedcar/btD/index.html?fed=topsptypeb201506156ue" rel="external" class="ui-link"><span id="btn_hBack"></span><span class="text">ハッチバック</span></a></li>
-                            <li><a href="/usedcar/btS/index.html?fed=topsptypeb201506157ue" rel="external" class="ui-link"><span id="btn_sedan"></span><span class="text">セダン</span></a></li>
-                            <li><a href="/usedcar/btW/index.html?fed=topsptypeb201506158ue" rel="external" class="ui-link"><span id="btn_stWagon"></span><span class="text stWagon_text">ステーションワゴン</span></a></li>
-                            <li><a href="/usedcar/btX/index.html?fed=topsptypeb201506159ue" rel="external" class="ui-link"><span id="btn_suv"></span><span class="text">クロカン・SUV</span></a></li>
-                            <li><a href="/usedcar/btC/index.html?fed=topsptypeb2015061510ue" rel="external" class="ui-link"><span id="btn_coupe"></span><span class="text">クーペ</span></a></li>
-                            <li><a href="/usedcar/btO/index.html?fed=topsptypeb2015061511ue" rel="external" class="ui-link"><span id="btn_open"></span><span class="text">オープン</span></a></li>
-                            <li><a href="/usedcar/btT/index.html?fed=topsptypeb2015061512ue" rel="external" class="ui-link"><span id="btn_track"></span><span class="text">トラック</span></a></li>
-                            <li><a href="/usedcar/spF/index.html?fed=topsptypeb2015061513ue" rel="external" class="ui-link"><span id="btn_welfare"></span><span class="text">福祉車両</span></a></li>
-                            <li><a href="/usedcar/btP/index.html?fed=topsptypeb2015061514ue" rel="external" class="ui-link"><span id="btn_picUpT"></span><span class="text picUpT_text">ピックアップトラック</span></a></li>
-                            <li><a href="/usedcar/spS/index.html?fed=topsptypeb2015061515ue" rel="external" class="ui-link"><span id="btn_van"></span><span class="text">商用車</span></a></li>
-                            <li><a href="/usedcar/search.php?SP=C&amp;fed=topsptypeb2015061516ue" rel="external" class="ui-link"><span id="btn_camp"></span><span class="text">キャンピングカー</span></a></li>
-                            <li><a href="/usedcar/search.php?BT=N&amp;fed=topsptypeb2015061517ue" id="btn_other" rel="external" class="ui-link"><span>その他</span></a></li>
-                        </ul>
+                        <?php
+                        $array = array(
+                                "kcar" => "軽自動車",
+                                "hBack" => "ハッチバック",
+                                "miniVan" => "ミニバン",
+                                "sedan" => "セダン",
+                                "suv" => "SUV",
+                                "hybrid" => "ハイブリッド",
+                                "stWagon" => "ステーションワゴン",
+                                "coupe" => "クーペ",
+                                "open" => "オープンカー"
+                                );
+                        foreach($array as $k =>$d){
+                        ?>
+                            <li><a href="?cftsearch%5Bbody-type%5D%5B0%5D%5B%5D=<?php echo $d ?>&cftsearch_submit=1" rel="external" class="ui-link"><span id="btn_<?php echo $k ?>"></span><span class="text"><?php echo $d ?></span></a></li>
+                        <?php } ?>
+                                                    </ul>
                     </div><!-- /.tabBox -->
                     <div class="searchBlock_multi tabBox  tabBox--3 IS_close">
                     <div id="multiSearchSection"></div>
+<form name="f_combo" id="f_combo" action="/" method="get">
+<input type="hidden" name="post_type" value="post">
                         <ul class="searchList" id="TopFirstList">
                             <li>
-                                <a href="javascript:void(0);" onclick="reqVos('SMPH1011');panel.dispBrand();" class="ui-link">
+                                <a href="javascript:void(0);" class="ui-link">
                                     <p class="selectTtl">メーカー・車名</p>
-                                    <p class="subTxt"><span id="selectedCar">指定なし</span></p>
+                                    <p class="subTxt" data-toggle="modal" data-target="#myModal" ><span id="selectedCar">指定なし</span></p>
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" onclick="reqVos('SMPH1031');panel.dispArea();setNoDispfooterId('areaSelect_SLock');panel.LoadEnd('#selectArea');" class="ui-link">
-                                    <p class="selectTtl">地域</p>
-                                    <p class="subTxt"><span id="selectedArea">指定なし</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" onclick="reqVos('SMPH1041');panel.LoadEnd('#selectBtype');" class="ui-link">
-                                    <p class="selectTtl">ボディタイプ</p>
+                                <a href="javascript:void(0);"  data-toggle="modal" data-target="#myModal" class="ui-link">
+                                    <p class="selectTtl">グレード/モデル</p>
                                     <p class="subTxt"><span id="selectedBodyType">指定なし</span></p>
                                 </a>
                             </li>
-                            <li><p class="selectTtl">価格</p>
+                            <li><p class="selectTtl" style="float:left;">価格</p>
                                 <p class="subTxt">
-                            <select data-role="none" id="select1" name="PMIN">
+                            <select data-role="none" id="select1" name="cftsearch[value][1][]">
                                 <option label="下限なし" value="">下限なし</option>
-                                <option label="5万円" value="50000">5万円</option>
-                                <option label="10万円" value="100000">10万円</option>
-                                <option label="15万円" value="150000">15万円</option>
-                                <option label="20万円" value="200000">20万円</option>
-                                <option label="25万円" value="250000">25万円</option>
-                                <option label="30万円" value="300000">30万円</option>
-                                <option label="35万円" value="350000">35万円</option>
-                                <option label="40万円" value="400000">40万円</option>
-                                <option label="45万円" value="450000">45万円</option>
-                                <option label="50万円" value="500000">50万円</option>
-                                <option label="60万円" value="600000">60万円</option>
-                                <option label="70万円" value="700000">70万円</option>
-                                <option label="80万円" value="800000">80万円</option>
-                                <option label="90万円" value="900000">90万円</option>
-                                <option label="100万円" value="1000000">100万円</option>
-                                <option label="120万円" value="1200000">120万円</option>
-                                <option label="140万円" value="1400000">140万円</option>
-                                <option label="160万円" value="1600000">160万円</option>
-                                <option label="180万円" value="1800000">180万円</option>
-                                <option label="200万円" value="2000000">200万円</option>
-                                <option label="250万円" value="2500000">250万円</option>
-                                <option label="300万円" value="3000000">300万円</option>
-                                <option label="350万円" value="3500000">350万円</option>
-                                <option label="400万円" value="4000000">400万円</option>
-                                <option label="450万円" value="4500000">450万円</option>
-                                <option label="500万円" value="5000000">500万円</option>
-                                <option label="600万円" value="6000000">600万円</option>
-                                <option label="700万円" value="7000000">700万円</option>
-                                <option label="800万円" value="8000000">800万円</option>
-                                <option label="900万円" value="9000000">900万円</option>
+                                <option label="5万円" value="5">5万円</option>
+                                <option label="10万円" value="10">10万円</option>
+                                <option label="15万円" value="15">15万円</option>
+                                <option label="20万円" value="20">20万円</option>
+                                <option label="25万円" value="25">25万円</option>
+                                <option label="30万円" value="30">30万円</option>
+                                <option label="35万円" value="35">35万円</option>
+                                <option label="40万円" value="40">40万円</option>
+                                <option label="45万円" value="45">45万円</option>
+                                <option label="50万円" value="50">50万円</option>
+                                <option label="60万円" value="60">60万円</option>
+                                <option label="70万円" value="70">70万円</option>
+                                <option label="80万円" value="80">80万円</option>
+                                <option label="90万円" value="90">90万円</option>
+                                <option label="100万円" value="100">100万円</option>
+                                <option label="120万円" value="120">120万円</option>
+                                <option label="140万円" value="140">140万円</option>
+                                <option label="160万円" value="160">160万円</option>
+                                <option label="180万円" value="180">180万円</option>
+                                <option label="200万円" value="200">200万円</option>
+                                <option label="250万円" value="250">250万円</option>
                             </select>-
-                            <select data-role="none" id="select2" name="PMAX">
+                            <select data-role="none" id="select2" name="cftsearch[value][2][]">
                                 <option label="上限なし" value="">上限なし</option>
-                                <option label="5万円" value="50000">5万円</option>
-                                <option label="10万円" value="100000">10万円</option>
-                                <option label="15万円" value="150000">15万円</option>
-                                <option label="20万円" value="200000">20万円</option>
-                                <option label="25万円" value="250000">25万円</option>
-                                <option label="30万円" value="300000">30万円</option>
-                                <option label="35万円" value="350000">35万円</option>
-                                <option label="40万円" value="400000">40万円</option>
-                                <option label="45万円" value="450000">45万円</option>
-                                <option label="50万円" value="500000">50万円</option>
-                                <option label="60万円" value="600000">60万円</option>
-                                <option label="70万円" value="700000">70万円</option>
-                                <option label="80万円" value="800000">80万円</option>
-                                <option label="90万円" value="900000">90万円</option>
-                                <option label="100万円" value="1000000">100万円</option>
-                                <option label="120万円" value="1200000">120万円</option>
-                                <option label="140万円" value="1400000">140万円</option>
-                                <option label="160万円" value="1600000">160万円</option>
-                                <option label="180万円" value="1800000">180万円</option>
-                                <option label="200万円" value="2000000">200万円</option>
-                                <option label="250万円" value="2500000">250万円</option>
-                                <option label="300万円" value="3000000">300万円</option>
-                                <option label="350万円" value="3500000">350万円</option>
-                                <option label="400万円" value="4000000">400万円</option>
-                                <option label="450万円" value="4500000">450万円</option>
-                                <option label="500万円" value="5000000">500万円</option>
-                                <option label="600万円" value="6000000">600万円</option>
-                                <option label="700万円" value="7000000">700万円</option>
-                                <option label="800万円" value="8000000">800万円</option>
-                                <option label="900万円" value="9000000">900万円</option>
+                                <option label="5万円" value="5">5万円</option>
+                                <option label="10万円" value="10">10万円</option>
+                                <option label="15万円" value="15">15万円</option>
+                                <option label="20万円" value="20">20万円</option>
+                                <option label="25万円" value="25">25万円</option>
+                                <option label="30万円" value="30">30万円</option>
+                                <option label="35万円" value="35">35万円</option>
+                                <option label="40万円" value="40">40万円</option>
+                                <option label="45万円" value="45">45万円</option>
+                                <option label="50万円" value="50">50万円</option>
+                                <option label="60万円" value="60">60万円</option>
+                                <option label="70万円" value="70">70万円</option>
+                                <option label="80万円" value="80">80万円</option>
+                                <option label="90万円" value="90">90万円</option>
+                                <option label="100万円" value="100">100万円</option>
+                                <option label="120万円" value="120">120万円</option>
+                                <option label="140万円" value="140">140万円</option>
+                                <option label="160万円" value="160">160万円</option>
+                                <option label="180万円" value="180">180万円</option>
+                                <option label="200万円" value="200">200万円</option>
+                                <option label="250万円" value="250">250万円</option>
                             </select>
                                 </p>
                             </li>
                         </ul>
-                        <form name="f_combo" id="f_combo" action="/usedcar/search.php#mainBlock" method="get">
-                            <input type="hidden" value="" id="STID" name="STID">
-                            <input type="hidden" value="" id="BRDC" name="BRDC">
-                            <input type="hidden" value="" id="CARC" name="CARC">
-                            <input type="hidden" value="" id="AR" name="AR">
-                            <input type="hidden" value="" id="BT" name="BT">
-                            <input type="hidden" value="" id="SP" name="SP">
-                            <input type="hidden" value="" id="NINTEI" name="NINTEI">
-                            <input type="hidden" value="" id="PMIN" name="PMIN">
-                            <input type="hidden" value="" id="PMAX" name="PMAX">
-                        </form>
                         <div class="actionArea">
-                            <button data-role="none" class="btn_TopSearch" onclick="panel.onSubmit(); javascript:void(0);">この条件で検索<span></span></button>
+                            <button type="submit" data-role="none" class="btn_TopSearch" onclick="panel.onSubmit(); javascript:void(0);">この条件で検索<span></span></button>
                         </div><!-- /.actionArea -->
+                        <input type="hidden" name="cftsearch_submit" value="1">
                     </div>
+                    </form>
                     </section>
- */ ?>
             </div>
                 <h2 class="hdd2nd searchHistoryB">その他の検索</h2>                
                 <ul class="slideLinkL">
@@ -185,7 +159,7 @@
     <h2 class="hdd2nd">中古車購入の方法や流れを知りたい！</h2>
     <ul class="osiraseBlock">
         <li>
-            <a href="/contents/guide/" class="osiraseBox ui-link" rel="external">
+            <a href="" class="osiraseBox ui-link" rel="external">
                 <div class="box_L">
                 <img src="<?php bloginfo("template_url"); ?>/image-sp/sp-top-icon.jpg" width="100%" alt="中古車購入ガイド">
                 </div>
@@ -214,7 +188,7 @@
     <div class="pageBody">
 <div class="bknAllTopBar">
 <p class="toolBar_result"><a href="javascript:void(0);" id="menuBtn_sort1"><?php echo $wp_query->found_posts; ?><span>台</span></a></p>
-<p class="toolBar_Btn w105"><a href="<?php bloginfo("url") ?>/price-search/" rel="nofollow">絞り込み<br>▼</a></p>
+<p class="toolBar_Btn w105"><a href="<?php bloginfo("url") ?>#tabBar" rel="nofollow">絞り込み<br>▼</a></p>
 <p class="toolBar_Btn w105"><a href="javascript:void(0);" class="sort-btn open_sort" id="menuBtn_sort1">並べ替え<br>▲</a></p>
 </div>
 

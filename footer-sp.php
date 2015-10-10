@@ -9,6 +9,87 @@
 </footer>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index:10000;">
+  <div class="modal-dialog" role="document">
+    <div class="" style="">
+    <div class="modal__inner">
+<dl id="brandLst"><header class="pageHeader">
+    <h1 class="pageTtl">メーカー選択</h1>
+</header>
+<ul class="slideLinkL">
+    <li>
+        <a href="javascript:void(0);" class="ui-link">
+            <div class="listTxtBox">
+                <p class="main">すべてのメーカー</p>
+                <p class="sub">(349483)</p>
+            </div>
+        </a>
+    </li>
+</ul>
+<section>
+    <h2 class="hdd2nd" id="JPN">国産中古車</h2>
+    <ul class="slideLinkL">
+<li>
+    <a href="javascript:void(0);" data-dismiss="modal" data-toggle="modal" data-target="#myModal2" class="ui-link" title="レクサス">
+        <div class="listTxtBox">
+            <p class="main">レクサス</p>
+            <p class="sub">(3592)</p>
+        </div>
+    </a>
+</li>
+</ul>
+</section></dl>
+    </div>
+   </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index:10000;">
+  <div class="modal-dialog" role="document">
+    <div class="" style="">
+    <div class="modal__inner">
+<dl class="accordionList" id="nameList"><link rel="stylesheet" href="/smph/cmn/dcss/selectShashu.css">
+<header class="pageHeader">
+    <h1 class="pageTtl">レクサス(LEXUS)中古車</h1>
+</header>
+<div class="tabBox" data-role="content none">
+<ul class="slideLinkL" style="clear:both;">
+    <li>
+        <a href="javascript:void(0);" class="ui-link">
+            <div class="listTxtBox">
+                <p class="main">レクサスの中古車すべて</p>
+                <p class="sub">(3592)</p>
+            </div>
+        </a>
+    </li>
+</ul>
+<section>
+<h3 class="hdd3rd">人気車</h3>
+<p class="uee"><a href="javascript:void(0);" rel="external" onclick="window.scroll(0,1);return false;" data-role="none">▲上へ戻る</a></p>
+<ul class="slideLinkL">
+<li>
+    <a href="javascript:void(0);" title="レクサス_IS" id="LE_S003" data-dismiss="modal" class="ui-link">
+        <div class="listImgBox"><img src="http://www.carsensor.net/CSphoto/cat/LE/S003/LE_S003_F002_1.jpg" width="80" height="60" alt="IS"></div>
+        <div class="listTxtBox">
+            <p class="main">IS</p>
+            <p class="sub"><span class="popularCar">人気車</span>(581)</p>
+        </div>
+    </a>
+</li>
+
+</ul>
+<p class="goTop"><a rel="external" href="javascript:void(0);" title="TOPへ" data-role="none" onclick="window.scroll(0,1);return false;">▲レクサス(LEXUS)中古車から探すTOPへ</a></p>
+</section>
+</div>
+</dl>
+   </div>
+  </div>
+</div>
+
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -49,14 +130,78 @@ $(function(){
         $("#menuBtn_sort1").addClass("close_sort");
         $("#menuBtn_sort1").addClass("menuBtn_sort--off");
     });
-    
-     $(".toolBar_result").click(function(){
+
+    $("#makerTabId").click(function(){
+        $(".tabBox--1").addClass("IS_open");
+        $(".tabBox--1").removeClass("IS_close");
+        $(".tabBox--2").removeClass("IS_open");
+        $(".tabBox--2").addClass("IS_close");
+        $(".tabBox--3").removeClass("IS_open");
+        $(".tabBox--3").addClass("IS_close");
+        $(".tabBtn--1").addClass("IS_open");
+        $(".tabBtn--1").removeClass("IS_close");
+        $(".tabBtn--2").removeClass("IS_open");
+        $(".tabBtn--2").addClass("IS_close");
+        $(".tabBtn--3").removeClass("IS_open");
+        $(".tabBtn--3").addClass("IS_close");
+
+    });
+    $("#bodyTabId").click(function(){
+        $(".tabBox--1").removeClass("IS_open");
+        $(".tabBox--1").addClass("IS_close");
+        $(".tabBox--2").addClass("IS_open");
+        $(".tabBox--2").removeClass("IS_close");
+        $(".tabBox--3").removeClass("IS_open");
+        $(".tabBox--3").addClass("IS_close");
+        $(".tabBtn--1").removeClass("IS_open");
+        $(".tabBtn--1").addClass("IS_close");
+        $(".tabBtn--2").addClass("IS_open");
+        $(".tabBtn--2").removeClass("IS_close");
+        $(".tabBtn--3").removeClass("IS_open");
+        $(".tabBtn--3").addClass("IS_close");
+    });
+    $("#searchTabId").click(function(){
+        $(".tabBox--1").removeClass("IS_open");
+        $(".tabBox--1").addClass("IS_close");
+        $(".tabBox--2").removeClass("IS_open");
+        $(".tabBox--2").addClass("IS_close");
+        $(".tabBox--3").addClass("IS_open");
+        $(".tabBox--3").removeClass("IS_close");
+        $(".tabBtn--1").removeClass("IS_open");
+        $(".tabBtn--1").addClass("IS_close");
+        $(".tabBtn--2").removeClass("IS_open");
+        $(".tabBtn--2").addClass("IS_close");
+        $(".tabBtn--3").addClass("IS_open");
+        $(".tabBtn--3").removeClass("IS_close");
+    });
+
+    $(".toolBar_result").click(function(){
         $(".naviSortingArea").hide();
         $("#menuBtn_sort1").removeClass("close_sort");
         $("#menuBtn_sort1").addClass("open_sort");
         $("#menuBtn_sort1").addClass("menuBtn_sort--off");
     });
-    
+
+    $("#myModal .slideLinkL a").click(function(){
+        if($(this).attr("title")){
+            if($("#selectedCar").html().match(/指定なし/)){
+                $("#selectedCar").html("");
+            }
+            $("#selectedCar").append("<li>" + $(this).attr("title") + "</li>");
+            $("#selectedCar").append('<input type="hidden" name="cftsearch[maker][0][]" value="' + $(this).attr("title") + '">');
+        }
+    });
+
+    $("#myModal2 .slideLinkL a").click(function(){
+        if($(this).attr("title")){
+            if($("#selectedBodyType").html().match(/指定なし/)){
+                $("#selectedBodyType").html("");
+            }
+            $("#selectedBodyType").append("<li>" + $(this).attr("title") + "</li>");
+            $("#selectedBodyType").append('<input type="hidden" name="cftsearch[model][0][]" value="' + $(this).attr("title") + '">');
+        }
+    });
+
     //contact form
     $(document).ready(function(){
 	    $("input[name='text-134']").val("<?php the_title(); ?>");

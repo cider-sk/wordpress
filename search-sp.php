@@ -19,7 +19,7 @@
     <div class="pageBody">
 <div class="bknAllTopBar">
 <p class="toolBar_result"><a href="javascript:void(0);" id="menuBtn_sort1"><?php echo $wp_query->found_posts; ?><span>台</span></a></p>
-<p class="toolBar_Btn w105"><a href="<?php bloginfo("url") ?>/price-search/" rel="nofollow">絞り込み<br>▼</a></p>
+<p class="toolBar_Btn w105"><a href="<?php bloginfo("url") ?>#tabBar" rel="nofollow">絞り込み<br>▼</a></p>
 <p class="toolBar_Btn w105"><a href="javascript:void(0);" class="sort-btn open_sort" id="menuBtn_sort1">並べ替え<br>▲</a></p>
 </div>
 
