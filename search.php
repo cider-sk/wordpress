@@ -28,7 +28,7 @@ $maker_array = array(
 );
 foreach($maker_array as $maker){
 ?>
-    <dd><a href="#" class="modal__select modal__select--maker js_makerMenu" onclick="spbl.tb.shashu.clickBrand('LE', this);return !1" title="<?php echo $maker ?>"><?php echo $maker ?><span class="linkNo"></span></a></dd>
+    <dd><a href="#" class="modal__select modal__select--maker js_makerMenu" onclick="" title="<?php echo $maker ?>"><?php echo $maker ?><span class="linkNo"></span></a></dd>
 <?php } ?>
                    </dl>
               </div><!-- /.modal__scrollBox -->
@@ -51,19 +51,20 @@ foreach($maker_array as $maker){
 		GROUP BY meta_value
 		order by meta_value
 		"
-	);
+    );
+    $i = 0;
 foreach ( $models as $model ) 
 {
+    $i ++;
 ?>
                     <dd>
-                    <label class="l-wrap modal__select" for="chk1alphaLine1">
-                      <span class="l-box modal__select__check"><input type="checkbox" class="f-check js_CB1" name="carcchk" value="<?php echo $model->meta_value; ?>" id="chk1alphaLine1"></span>
-                      <span class="l-box modal__select__name"><a href="javascript:void(paneljump({'CARC':'BM_S010'},0))"><span class="js_s_name"><?php echo $model->meta_value; ?></span><span class="linkNo"></span></a></span>
+                    <label class="l-wrap modal__select" for="chk1alphaLine<?php echo $i; ?>">
+                      <span class="l-box modal__select__check"><input type="checkbox" class="f-check js_CB1" name="carcchk" value="<?php echo $model->meta_value; ?>" id="chk1alphaLine<?php echo $i; ?>"></span>
+                      <span class="l-box modal__select__name"><span class="js_s_name"><?php echo $model->meta_value; ?></span><span class="linkNo"></span></span>
                     </label>
                   </dd>
 <?php } ?>
-
-                    </dl>
+                </dl>
                 </div>
               </div><!-- /.modal__scrollBox -->
             </div><!-- /.l-box -->
@@ -117,14 +118,16 @@ foreach ( $models as $model )
     <tr style="height: 35px;">
       <th><p class="lh12">メーカー</p></th>
       <td style="width:130px;">
-
+<div id="maker_select">
 <a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>
+</div>
 <!-- Button trigger modal -->
       </td>
       <th><p class="lh12">モデル・<br>グレード</p></th>
       <td style="width:130px;">
+<div id="model_select">
 <a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="modelAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>
-
+</div>
 <?php /*
 <select name="cftsearch[maker][0][]">
 </select>
@@ -323,15 +326,6 @@ foreach ( $models as $model )
 
 </form>
 </div>
-
-<script type="text/javascript">
-<!--
-
-$('#subArea').removeClass("is-on").addClass("is-off");
-$(function(){spbl.base.init({"brandShashuNames":[],"fmcGradeNames":[],"areaNames":[],"cityNames":[]},'U1RJRD1DUzIxMDYxMA==')});
-
-// -->
-</script>
 
 
   <div class="bknAll_summary_basic mb20">

@@ -53,6 +53,23 @@ $(function(){
         $("#tab-contents-2").hide();
         $("#tab-contents-3").show();
     });
+    $(".modal__select").click(function(){
+        if($("#maker_select").html().match(/選択する/)){
+            $("#maker_select").html("");
+        }
+        $(this).addClass("is-selected");
+        $("#maker_select").append("<li>" + $(this).attr("title") + "</li>");
+        $("#maker_select").append('<input type="hidden" name="cftsearch[maker][0][]" value="' + $(this).attr("title") + '">');
+    });
+    $(".f-check").change(function(){
+        //listに追加
+        if($("#model_select").html().match(/選択する/)){
+            $("#model_select").html("");
+        }
+        $("#model_select").append("<li>" + $(this).val() + "</li>");
+        $("#model_select").append('<input type="hidden" name="cftsearch[model][0][]" value="' + $(this).val() + '">');
+    });
+    
     //contact form
     $(document).ready(function(){
 	    $("input[name='text-134']").val("<?php the_title(); ?>");
