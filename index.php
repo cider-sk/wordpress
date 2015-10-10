@@ -37,7 +37,9 @@ echo $wp_query->found_posts;
                 <div class="l-wrap">
                     <div class="l-box">
                         <section class="top__panel__multi">
-                        <h3 class="top__panel__ttl">複数条件検索</h3>
+                        <h3 class="top__panel__ttl" style="
+    margin-bottom: -10px;
+">複数条件検索</h3>
                         <form name="f_combo" id="f_combo" action="/" method="get">
 <input type="hidden" name="post_type" value="post">
 
@@ -45,32 +47,28 @@ echo $wp_query->found_posts;
                                 <div class="l-box top-multi__box--L h50">
 <table class="top-search">
     <tr>
-	<th>グレード/モデル</th>
+	<th>メーカー</th>
 <td>
-<select name="cftsearch[model][0][]" style="
-    width: 100%;
-    font-size: 20px;
-    margin-top: 11px;
-">
-<?php 
-	global $wpdb;
-	$models = $wpdb->get_results( 
-		"
-		SELECT *
-		FROM  wp_postmeta
-		WHERE meta_key =  'model'
-		GROUP BY meta_value
-		order by meta_value
-		"
-	);
-foreach ( $models as $model ) 
-{
-?>
-	<option value="<?php echo $model->meta_value; ?>"><?php echo $model->meta_value; ?></option>
-<?php } ?>
-</select>
+<div id="maker_select">
+<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href="" data-toggle="modal" data-target="#myModal" title="選択する" style="
+    margin-top: 10px;
+">選択する</a>
+</div>
 </td>
     </tr>
+    <tr>
+	<th style="
+    padding-top: 0px;
+">グレード/モデル</th>
+<td>
+<div id="model_select">
+<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href="" data-toggle="modal" data-target="#myModal" title="選択する" style="
+    margin-top: 10px;
+">選択する</a>
+</div>
+</td>
+    </tr>
+
 </table>
                                 </div>
                             </div>
@@ -201,7 +199,7 @@ foreach ( $models as $model )
                                 <div class="makerBtn__txt">三菱</div>
                             </a>
 
-                            <a href="?STID=CS210610&cftsearch%5Bmaker%5D%5B0%5D%5B%5D=ダイハツ&cftsearch%5Bmodel%5D%5B0%5D%5B%5D=&cftsearch%5Bvalue%5D%5B1%5D%5B%5D=&cftsearch%5Bvalue%5D%5B2%5D%5B%5D=&cftsearch%5Byear%5D%5B1%5D%5B%5D=&cftsearch%5Byear%5D%5B2%5D%5B%5D=&cftsearch%5Bdistance%5D%5B1%5D%5B%5D=&cftsearch%5Bdistance%5D%5B2%5D%5B%5D=&cftsearch%5Bcar-name%5D%5B0%5D%5B%5D=&cftsearch%5Bcolor%5D%5B0%5D%5B%5D=&cftsearch_submit=1" title="ダイハツの中古車" class="makerBtn">
+                            <a href="?cftsearch%5Bmaker%5D%5B0%5D%5B%5D=ダイハツ&cftsearch%5Bmodel%5D%5B0%5D%5B%5D=&cftsearch%5Bvalue%5D%5B1%5D%5B%5D=&cftsearch%5Bvalue%5D%5B2%5D%5B%5D=&cftsearch%5Byear%5D%5B1%5D%5B%5D=&cftsearch%5Byear%5D%5B2%5D%5B%5D=&cftsearch%5Bdistance%5D%5B1%5D%5B%5D=&cftsearch%5Bdistance%5D%5B2%5D%5B%5D=&cftsearch%5Bcar-name%5D%5B0%5D%5B%5D=&cftsearch%5Bcolor%5D%5B0%5D%5B%5D=&cftsearch_submit=1" title="ダイハツの中古車" class="makerBtn">
                                 <span class="makerLogo maker--DA"></span>
                                 <div class="makerBtn__txt">ダイハツ</div>
                             </a>
@@ -211,11 +209,11 @@ foreach ( $models as $model )
                 </div>
                 
             </div>
-            <div class="block" style="display:none;">
+            <div class="block" style="" id ="bodytype">
                 <h2>
                     <img src="<?php bloginfo("template_url"); ?>/dist/img/search_bodytype.png" alt="ボディタイプで探す">
                 </h2>
-                <div class="l-wrap">
+                <div class="l-wrap" style="margin-top:0px;">
                     <div class="row">
                     <img src="<?php bloginfo("template_url"); ?>/dist/img/body_type1.png" alt="">
                     </div>
@@ -227,6 +225,34 @@ foreach ( $models as $model )
     width: 345px;
 " src="<?php bloginfo("template_url"); ?>/dist/img/body_type3.png" alt="">
                     </div>
+<div class="fix"><?php 
+$array = array(
+    array("軽自動車"),
+    array("ハッチバック"),
+    array("ミニバン"),
+    array("セダン"),
+    array("SUV"),
+    array("ハイブリッド"),
+    array("ステーションワゴン"),
+    array("バン"),
+    array("クーペ"),
+    array("オープンカー")
+);
+$i = 0;
+foreach($array as $key => $d){
+?>
+    <a href="?cftsearch%5Bbody-type%5D%5B0%5D%5B%5D=<?php echo $d[0] ?>&cftsearch_submit=1" class="block" style="
+    left: <?php echo 160 * ($i % 4) ?>px;
+    margin-top: <?php echo 72 * ((int)($i / 4)) ?>px;
+"></a>
+<?php 
+$i ++;
+} ?>
+<style>
+
+</style>
+</div>
+
                 </div>
             </div>
         </div>
