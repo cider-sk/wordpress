@@ -42,19 +42,23 @@
                 <dl class="modal__list">
                   <dt class="modal__list__ttl"><b class="fontXL">国産中古車</b></dt>
 <?php
-$maker_array = array(
-	"トヨタ",
-	"日産",
-	"ホンダ",
-	"マツダ",
-	"スズキ",
-	"三菱",
-	"ダイハツ"
-);
-foreach($maker_array as $maker){
+//親のカテゴリー
+	global $wpdb;
+	$makers = $wpdb->get_results( 
+        "
+SELECT * 
+FROM  `wp_term_taxonomy` 
+LEFT JOIN wp_terms ON  `wp_term_taxonomy`.term_id = wp_terms.term_id
+WHERE count =0
+AND parent =0
+		"
+    );
+    $i = 0;
+foreach($makers as $maker){
 ?>
-    <dd><a href="#" class="modal__select modal__select--maker js_makerMenu" onclick="" title="<?php echo $maker ?>"><?php echo $maker ?><span class="linkNo"></span></a></dd>
-<?php } ?>
+    <dd><a href="#" class="modal__select modal__select--maker js_makerMenu" onclick="" id="maker<?php echo $maker->term_id ?>" title="<?php echo $maker->name ?>"><?php echo $maker->name ?><span class="linkNo"></span></a></dd>
+<?php } 
+?>
                    </dl>
               </div><!-- /.modal__scrollBox -->
             </div><!-- /.l-box -->
@@ -66,15 +70,18 @@ foreach($maker_array as $maker){
                 <div id="nList2">
                   <dl class="modal__list" id="nameList">
                   <dt id="alphaLine" class="modal__list__ttl">モデル・グレード</dt>
-<?php 
-	global $wpdb;
+<?php
+foreach($makers as $maker){
+?>
+<div id="model_view_<?php echo $maker->term_id ?>" class="model_view" style="display:none">
+<?php
 	$models = $wpdb->get_results( 
-		"
-		SELECT *
-		FROM  wp_postmeta
-		WHERE meta_key =  'model'
-		GROUP BY meta_value
-		order by meta_value
+        "
+SELECT * 
+FROM  `wp_term_taxonomy` 
+LEFT JOIN wp_terms ON  `wp_term_taxonomy`.term_id = wp_terms.term_id
+WHERE count =0
+AND parent = $maker->term_id
 		"
     );
     $i = 0;
@@ -84,18 +91,19 @@ foreach ( $models as $model )
 ?>
                     <dd>
                     <label class="l-wrap modal__select" for="chk1alphaLine<?php echo $i; ?>">
-                      <span class="l-box modal__select__check"><input type="checkbox" class="f-check js_CB1" name="carcchk" value="<?php echo $model->meta_value; ?>" id="chk1alphaLine<?php echo $i; ?>"></span>
-                      <span class="l-box modal__select__name"><span class="js_s_name"><?php echo $model->meta_value; ?></span><span class="linkNo"></span></span>
+                      <span class="l-box modal__select__check"><input type="checkbox" class="f-check js_CB1" name="carcchk" value="<?php echo $model->name; ?>" id="chk1alphaLine<?php echo $i; ?>"></span>
+                      <span class="l-box modal__select__name"><span class="js_s_name"><?php echo $model->name; ?></span><span class="linkNo"></span></span>
                     </label>
                   </dd>
+<?php } ?>
+</div>
 <?php } ?>
                 </dl>
                 </div>
               </div><!-- /.modal__scrollBox -->
             </div><!-- /.l-box -->
-          </div> <!-- /.l-wrap--fixed -->
+          </div>
         </div>
-
 
         <div class="modal__terms l-wrap">
           <div class="modal__terms__ttl l-box">
@@ -109,7 +117,7 @@ foreach ( $models as $model )
         <div class="modal__btns l-wrap">
           <div class="l-box">
     <div class="l-box txt-r">
-      <button id="rest" class="btn btn--funcL2 btn--big">条件クリア</button>
+      <button id="rest2" class="btn btn--funcL2 btn--big">条件クリア</button>
       <input type="hidden" name="cftsearch_submit" value="1">
     </div>
           </div><!-- /.l-box -->
@@ -165,6 +173,27 @@ $(function(){
         }
     });
     
+    $("#rest").click(function(){
+        $("#maker_select").html('<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>');
+        $("#model_select").html('<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>');
+        $(".modal__select").removeClass("is-selected");
+    });
+
+     $("#rest2").click(function(){
+        $("#maker_select").html('<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>');
+        $("#model_select").html('<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>');
+        $(".modal__select").removeClass("is-selected");
+    });
+
+  
+    <?php foreach($makers as $maker){ ?>
+    $("#maker<?php echo $maker->term_id ?>").click(function(){
+        $(".model_view").css("display", "none");
+        $("#model_view_<?php echo $maker->term_id ?>").css("display", "block");
+    });
+    <?php } ?>
+ 
+    
     $(".f-check").change(function(){
         //listに追加
         if($("#model_select").html().match(/選択する/)){
@@ -174,12 +203,6 @@ $(function(){
         $("#model_select").append('<input type="hidden" name="cftsearch[model][0][]" value="' + $(this).val() + '">');
     });
     
-    $("#rest").click(function(){
-        $("#maker_select").html('<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>');
-        $("#model_select").html('<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>');
-        $(".modal__select").removeClass("is-selected");
-    });
-
     //contact form
     $(document).ready(function(){
         $("input[name='text-134']").val("<?php the_title(); ?>");

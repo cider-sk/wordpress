@@ -17,27 +17,43 @@
 <dl id="brandLst"><header class="pageHeader">
     <h1 class="pageTtl">メーカー選択</h1>
 </header>
+<? /*
 <ul class="slideLinkL">
     <li>
         <a href="javascript:void(0);" class="ui-link">
             <div class="listTxtBox">
                 <p class="main">すべてのメーカー</p>
-                <p class="sub">(349483)</p>
             </div>
         </a>
     </li>
-</ul>
+    </ul>
+*/ ?>
 <section>
-    <h2 class="hdd2nd" id="JPN">国産中古車</h2>
+    <h2 class="hdd2nd" id="JPN">中古車</h2>
     <ul class="slideLinkL">
+<?php
+//親のカテゴリー
+	global $wpdb;
+	$makers = $wpdb->get_results( 
+        "
+SELECT * 
+FROM  `wp_term_taxonomy` 
+LEFT JOIN wp_terms ON  `wp_term_taxonomy`.term_id = wp_terms.term_id
+WHERE count =0
+AND parent =0
+		"
+    );
+    $i = 0;
+foreach($makers as $maker){
+?>
 <li>
-    <a href="javascript:void(0);" data-dismiss="modal" data-toggle="modal" data-target="#myModal2" class="ui-link" title="レクサス">
+<a href="javascript:void(0);" data-dismiss="modal" data-toggle="modal" data-target="#myModal<?php echo $maker->term_id ?>" class="ui-link" title="<?php echo $maker->name ?>">
         <div class="listTxtBox">
-            <p class="main">レクサス</p>
-            <p class="sub">(3592)</p>
+        <p class="main"><?php echo $maker->name ?></p>
         </div>
     </a>
 </li>
+<?php } ?>
 </ul>
 </section></dl>
     </div>
@@ -45,8 +61,9 @@
   </div>
 </div>
 
+<?php foreach($makers as $maker){ ?>
 <!-- Modal -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index:10000;">
+<div class="modal fade myModalModel" id="myModal<?php echo $maker->term_id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index:10000;">
   <div class="modal-dialog" role="document">
     <div class="" style="">
     <div class="modal__inner">
@@ -57,10 +74,9 @@
 <div class="tabBox" data-role="content none">
 <ul class="slideLinkL" style="clear:both;">
     <li>
-        <a href="javascript:void(0);" class="ui-link">
+        <a href="javascript:void(0);" class="ui-link" data-dismiss="modal">
             <div class="listTxtBox">
-                <p class="main">レクサスの中古車すべて</p>
-                <p class="sub">(3592)</p>
+                <p class="main">の中古車すべて</p>
             </div>
         </a>
     </li>
@@ -69,25 +85,41 @@
 <h3 class="hdd3rd">人気車</h3>
 <p class="uee"><a href="javascript:void(0);" rel="external" onclick="window.scroll(0,1);return false;" data-role="none">▲上へ戻る</a></p>
 <ul class="slideLinkL">
+<?php
+	$models = $wpdb->get_results( 
+        "
+SELECT * 
+FROM  `wp_term_taxonomy` 
+LEFT JOIN wp_terms ON  `wp_term_taxonomy`.term_id = wp_terms.term_id
+WHERE count =0
+AND parent = $maker->term_id
+		"
+    );
+    $i = 0;
+foreach ( $models as $model ) 
+{
+    $i ++;
+?>
 <li>
-    <a href="javascript:void(0);" title="レクサス_IS" id="LE_S003" data-dismiss="modal" class="ui-link">
-        <div class="listImgBox"><img src="http://www.carsensor.net/CSphoto/cat/LE/S003/LE_S003_F002_1.jpg" width="80" height="60" alt="IS"></div>
+<a href="javascript:void(0);" title="<?php echo $model->name; ?>" data-dismiss="modal" class="ui-link">
+        <div class="listImgBox"><img style="display:none" src="http://www.carsensor.net/CSphoto/cat/LE/S003/LE_S003_F002_1.jpg" width="80" height="60" alt="<?php echo $model->name; ?>"></div>
         <div class="listTxtBox">
-            <p class="main">IS</p>
-            <p class="sub"><span class="popularCar">人気車</span>(581)</p>
+            <p class="main"><?php echo $model->name; ?></p>
         </div>
     </a>
 </li>
-
+<?php } ?>
 </ul>
-<p class="goTop"><a rel="external" href="javascript:void(0);" title="TOPへ" data-role="none" onclick="window.scroll(0,1);return false;">▲レクサス(LEXUS)中古車から探すTOPへ</a></p>
+<p class="goTop"><a rel="external" href="javascript:void(0);" title="TOPへ" data-role="none" onclick="window.scroll(0,1);return false;">▲中古車から探すTOPへ</a></p>
 </section>
 </div>
 </dl>
    </div>
   </div>
 </div>
+</div>
 
+<?php } ?>
 
 
     <!-- Bootstrap core JavaScript
@@ -192,7 +224,7 @@ $(function(){
         }
     });
 
-    $("#myModal2 .slideLinkL a").click(function(){
+    $(".myModalModel .slideLinkL a").click(function(){
         if($(this).attr("title")){
             if($("#selectedBodyType").html().match(/指定なし/)){
                 $("#selectedBodyType").html("");
