@@ -43,6 +43,20 @@ $(function(){
         $("#tab-contents-3").show();
     });
 
+    $("#menuBtn_sort1.open_sort").click(function(){
+        $(".naviSortingArea").show();
+        $("#menuBtn_sort1").removeClass("open_sort");
+        $("#menuBtn_sort1").addClass("close_sort");
+        $("#menuBtn_sort1").addClass("menuBtn_sort--off");
+    });
+    
+     $(".toolBar_result").click(function(){
+        $(".naviSortingArea").hide();
+        $("#menuBtn_sort1").removeClass("close_sort");
+        $("#menuBtn_sort1").addClass("open_sort");
+        $("#menuBtn_sort1").addClass("menuBtn_sort--off");
+    });
+    
     //contact form
     $(document).ready(function(){
 	    $("input[name='text-134']").val("<?php the_title(); ?>");

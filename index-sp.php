@@ -212,7 +212,80 @@
                     </div>
 
     <div class="pageBody">
-                <div id="lockline_main"></div>
+<div class="bknAllTopBar">
+<p class="toolBar_result"><a href="javascript:void(0);" id="menuBtn_sort1"><?php echo $wp_query->found_posts; ?><span>台</span></a></p>
+<p class="toolBar_Btn w105"><a href="<?php bloginfo("url") ?>/price-search/" rel="nofollow">絞り込み<br>▼</a></p>
+<p class="toolBar_Btn w105"><a href="javascript:void(0);" class="sort-btn open_sort" id="menuBtn_sort1">並べ替え<br>▲</a></p>
+</div>
+
+<!-- search -->
+<!-- sort -->
+<div class="naviSortingArea" style="display: none; position:relative; top:0px !important">
+<?php
+ $str = "cftsearch_submit=1&post_type=post";
+?>
+        <ul>
+            <li class="naviSortingArea__Alink">
+                <p class="tblTitle">支払総額</p>
+                <ul class="tblBtn">
+                    <li>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=ASC&cast=signed#tab-link-box'; ?>" id="s22">安い順</a>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=DESC&cast=signed#tab-link-box'; ?>" id="s21">高い順</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="naviSortingArea__Alink">
+                <p class="tblTitle">本体価格</p>
+                <ul class="tblBtn">
+                    <li>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=ASC&cast=signed#tab-link-box'; ?>" id="s2">安い順</a>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=DESC&cast=signed#tab-link-box'; ?>" id="s1">高い順</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="naviSortingArea__Alink">
+                <p class="tblTitle">年式</p>
+                <ul class="tblBtn">
+                    <li>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=DESC&cast=signed#tab-link-box'; ?>" id="s3">新しい順</a>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=DESC&cast=signed#tab-link-box'; ?>" id="s4">古い順</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="naviSortingArea__Alink">
+                <p class="tblTitle">排気量</p>
+                <ul class="tblBtn">
+                    <li>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=DESC&cast=signed#tab-link-box'; ?>" id="s24">小さい順</a>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=ASC&cast=signed#tab-link-box'; ?>" id="s23">大きい順</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="naviSortingArea__Alink">
+                <p class="tblTitle">走行距離</p>
+                <ul class="tblBtnBtn1">
+                    <li>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=distance&order=ASC&cast=signed#tab-link-box'; ?>" id="s6">少ない順</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="naviSortingArea__Alink">
+                <p class="tblTitle">新着順</p>
+                <ul class="tblBtnBtn1">
+                    <li>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&order=DESC&cast=signed#tab-link-box'; ?>" id="s19">新しい順</a>
+                    </li>
+                </ul>
+            </li>
+                </ul>
+            </li>
+            <li><a href="<?php bloginfo('url'); ?><?php 
+            $str = "cftsearch_submit=1&post_type=post";
+    echo '?'. $str. '&order=DESC&cast=signed#tab-link-box'; 
+?>" class="tblBtnAllAClear">条件をクリアして表示</a></li>
+        </ul>
+    </div>
+
 <?php 
  $fuel_array = array(
      1 => 160,

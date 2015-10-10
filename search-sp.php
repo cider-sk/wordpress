@@ -1,74 +1,10 @@
 <?php get_header("sp"); ?>
     <div class="container">
-
         <div class="starter-template cat">
             <section class="siteBody">
-
-            
                 <header class="pageHeader">
-                    <h1 class="pageTtl_long">
-                                                                                                                                                                                                                    &nbsp;&nbsp;test                                        </h1>
 
-                
-
-                    <form class="sm-SearchBox_A" name="sm_area_price_search" id="sm_area_price_search" action="" method="get">
-<input type="hidden" name="cftsearch_submit" value="1">
-<input type="hidden" name="post_type" value="post">
-
-                            <select name="cftsearch[value][1][]" id="sm_price">
-                                <option label="価格上限" value="">価格下限</option>
-                                <option label="5万円" value="5">5万円</option>
-                                <option label="10万円" value="10">10万円</option>
-                                <option label="15万円" value="15">15万円</option>
-                                <option label="20万円" value="20">20万円</option>
-                                <option label="25万円" value="25">25万円</option>
-                                <option label="30万円" value="30">30万円</option>
-                                <option label="35万円" value="35">35万円</option>
-                                <option label="40万円" value="40">40万円</option>
-                                <option label="45万円" value="45">45万円</option>
-                                <option label="50万円" value="50">50万円</option>
-                                <option label="60万円" value="60">60万円</option>
-                                <option label="70万円" value="70">70万円</option>
-                                <option label="80万円" value="80">80万円</option>
-                                <option label="90万円" value="90">90万円</option>
-                                <option label="100万円" value="100">100万円</option>
-                                <option label="120万円" value="120">120万円</option>
-                                <option label="140万円" value="140">140万円</option>
-                                <option label="160万円" value="160">160万円</option>
-                                <option label="180万円" value="180">180万円</option>
-                                <option label="200万円" value="200">200万円</option>
-                                <option label="250万円" value="250">250万円</option>
-                            </select>
-                            <select name="cftsearch[value][2][]" id="sm_price">
-                                <option label="価格上限" value="">価格上限</option>
-                                <option label="5万円" value="5">5万円</option>
-                                <option label="10万円" value="10">10万円</option>
-                                <option label="15万円" value="15">15万円</option>
-                                <option label="20万円" value="20">20万円</option>
-                                <option label="25万円" value="25">25万円</option>
-                                <option label="30万円" value="30">30万円</option>
-                                <option label="35万円" value="35">35万円</option>
-                                <option label="40万円" value="40">40万円</option>
-                                <option label="45万円" value="45">45万円</option>
-                                <option label="50万円" value="50">50万円</option>
-                                <option label="60万円" value="60">60万円</option>
-                                <option label="70万円" value="70">70万円</option>
-                                <option label="80万円" value="80">80万円</option>
-                                <option label="90万円" value="90">90万円</option>
-                                <option label="100万円" value="100">100万円</option>
-                                <option label="120万円" value="120">120万円</option>
-                                <option label="140万円" value="140">140万円</option>
-                                <option label="160万円" value="160">160万円</option>
-                                <option label="180万円" value="180">180万円</option>
-                                <option label="200万円" value="200">200万円</option>
-                                <option label="250万円" value="250">250万円</option>
-                            </select>
-
-</div>
-                            <button type="submit" id="sm_area_price_search_act_top" data-role="none">絞込</button>
-                        </div><!-- /.searchBoxSideBtn -->
-                    </form>
-</header>
+                </header>
 <div id="tab_menu_img">
                         <div class="tab_menu clearfix">
                             <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/left-check.png" alt="">
@@ -81,7 +17,86 @@
                     </div>
 
     <div class="pageBody">
-                <div id="lockline_main"></div>
+<div class="bknAllTopBar">
+<p class="toolBar_result"><a href="javascript:void(0);" id="menuBtn_sort1"><?php echo $wp_query->found_posts; ?><span>台</span></a></p>
+<p class="toolBar_Btn w105"><a href="<?php bloginfo("url") ?>/price-search/" rel="nofollow">絞り込み<br>▼</a></p>
+<p class="toolBar_Btn w105"><a href="javascript:void(0);" class="sort-btn open_sort" id="menuBtn_sort1">並べ替え<br>▲</a></p>
+</div>
+
+<!-- search -->
+<!-- sort -->
+<div class="naviSortingArea" style="display: none; top: 210px !important;">
+<?php
+    $array = explode('&', $_SERVER['QUERY_STRING']);
+    foreach ($array as $key => $val) {
+        if( strpos($val, 'order') !== FALSE ) { 
+            unset($array[$key]);
+        }   
+    }   
+    $str = implode('&', $array);
+?>
+        <ul>
+            <li class="naviSortingArea__Alink">
+                <p class="tblTitle">支払総額</p>
+                <ul class="tblBtn">
+                    <li>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=ASC&cast=signed'; ?>" id="s22">安い順</a>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=DESC&cast=signed'; ?>" id="s21">高い順</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="naviSortingArea__Alink">
+                <p class="tblTitle">本体価格</p>
+                <ul class="tblBtn">
+                    <li>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=ASC&cast=signed'; ?>" id="s2">安い順</a>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=DESC&cast=signed'; ?>" id="s1">高い順</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="naviSortingArea__Alink">
+                <p class="tblTitle">年式</p>
+                <ul class="tblBtn">
+                    <li>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=DESC&cast=signed'; ?>" id="s3">新しい順</a>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=DESC&cast=signed'; ?>" id="s4">古い順</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="naviSortingArea__Alink">
+                <p class="tblTitle">排気量</p>
+                <ul class="tblBtn">
+                    <li>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=DESC&cast=signed'; ?>" id="s24">小さい順</a>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=ASC&cast=signed'; ?>" id="s23">大きい順</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="naviSortingArea__Alink">
+                <p class="tblTitle">走行距離</p>
+                <ul class="tblBtnBtn1">
+                    <li>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=distance&order=ASC&cast=signed'; ?>" id="s6">少ない順</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="naviSortingArea__Alink">
+                <p class="tblTitle">新着順</p>
+                <ul class="tblBtnBtn1">
+                    <li>
+                        <a href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&order=DESC&cast=signed'; ?>" id="s19">新しい順</a>
+                    </li>
+                </ul>
+            </li>
+                </ul>
+            </li>
+            <li><a href="<?php bloginfo('url'); ?><?php 
+            $str = "cftsearch_submit=1&post_type=post";
+    echo '?'. $str. '&order=DESC&cast=signed'; 
+?>" class="tblBtnAllAClear">条件をクリアして表示</a></li>
+        </ul>
+    </div>
+
 <?php 
  $fuel_array = array(
      1 => 160,
@@ -90,7 +105,7 @@
      ); 
 for($i=1;$i <= 3; $i++){ ?>
 <div id="tab-contents-<?php echo $i ?>">
-<?php query_posts($query_string); ?>
+<?php ?>
      <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
 <?php

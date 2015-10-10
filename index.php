@@ -277,7 +277,7 @@ foreach ( $models as $model )
           </tr>
           <tr>
 <?php
-    $str = "?cftsearch_submit=1&post_type=post";
+    $str = "cftsearch_submit=1&post_type=post";
 ?>
             <input id="sort_url" value="" type="hidden">
 <td class="txt-l"><a id="sort_19" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=DESC&cast=signed#tab-link-box'; ?>">低</a>｜<a id="sort_20" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=DESC&cast=signed#tab-link-box'; ?>">高</a></td>
