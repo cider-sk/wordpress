@@ -160,7 +160,7 @@ foreach ( $models as $model )
             <th>価格</th>
             <td class="va-mid">
 <select name="cftsearch[value][1][]">
-<option value="0">下限なし</option>
+<option value="">下限なし</option>
 <option value="50">50万円</option>
 <option value="100">100万円</option>
 <option value="200">200万円</option>
@@ -168,7 +168,7 @@ foreach ( $models as $model )
 </select>
 〜
 <select name="cftsearch[value][2][]">
-<option value="10000">上限なし</option>
+<option value="">上限なし</option>
 <option value="50">50万円</option>
 <option value="100">100万円</option>
 <option value="200">200万円</option>
@@ -180,7 +180,7 @@ foreach ( $models as $model )
             <th>年式</th>
             <td class="va-mid">
 <select name="cftsearch[year][1][]">
-<option value="1">下限なし</option>
+<option value="">下限なし</option>
 <option value="1990">1990年</option>
 <option value="1991">1991年</option>
 <option value="1992">1992年</option>
@@ -210,7 +210,7 @@ foreach ( $models as $model )
 </select>
 〜
 <select name="cftsearch[year][2][]">
-<option value="2020">上限なし</option>
+<option value="">上限なし</option>
 <option value="1990">1990年</option>
 <option value="1991">1991年</option>
 <option value="1992">1992年</option>
@@ -244,7 +244,7 @@ foreach ( $models as $model )
             <th>走行距離</th>
             <td class="va-mid">
 <select name="cftsearch[distance][1][]">
-<option value="0">下限なし</option>
+<option value="">下限なし</option>
 <option value="0.5">5000km</option>
 <option value="1">1万km</option>
 <option value="2">2万km</option>
@@ -259,7 +259,7 @@ foreach ( $models as $model )
 </select>
 〜 
 <select name="cftsearch[distance][2][]">
-<option value="1000">上限なし</option>
+<option value="">上限なし</option>
 <option value="0.5">5000km</option>
 <option value="1">1万km</option>
 <option value="2">2万km</option>
