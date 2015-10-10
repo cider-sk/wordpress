@@ -83,7 +83,10 @@ foreach ( $models as $model )
 
         <div class="modal__btns l-wrap">
           <div class="l-box">
-            <button type="reset" class="btn btn--funcL2 btn--small" onclick="spbl.tb.shashu.clear();return false;">条件クリア</button>
+    <div class="l-box txt-r">
+      <button id="rest" class="btn btn--funcL2 btn--big">条件クリア</button>
+      <input type="hidden" name="cftsearch_submit" value="1">
+    </div>
           </div><!-- /.l-box -->
           <div class="l-box txt-c">
             <button class="btn btn--search btn--middle" onclick="return spbl.tb.shashu.set();return false;"><span class="btn__txt--small">チェックしたメーカーの</span><span class="btn__txt--big">中古車を検索する</span></button>

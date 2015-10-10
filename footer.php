@@ -69,11 +69,16 @@ $(function(){
         $("#model_select").append("<li>" + $(this).val() + "</li>");
         $("#model_select").append('<input type="hidden" name="cftsearch[model][0][]" value="' + $(this).val() + '">');
     });
-    
+    $("#rest").click(function(){
+        $("#maker_select").html('<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>');
+        $("#model_select").html('<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>');
+        $(".modal__select").removeClass("is-selected");
+    });
+
     //contact form
     $(document).ready(function(){
-	    $("input[name='text-134']").val("<?php the_title(); ?>");
-	});
+        $("input[name='text-134']").val("<?php the_title(); ?>");
+    });
     
 });
 </script>
