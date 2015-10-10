@@ -276,14 +276,17 @@ foreach ( $models as $model )
             <th width="160">排気量</th>
           </tr>
           <tr>
+<?php
+    $str = "?cftsearch_submit=1&post_type=post";
+?>
             <input id="sort_url" value="" type="hidden">
-            <td class="txt-l"><a id="sort_19" href="/?s=&post_type=post&orderby=fuel&order=DESC">低</a>｜<a id="sort_20" href="/?s=&post_type=post&orderby=fuel&order=ASC">高</a></td>
-            <td class="txt-l"><a id="sort_19" href="/?cftsearch_submit=1&post_type=post&orderby=date&order=DESC">新</a>｜<a id="sort_20" href="/?cftsearch_submit=1&post_type=post&orderby=date&order=ASC">古</a></td>
-            <td><a id="sort_2" href="/?s=&post_type=post&orderby=value&order=ASC">安</a>｜<a id="sort_1" href="/?s=&post_type=post&meta_key&orderby=value&order=DESC">高</a></td>
-            <td><a id="sort_22" href="/?s=&post_type=post&orderby=sum-value&order=ASC">安</a>｜<a id="sort_21" href="/?s=&post_type=post&orderby=sum-value&order=DESC">高</a></td>
-            <td><a id="sort_3" href="/?cftsearch_submit=1&post_type=post&orderby=year&order=DESC">新</a>｜<a id="sort_4" href="/?cftsearch_submit=1&post_type=post&orderby=year&order=ASC">古</a></td>
-            <td><a id="sort_5" href="/?s=&post_type=post&orderby=distance&order=DESC">多</a>｜<a id="sort_6" href="/?s=&post_type=post&orderby=distance&order=ASC">少</a></td>
-            <td><a id="sort_23" href="/?s=&post_type=post&orderby=displacement&order=ASC">多</a>｜<a id="sort_24" href="/?s=&post_type=post&orderby=displacement&order=ASC">少</a></td>
+<td class="txt-l"><a id="sort_19" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=DESC&cast=signed#tab-link-box'; ?>">低</a>｜<a id="sort_20" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=DESC&cast=signed#tab-link-box'; ?>">高</a></td>
+            <td class="txt-l"><a id="sort_19" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&order=DESC&cast=signed#tab-link-box'; ?>">新</a>｜<a id="sort_20" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&order=DESC&cast=signed#tab-link-box'; ?>">古</a></td>
+            <td><a id="sort_2" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=DESC&cast=signed#tab-link-box'; ?>">安</a>｜<a id="sort_1" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=DESC&cast=signed#tab-link-box'; ?>">高</a></td>
+            <td><a id="sort_22" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=DESC&cast=signed#tab-link-box'; ?>">安</a>｜<a id="sort_21" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=DESC&cast=signed#tab-link-box'; ?>">高</a></td>
+            <td><a id="sort_3" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=DESC&cast=signed#tab-link-box'; ?>">新</a>｜<a id="sort_4" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=DESC&cast=signed#tab-link-box'; ?>">古</a></td>
+            <td><a id="sort_5" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=distance&order=DESC&cast=signed#tab-link-box'; ?>">多</a>｜<a id="sort_6" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=distance&order=DESC&cast=signed#tab-link-box'; ?>">少</a></td>
+            <td><a id="sort_23" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=DESC&cast=signed#tab-link-box'; ?>">多</a>｜<a id="sort_24" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=DESC&cast=signed#tab-link-box'; ?>">少</a></td>
           </tr>
         </tbody>
       </table>
@@ -301,7 +304,7 @@ for($k = 1; $k < 4; $k++){ ?>
 <?php
     $args = array(
         "post_type" => "post",
-        "meta_key"=> $_GET["orderby"],
+        "meta_key"=> $_GET["meta_key"],
         "orderby"=> "meta_value_num",
         "order"=>$_GET["order"],
         "paged"=>$paged
