@@ -342,13 +342,12 @@ $fuel_array = array(
 for($k = 1; $k < 4; $k++){ ?>
 <div id="tab-contents-<?php echo $k ?>">
 <?php
-    $args = array(
-        "post_type" => "post",
-        "meta_key"=> $_GET["orderby"],
-        "orderby"=> "meta_value_num",
-        "order"=>$_GET["order"],
-        "paged"=>$paged
-    );
+    parse_str( $query_string, $args );
+$arg["post_type"] = "post";
+$arg["meta_key"] = $_GET["orderby"];
+$arg["orderby"] = "meta_value_num";
+$arg["order"] = $_GET["order"];
+$arg["paged"] = "paged";
 query_posts($args);
 ?>
      <?php if (have_posts()) : ?>
