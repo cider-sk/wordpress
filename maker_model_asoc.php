@@ -2,23 +2,19 @@
 include "./simple_html_dom.php";
 include "../../../wp-load.php";
 include "../../../wp-admin/includes/taxonomy.php";
-query_posts("post_type=shop&posts_per_page=100&post_status=publish");
+query_posts("post_type=post&posts_per_page=-1&post_status=publish");
 if (have_posts()) : 
-?>
-<?php while (have_posts()) : the_post(); ?>
+while (have_posts()) : the_post(); ?>
 <?php
-$user_id = get_post_meta($post->ID, "user_id", true);
-$car_url = get_user_meta($user_id, "carsensor", true);
-if(get_post_meta($post->ID, "is_goo", true)){
-       get_car_by_shop_goo($goo_url, get_the_title(), $user_id, get_the_permalink()); 
-}elseif($car_url){
-	get_car_by_shop($car_url, get_the_title(), $user_id, get_the_permalink());
-   }
+$maker = get_post_meta($post->ID, "maker", true);
+$model = get_post_meta($post->ID, "model", true);
+$id = make_category($maker);
+echo make_category($model, $id);
 ?>
 <?php endwhile; ?><?php else : ?>
 <?php endif; 
 
-function make_category($slug){
+function make_category($slug, $parent = null){
     //既存カテゴリをすべて取得
     $categories = get_categories( $args );
     //print_r($categories);
@@ -31,7 +27,7 @@ function make_category($slug){
         }
     }
     if($flag!=1){//重複無ければ
-        return wp_create_category($slug);
+        return wp_create_category($slug, $parent);
     }else{
         return $cat_id;
     }
