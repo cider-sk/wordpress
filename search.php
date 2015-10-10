@@ -41,12 +41,28 @@ foreach($maker_array as $maker){
                 <div id="nList2">
                   <dl class="modal__list" id="nameList">
                   <dt id="alphaLine" class="modal__list__ttl">モデル・グレード</dt>
+<?php 
+	global $wpdb;
+	$models = $wpdb->get_results( 
+		"
+		SELECT *
+		FROM  wp_postmeta
+		WHERE meta_key =  'model'
+		GROUP BY meta_value
+		order by meta_value
+		"
+	);
+foreach ( $models as $model ) 
+{
+?>
                     <dd>
                     <label class="l-wrap modal__select" for="chk1alphaLine1">
-                      <span class="l-box modal__select__check"><input type="checkbox" class="f-check js_CB1" name="carcchk" value="BM_S010" id="chk1alphaLine1"></span>
-                      <span class="l-box modal__select__name"><a href="javascript:void(paneljump({'CARC':'BM_S010'},0))"><span class="js_s_name">1シリーズ</span><span class="linkNo">(851)</span></a></span>
+                      <span class="l-box modal__select__check"><input type="checkbox" class="f-check js_CB1" name="carcchk" value="<?php echo $model->meta_value; ?>" id="chk1alphaLine1"></span>
+                      <span class="l-box modal__select__name"><a href="javascript:void(paneljump({'CARC':'BM_S010'},0))"><span class="js_s_name"><?php echo $model->meta_value; ?></span><span class="linkNo"></span></a></span>
                     </label>
                   </dd>
+<?php } ?>
+
                     </dl>
                 </div>
               </div><!-- /.modal__scrollBox -->
@@ -137,27 +153,28 @@ foreach ( $models as $model )
           <tbody><tr>
             <th>価格</th>
             <td class="va-mid">
-<select name="cftsearch[value][1][]"><option value=""></option><option value="0">下限なし</option>
+<select name="cftsearch[value][1][]">
+<option value="0">下限なし</option>
 <option value="50">50万円</option>
 <option value="100">100万円</option>
 <option value="200">200万円</option>
 <option value="250">250万円</option>
-<option value="10000">上限なし</option>
 </select>
 〜
-<select name="cftsearch[value][2][]"><option value=""></option><option value="0">下限なし</option>
+<select name="cftsearch[value][2][]">
+<option value="10000">上限なし</option>
 <option value="50">50万円</option>
 <option value="100">100万円</option>
 <option value="200">200万円</option>
 <option value="250">250万円</option>
-<option value="10000">上限なし</option>
 </select>
             </td>
           </tr>
           <tr>
             <th>年式</th>
             <td class="va-mid">
-<select name="cftsearch[year][1][]"><option value=""></option><option value="1">下限なし</option>
+<select name="cftsearch[year][1][]">
+<option value="1">下限なし</option>
 <option value="1990">1990年</option>
 <option value="1991">1991年</option>
 <option value="1992">1992年</option>
@@ -184,10 +201,10 @@ foreach ( $models as $model )
 <option value="2013">2013年</option>
 <option value="2014">2014年</option>
 <option value="2015">2015年</option>
-<option value="2020">上限なし</option>
 </select>
 〜
-<select name="cftsearch[year][2][]"><option value=""></option><option value="1">下限なし</option>
+<select name="cftsearch[year][2][]">
+<option value="2020">上限なし</option>
 <option value="1990">1990年</option>
 <option value="1991">1991年</option>
 <option value="1992">1992年</option>
@@ -214,14 +231,14 @@ foreach ( $models as $model )
 <option value="2013">2013年</option>
 <option value="2014">2014年</option>
 <option value="2015">2015年</option>
-<option value="2020">上限なし</option>
 </select>                  
             </td>
           </tr>
           <tr>
             <th>走行距離</th>
             <td class="va-mid">
-<select name="cftsearch[distance][1][]"><option value=""></option><option value="0">下限なし</option>
+<select name="cftsearch[distance][1][]">
+<option value="0">下限なし</option>
 <option value="0.5">5000km</option>
 <option value="1">1万km</option>
 <option value="2">2万km</option>
@@ -233,10 +250,10 @@ foreach ( $models as $model )
 <option value="8">8万km</option>
 <option value="9">9万km</option>
 <option value="10">10万km</option>
-<option value="1000">上限なし</option>
 </select>
 〜 
-<select name="cftsearch[distance][2][]"><option value=""></option><option value="0">下限なし</option>
+<select name="cftsearch[distance][2][]">
+<option value="1000">上限なし</option>
 <option value="0.5">5000km</option>
 <option value="1">1万km</option>
 <option value="2">2万km</option>
