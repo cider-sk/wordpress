@@ -1,4 +1,83 @@
 <?php get_header(); ?>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index:10000;">
+  <div class="modal-dialog" role="document">
+    <div class="" style="">
+<div class="modal__inner">
+      <header class="modal__header">
+        <h2 class="modal__ttl">メーカー車名選択<span class="subTxt">メーカーをまたいで複数選択が可能です。(最大10件まで)</span></h2>
+      </header>
+      <div class="js_modelBody">
+        <div class="modal__body--car">
+          <div class="l-wrap">
+            <div class="l-box modal__list--maker">
+              <h3 class="hd3rd">メーカー選択</h3>
+              <div class="modal__scrollBox">
+                <dl class="modal__list">
+                  <dt class="modal__list__ttl"><b class="fontXL">国産中古車</b></dt>
+<?php
+$maker_array = array(
+	"トヨタ",
+	"日産",
+	"ホンダ",
+	"マツダ",
+	"スズキ",
+	"三菱",
+	"ダイハツ"
+);
+foreach($maker_array as $maker){
+?>
+    <dd><a href="#" class="modal__select modal__select--maker js_makerMenu" onclick="spbl.tb.shashu.clickBrand('LE', this);return !1" title="<?php echo $maker ?>"><?php echo $maker ?><span class="linkNo"></span></a></dd>
+<?php } ?>
+                   </dl>
+              </div><!-- /.modal__scrollBox -->
+            </div><!-- /.l-box -->
+            <div class="l-box modal__list--car">
+              <h3 class="hd3rd">車名選択<span class="hd2nd__subTxt" id="nameListTitle">台数上位250車名</span></h3>
+              <div class="modal__scrollBox" id="nameListWrapper">
+                <div id="nList1" style="display:none">
+                </div>
+                <div id="nList2">
+                  <dl class="modal__list" id="nameList">
+                  <dt id="alphaLine" class="modal__list__ttl">モデル・グレード</dt>
+                    <dd>
+                    <label class="l-wrap modal__select" for="chk1alphaLine1">
+                      <span class="l-box modal__select__check"><input type="checkbox" class="f-check js_CB1" name="carcchk" value="BM_S010" id="chk1alphaLine1"></span>
+                      <span class="l-box modal__select__name"><a href="javascript:void(paneljump({'CARC':'BM_S010'},0))"><span class="js_s_name">1シリーズ</span><span class="linkNo">(851)</span></a></span>
+                    </label>
+                  </dd>
+                    </dl>
+                </div>
+              </div><!-- /.modal__scrollBox -->
+            </div><!-- /.l-box -->
+          </div> <!-- /.l-wrap--fixed -->
+        </div>
+
+
+        <div class="modal__terms l-wrap">
+          <div class="modal__terms__ttl l-box">
+            <p class="txt"><b class="numXXL" id="selectedShashuCount">0</b>/<span class="numS">10</span>件選択中</p>
+          </div>
+          <div class="modal__terms__list l-box">
+            <p class="lh15" id="selectedCars"></p>
+          </div>
+        </div>
+
+        <div class="modal__btns l-wrap">
+          <div class="l-box">
+            <button type="reset" class="btn btn--funcL2 btn--small" onclick="spbl.tb.shashu.clear();return false;">条件クリア</button>
+          </div><!-- /.l-box -->
+          <div class="l-box txt-c">
+            <button class="btn btn--search btn--middle" onclick="return spbl.tb.shashu.set();return false;"><span class="btn__txt--small">チェックしたメーカーの</span><span class="btn__txt--big">中古車を検索する</span></button>
+          </div><!-- /.l-box -->
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
 <style>
     #top-main{
         text-align:left;
@@ -12,8 +91,6 @@
         <h2 class="hd2nd mb10">中古車一覧</h2>
       </div>
 
-
-
 <div class="panel panel--bknAll">
 
 <form id="panelForm" method="get" action="/">
@@ -25,24 +102,16 @@
       <th><p class="lh12">メーカー</p></th>
       <td style="width:130px;">
 
-<select name="cftsearch[maker][0][]">
-<?php 
-$maker_array = array(
-	"トヨタ",
-	"日産",
-	"ホンダ",
-	"マツダ",
-	"スズキ",
-	"三菱",
-	"ダイハツ"
-);
-foreach($maker_array as $maker){ ?>
-	<option value="<?php echo $maker; ?>"><?php echo $maker; ?></option>
-<?php } ?>
-</select>
+<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>
+<!-- Button trigger modal -->
       </td>
       <th><p class="lh12">モデル・<br>グレード</p></th>
       <td style="width:130px;">
+<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="modelAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>
+
+<?php /*
+<select name="cftsearch[maker][0][]">
+</select>
 <select name="cftsearch[model][0][">
 <?php 
 	global $wpdb;
@@ -61,6 +130,7 @@ foreach ( $models as $model )
 	<option value="<?php echo $model->meta_value; ?>"><?php echo $model->meta_value; ?></option>
 <?php } ?>
 </select>
+</php */ ?>
       </td>
       <td rowspan="2">
         <table class="tbl tbl--panel mb20">
