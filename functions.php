@@ -1,5 +1,21 @@
 <?php 
 
+// カスタムタクソノミーを作成
+// create custom taxonomy
+function odekon_custom_taxonomies() {  
+    register_taxonomy(
+        'blog_category',
+        'blog',
+        array(
+            'hierarchical' => true,
+            'label' => 'ブログカテゴリー',
+            'singular_name' => 'blog_category',
+            'query_var' => true,
+            'rewrite' => true
+        )
+    );
+}  
+add_action('init', 'odekon_custom_taxonomies', 0);
 //user名からお店のurlをget
 function get_shop_url_by_name($shop_name){
 /*	query_posts("post_type=shop&posts_per_page=100");
@@ -67,6 +83,25 @@ function valueFont($val){
 add_action( 'init', 'create_post_type' );
 
 function create_post_type() {
+    $labels = array(
+        'name' => _x('ツクカーBLOG', 'post type general name'),
+        'parent_item_colon' => ''
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => true,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'menu_position' => 5,
+        'supports' => array('title','editor','thumbnail','custom-fields','excerpt','author','trackbacks','comments','revisions','page-attributes'),
+        'has_archive' => true
+    );
+    register_post_type('blog',$args);
+    
     $labels = array(
         'name' => _x('販売店一覧', 'post type general name'),
         'parent_item_colon' => ''

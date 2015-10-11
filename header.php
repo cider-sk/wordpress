@@ -52,7 +52,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-xs-3">
-                    <a href="/">
+                <a href="<?php bloginfo("url"); ?>">
                         <img src="<?php bloginfo("template_url"); ?>/dist/img/logo.png" alt="">
                     </a>
                 </div>
@@ -67,7 +67,7 @@
 ">
 
 <a href="http://tsukucar.com/campaign/">
-		    <img src="<?php  ?>/wp-content/uploads/2015/09/購入者全員に.png" alt="">
+		    <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/購入者全員に.png" alt="">
 </a>
                 </div>
                 <div class="col-xs-2">

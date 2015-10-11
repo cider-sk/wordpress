@@ -50,14 +50,17 @@
 <?php wp_head(); ?>
   </head>
 
-  <body>
+      <body <?php body_class(); ?>>
 
     <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <img src="<?php bloginfo("template_url"); ?>/dist-sp/img-sp/colapse.png" alt="">
-        </button>
+                <img src="<?php bloginfo("template_url"); ?>/dist-sp/img-sp/menu-icon.png" alt="">
+            </button>
+            <button type="button" class="navbar-toggle collapsed">
+                <img src="<?php bloginfo("template_url"); ?>/dist-sp/img-sp/like-icon.png" alt="">
+            </button>
 
 <?php /*
         <span class="fav">
@@ -80,13 +83,13 @@
             <ul class="nav navbar-nav">
             <li class="title_bar">メニュー</li>
             <li><a href="<?php bloginfo("url") ?>?s=">中古車検索</a></li>
-            <li><a href="http://tsukucar.com/toriyose/">中古車資料一括問い合わせ</a></li>
-<li><a href="http://tsukucar.com/shop/">中古車販売店</a></li>
-            <li class="active"><a href="http://tsukucar.com/abouttsukucar/">ツクカーとは</a></li>
-            <li><a href="http://tsukucar.com/buy/">車購入の流れ</a></li>
-	    <li><a href=http://tsukucar.com/buy/"">豪華三大特典</a></li>
- <li><a href="http://tsukucar.com/kaitori/">車買取</a></li>
-<li><a href="./">ツクカーBLOG</a></li>
+            <li><a href="<?php bloginfo("url"); ?>/toriyose/">中古車資料一括問い合わせ</a></li>
+<li><a href="<?php bloginfo("url"); ?>/shop/">中古車販売店</a></li>
+            <li class="active"><a href="<?php bloginfo("url"); ?>/abouttsukucar/">ツクカーとは</a></li>
+            <li><a href="<?php bloginfo("url"); ?>/buy/">車購入の流れ</a></li>
+	    <li><a href="<?php bloginfo("url"); ?>/buy/">豪華三大特典</a></li>
+ <li><a href="<?php bloginfo("url"); ?>/kaitori/">車買取</a></li>
+ <li><a href="<?php bloginfo("url"); ?>/blog/">ツクカーBLOG</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

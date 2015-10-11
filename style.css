@@ -335,7 +335,6 @@ div.wpcf7 img.ajax-loader {
     display:none;
 }
 .l-box.top-multi__box select{
-    font-size:50px;
 }
 table.top-search{
     width:100%;
@@ -538,7 +537,6 @@ display: block;
     float: left;
     margin-bottom:-228px;
 }
-
 .flex-caption {
     padding: 2%;
     left: 0;
@@ -554,7 +552,54 @@ display: block;
     font-size: 14px;
     line-height: 18px;
 }
-
-.test{
-
+.post-type-archive-blog .col-xs-12,.single-blog .col-xs-12{
+    margin-top:30px;
+    background-color:#fff;
+    border:1px solid;
+    padding:20px;
+    text-align:left;
+}
+.article{
+    padding:10px;
+    border-bottom:1px dotted gray;
+    text-align:left;
+}
+.article h2{
+    font-size:25px;
+}
+.article a{
+    color:#2e73c7;
+}
+.article a:hover{
+    color:#005580;
+}
+.b-container{
+    padding:0 10px;
+}
+.b-container h1{
+    font-size:30px!important;
+    border-bottom:2px solid #ccc;
+    padding-bottom:5px;
+    margin-bottom:5px;
+}
+.b-container h2{
+    font-weight:bold;
+    font-size:21px;
+    border-bottom:2px solid #ccc;
+    padding-bottom:5px;
+    margin-bottom:5px;
+    margin-top:10px;
+}
+.b-container h3{
+    font-weight:bold;
+    font-size:16px;
+    border-bottom:2px solid #ccc;
+    margin-top:10px;
+    padding-bottom:5px;
+    margin-bottom:5px;
+}
+.blog-content{
+    line-height:25px;
+    text-align:left;
+>>>>>>> 20151011
 }

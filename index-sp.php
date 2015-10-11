@@ -5,10 +5,12 @@
             <h1 class="top">
 <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/筑波大生専門中古車情報サイト（一番上）.png" alt="" class="middle-top">
             </h1>
-        <img class="top-baner-2" src="/wp-content/uploads/2015/09/購入者全員に.png" alt="">
+<a href="http://tsukucar.com/campaign/">
+        <img class="top-baner-2" src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/購入者全員に.png" alt="">
+</a>
 	    <h2 class="top">
 <a href="http://tsukucar.com/campaign/">
-	    <img src="/wp-content/uploads/2015/09/紹介者と購入者にもれなく….png" alt="">
+	    <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/紹介者と購入者にもれなく….png" alt="">
 </a>
             </h2>
             <div class="block">
@@ -67,7 +69,9 @@
                                 );
                         foreach($array as $k =>$d){
                         ?>
-                            <li><a href="?cftsearch%5Bbody-type%5D%5B0%5D%5B%5D=<?php echo $d ?>&cftsearch_submit=1" rel="external" class="ui-link"><span id="btn_<?php echo $k ?>"></span><span class="text"><?php echo $d ?></span></a></li>
+                            <li><a href="?cftsearch%5Bbody-type%5D%5B0%5D%5B%5D=<?php echo $d ?>&cftsearch_submit=1" rel="external" class="ui-link">
+                            <img src="<?php bloginfo("template_url"); ?>/dist-sp/img-sp/m-<?php echo $k; ?>" alt="">
+                            </a></li>
                         <?php } ?>
                                                     </ul>
                     </div><!-- /.tabBox -->
@@ -172,11 +176,13 @@
         </li>
     </ul>
     </section>
-    <div id="p3-c"></div>
+    <div id="p3-c">
+        <img src="<?php bloginfo("template_url"); ?>/dist-sp/img-sp/area_select.png" alt="">
+    </div>
 <div id="p3">
 <div id="tab_menu_img">
                         <div class="tab_menu clearfix">
-                            <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/left-check.png" alt="">
+                            <img src="<?php bloginfo("template_url") ?>/dist/img/iji-left.png" alt="">
                             <div id="tab-link-box">
                             <a id="left-img" href="javascript:void(0);"></a>
                             <a id="middle-img" href="javascript:void(0);"></a>

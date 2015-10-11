@@ -383,7 +383,7 @@ echo get_post_meta($post->ID, "shop_url", true);
                         <tr>
                             <th><a href="/help/CS/help_smph.html?help=ppc&amp;header=1" class="helpBtn" rel="external">電話</a></th>
               <td>
-                <p class="telNo_big"><?php echo get_user_meta($user_id, "tel", true); ?></p>
+                <p class="telNo_big"><a href="tel:<?php echo get_user_meta($user_id, "tel", true); ?>"><?php echo get_user_meta($user_id, "tel", true); ?></a></p>
 
                 <form name="ppcInfo" id="ppcInfo">
                   <input type="hidden" name="freeDial" id="freeDial" value="<?php echo get_user_meta($user_id, "tel", true); ?>">

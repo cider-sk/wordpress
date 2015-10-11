@@ -307,7 +307,7 @@ $i ++;
     $str .= "cftsearch_submit=1&post_type=post";
 ?>
             <input id="sort_url" value="" type="hidden">
-<td class="txt-l"><a id="sort_19" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=ASC&cast=signed'; ?>">低</a>｜<a id="sort_20" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=DESC&cast=signed'; ?>">高</a></td>
+            <td class="txt-l"><a id="sort_19" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=ASC&cast=signed'; ?>">低</a>｜<a id="sort_20" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=DESC&cast=signed'; ?>">高</a></td>
             <td class="txt-l"><a id="sort_19" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&order=DESC&cast=signed'; ?>">新</a>｜<a id="sort_20" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&order=ASC&cast=signed'; ?>">古</a></td>
             <td><a id="sort_2" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=ASC&cast=signed'; ?>">安</a>｜<a id="sort_1" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=DESC&cast=signed'; ?>">高</a></td>
             <td><a id="sort_22" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=ASC&cast=signed'; ?>">安</a>｜<a id="sort_21" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=DESC&cast=signed'; ?>">高</a></td>
@@ -366,6 +366,8 @@ echo $images[0];
                                                     <span class="subTxt"><?php echo get_post_meta($post->ID, "model", true); ?></span>
                                                 </div>
                                                 <div class="l-box txt-r">
+                                                    <p class="label label--nintei">ディーラー保証</p>
+                                                    <p class="label label--shopHosyo js_hBn">販売店保証</p>
                                                 </div>
                                             </div>
 

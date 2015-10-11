@@ -1,7 +1,7 @@
 <footer>
 
-<a href="http://tsukucar.com/toriyose/">
-	<img src="http://dev2.hardunity.com/wp-content/uploads/2015/09/最大15社から！.png" alt="" class="footer_baner" style="width:100%;"  />
+<a href="<?php bloginfo("url"); ?>/toriyose-sp">
+<img src="<?php bloginfo("url"); ?>/wp-content/uploads/2015/09/最大15社から！.png" alt="" class="footer_baner" style="width:100%;"  />
 </a>
 <p class="copy-right">
 &copy;2015<span>CRONO FACTORY, Inc.</span> inc. ALL RIGHT RESERVED
@@ -139,19 +139,19 @@ foreach ( $models as $model )
  <script>
 $(function(){
     $("#left-img").click(function(){
-        $(".tab_menu img").attr('src','<?php bloginfo("url"); ?>/wp-content/uploads/2015/09/left-check.png');
+        $(".tab_menu img").attr('src','<?php bloginfo("template_url"); ?>/dist/img/iji-left.png');
         $("#tab-contents-1").show();
         $("#tab-contents-2").hide();
         $("#tab-contents-3").hide();
     });
         $("#middle-img").click(function(){
-        $(".tab_menu img").attr('src','<?php bloginfo("url"); ?>/wp-content/uploads/2015/09/middle-check-1.png');
+        $(".tab_menu img").attr('src','<?php bloginfo("template_url"); ?>/dist/img/iji-middle.png');
         $("#tab-contents-1").hide();
         $("#tab-contents-2").show();
         $("#tab-contents-3").hide();
     });
     $("#right-img").click(function(){
-        $(".tab_menu img").attr('src','<?php bloginfo("url"); ?>/wp-content/uploads/2015/09/right-check-1.png');
+        $(".tab_menu img").attr('src','<?php bloginfo("template_url"); ?>/dist/img/iji-right.png');
         $("#tab-contents-1").hide();
         $("#tab-contents-2").hide();
         $("#tab-contents-3").show();
