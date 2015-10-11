@@ -16,8 +16,8 @@ if(get_post_meta($post->ID, "is_goo", true)){
         get_car_by_shop_goo($goo_url, get_the_title(), $user_id, get_the_permalink()); 
     }
 }elseif($car_url){
-	//get_car_by_shop($car_url, get_the_title(), $user_id, get_the_permalink());
-   }
+    get_car_by_shop($car_url, get_the_title(), $user_id, get_the_permalink());
+}
 ?>
 <?php endwhile; ?><?php else : ?>
 <?php endif; 
