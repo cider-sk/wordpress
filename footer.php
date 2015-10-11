@@ -122,7 +122,7 @@ foreach ( $models as $model )
     </div>
           </div><!-- /.l-box -->
           <div class="l-box txt-c">
-            <button class="btn btn--search btn--middle" onclick="return spbl.tb.shashu.set();return false;"><span class="btn__txt--small">チェックしたメーカーの</span><span class="btn__txt--big">中古車を検索する</span></button>
+            <button   data-dismiss="modal" class="btn btn--search btn--middle" onclick="return spbl.tb.shashu.set();return false;"><span class="btn__txt--small">チェックしたメーカーの</span><span class="btn__txt--big">中古車を検索する</span></button>
           </div><!-- /.l-box -->
         </div>
       </div>

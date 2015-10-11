@@ -1,49 +1,73 @@
 <div class="panel panel--bknAll">
-<form id="panelForm" method="get" action="/usedcar/">
 
-   <input type="hidden" name="STID" id="STID" value="CS210610" class="js_untouchable">
+<form id="panelForm" method="get" action="/">
+<input type="hidden" name="post_type" value="post">
           
   <table class="tbl tbl--panel mb20">
     <tbody>
     <tr style="height: 35px;">
       <th><p class="lh12">メーカー</p></th>
       <td style="width:130px;">
-        <input type="text" name="cftsearch[maker][0][]" value=""><br>
+<div id="maker_select">
+<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="shashuAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>
+</div>
+<!-- Button trigger modal -->
       </td>
       <th><p class="lh12">モデル・<br>グレード</p></th>
       <td style="width:130px;">
-<input type="text" name="cftsearch[model][0][]" value="">        
+<div id="model_select">
+<a class="btn btn--funcL2 btn--small w100 mb20 js_thickBtn" id="modelAnc" href=""  data-toggle="modal" data-target="#myModal" title="選択する">選択する</a>
+</div>
+<?php /*
+<select name="cftsearch[maker][0][]">
+</select>
+<select name="cftsearch[model][0][">
+<?php 
+	global $wpdb;
+	$models = $wpdb->get_results( 
+		"
+		SELECT *
+		FROM  wp_postmeta
+		WHERE meta_key =  'model'
+		GROUP BY meta_value
+		order by meta_value
+		"
+	);
+foreach ( $models as $model ) 
+{
+?>
+	<option value="<?php echo $model->meta_value; ?>"><?php echo $model->meta_value; ?></option>
+<?php } ?>
+</select>
+</php */ ?>
       </td>
       <td rowspan="2">
         <table class="tbl tbl--panel mb20">
           <tbody><tr>
             <th>価格</th>
             <td class="va-mid">
-<select name="cftsearch[value][1][]"><option value=""></option><option value="0">下限なし</option>
+<select name="cftsearch[value][1][]">
+<option value="">下限なし</option>
 <option value="50">50万円</option>
 <option value="100">100万円</option>
 <option value="200">200万円</option>
-<option value="300">300万円</option>
-<option value="400">400万円</option>
-<option value="500">500万円</option>
-<option value="10000">上限なし</option>
+<option value="250">250万円</option>
 </select>
 〜
-<select name="cftsearch[value][2][]"><option value=""></option><option value="0">下限なし</option>
+<select name="cftsearch[value][2][]">
+<option value="">上限なし</option>
 <option value="50">50万円</option>
 <option value="100">100万円</option>
 <option value="200">200万円</option>
-<option value="300">300万円</option>
-<option value="400">400万円</option>
-<option value="500">500万円</option>
-<option value="10000">上限なし</option>
+<option value="250">250万円</option>
 </select>
             </td>
           </tr>
           <tr>
             <th>年式</th>
             <td class="va-mid">
-<select name="cftsearch[year][1][]"><option value=""></option><option value="1">下限なし</option>
+<select name="cftsearch[year][1][]">
+<option value="">下限なし</option>
 <option value="1990">1990年</option>
 <option value="1991">1991年</option>
 <option value="1992">1992年</option>
@@ -70,10 +94,10 @@
 <option value="2013">2013年</option>
 <option value="2014">2014年</option>
 <option value="2015">2015年</option>
-<option value="2020">上限なし</option>
 </select>
 〜
-<select name="cftsearch[year][2][]"><option value=""></option><option value="1">下限なし</option>
+<select name="cftsearch[year][2][]">
+<option value="">上限なし</option>
 <option value="1990">1990年</option>
 <option value="1991">1991年</option>
 <option value="1992">1992年</option>
@@ -100,14 +124,14 @@
 <option value="2013">2013年</option>
 <option value="2014">2014年</option>
 <option value="2015">2015年</option>
-<option value="2020">上限なし</option>
 </select>                  
             </td>
           </tr>
           <tr>
             <th>走行距離</th>
             <td class="va-mid">
-<select name="cftsearch[distance][1][]"><option value=""></option><option value="0">下限なし</option>
+<select name="cftsearch[distance][1][]">
+<option value="">下限なし</option>
 <option value="0.5">5000km</option>
 <option value="1">1万km</option>
 <option value="2">2万km</option>
@@ -119,10 +143,10 @@
 <option value="8">8万km</option>
 <option value="9">9万km</option>
 <option value="10">10万km</option>
-<option value="1000">上限なし</option>
 </select>
 〜 
-<select name="cftsearch[distance][2][]"><option value=""></option><option value="0">下限なし</option>
+<select name="cftsearch[distance][2][]">
+<option value="">上限なし</option>
 <option value="0.5">5000km</option>
 <option value="1">1万km</option>
 <option value="2">2万km</option>
@@ -161,15 +185,15 @@
         </div>
       </td>
     </tr>
-    <tr>
+    <tr style="display:none;">
         <th><p class="lh12">車名</p></th>
       <td style="width:130px;">
         <input type="text" name="cftsearch[car-name][0][]" value="">        
       </td>
     </tr>
 
-    
- <tr id="clselecters">
+    </tr>
+    <tr id="clselecters">
       <th class="va-mid">本体色</th>
       <td colspan="4" class="va-mid">
         <div class="colorTipsBlock">
@@ -178,7 +202,6 @@
       </td>
     </tr>
   </tbody></table>
-
 
   <div class="l-wrap" style="margin-top: -50px;padding-right: 40px;">
     <div class="l-box va-mid">
@@ -191,10 +214,10 @@
   </div>
 
 </form>
-    </div>
+</div>
 <div class="resultBar l-wrap">
       <div class="resultBar__numBox l-box" itemscope="" itemtype="http://schema.org/Offer">
-        <b class="numXXL va-mid" itemprop="offerCount">140</b>
+        <b class="numXXL va-mid" itemprop="offerCount"></b>
       <span class="txt va-btm">台</span>
     </div><!-- /.resultBar__numBox -->
 
@@ -226,34 +249,6 @@
         </div>
       </div>
     </div>
-    <div id="sortTable" style="z-index: 100; position: absolute; top: 0px; left: 0px;">
-      <table class="sortTbl">
-        <tbody id="sortArea">
-          <tr>
-            <th width="130" rowspan="2" class="va-btm prev_sort"><a id="sort_0" href="javascript:void(0)">元の並び順に戻す</a></th>
-            <th width="120" class="txt-l">新着順</th>
-            <th width="215">本体価格</th>
-            <th width="215">支払総額 <a href="http://www.carsensor.net/help/CS/help_sougaku.html" class="js_questionSingle" title="クリックすると説明が表示されます"><i class="icon icon_help"></i></a></th>
-            <th width="60">年式</th>
-            <th width="60">走行距離</th>
-            <th width="60">排気量</th>
-            <th width="60">車検<a href="http://www.carsensor.net/help/CS/help_syaken.html" class="js_questionSingle" title="クリックすると説明が表示されます"><i class="icon icon_help"></i></a></th>
-            <th width="60">修復歴</th>
-          </tr>
-          <tr>
-            <input id="sort_url" value="/usedcar/index.html" type="hidden">
-            <td class="txt-l"><a id="sort_19" href="javascript:void(0)">新</a>｜<a id="sort_20" href="javascript:void(0)">古</a></td>
-
-            <td><a id="sort_22" href="javascript:void(0)">安</a>｜<a id="sort_21" href="javascript:void(0)">高</a></td>
-            <td><a id="sort_3" href="javascript:void(0)">新</a>｜<a id="sort_4" href="javascript:void(0)">古</a></td>
-            <td><a id="sort_5" href="javascript:void(0)">多</a>｜<a id="sort_6" href="javascript:void(0)">少</a></td>
-            <td><a id="sort_23" href="javascript:void(0)">多</a>｜<a id="sort_24" href="javascript:void(0)">少</a></td>
-            <td><a id="sort_11" href="javascript:void(0)">付</a>｜<a id="sort_12" href="javascript:void(0)">無</a></td>
-            <td><a id="sort_13" href="javascript:void(0)">無</a>｜<a id="sort_14" href="javascript:void(0)">有</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 <div id="tab_menu_img" >
 			<div class="tab_menu clearfix">
                             <img src="<?php bloginfo("url") ?>/wp-content/uploads/2015/09/left-check.png" alt="">
@@ -264,9 +259,43 @@
                             </div>
                         </div>
                     </div>
-
     <div id="bukkenCas" style="padding-top:66px;position:relative;height:100%;">
-			    <div id="bukkenCas">
+                <div id="bukkenCas">
+<div id="sortTable" style="z-index: 100;">
+      <table class="sortTbl">
+        <tbody id="sortArea">
+          <tr>
+            <th width="160" class="txt-l">燃費</th>
+            <th width="160" class="txt-l">新着順</th>
+            <th width="115">本体価格</th>
+            <th width="115">支払総額 <a href="http://www.carsensor.net/help/CS/help_sougaku.html" class="js_questionSingle" title="クリックすると説明が表示されます"><i class="icon icon_help"></i></a></th>
+            <th width="160">年式</th>
+            <th width="160">走行距離</th>
+            <th width="160">排気量</th>
+          </tr>
+          <tr>
+<?php
+    $array = explode('&', $_SERVER['QUERY_STRING']);
+    foreach ($array as $key => $val) {
+        if( strpos($val, 'order') !== FALSE || strpos($val, 'orderby') !== FALSE || strpos($val, 'cast') !== FALSE ) { 
+            unset($array[$key]);
+        }   
+    }   
+    $str = implode('&', $array);
+?>
+            <input id="sort_url" value="" type="hidden">
+<td class="txt-l"><a id="sort_19" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=DESC&cast=signed'; ?>">低</a>｜<a id="sort_20" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=fuel&order=ASC&cast=signed'; ?>">高</a></td>
+            <td class="txt-l"><a id="sort_19" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&order=DESC&cast=signed'; ?>">新</a>｜<a id="sort_20" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&order=ASC&cast=signed'; ?>">古</a></td>
+            <td><a id="sort_2" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=ASC&cast=signed'; ?>">安</a>｜<a id="sort_1" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=value&order=DESC&cast=signed'; ?>">高</a></td>
+            <td><a id="sort_22" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=ASC&cast=signed'; ?>">安</a>｜<a id="sort_21" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=sum-value&order=DESC&cast=signed'; ?>">高</a></td>
+            <td><a id="sort_3" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=DESC&cast=signed'; ?>">新</a>｜<a id="sort_4" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=year&order=ASC&cast=signed'; ?>">古</a></td>
+            <td><a id="sort_5" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=distance&order=DESC&cast=signed'; ?>">多</a>｜<a id="sort_6" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=distance&order=ASC&cast=signed'; ?>">少</a></td>
+            <td><a id="sort_23" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=DESC&cast=signed'; ?>">多</a>｜<a id="sort_24" href="<?php bloginfo('url'); ?><?php echo '?'. $str. '&orderby=displacement&order=ASC&cast=signed'; ?>">少</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
 <?php 
 $fuel_array = array(
 	1 => 160,
