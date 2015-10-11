@@ -16,8 +16,7 @@ if(get_post_meta($post->ID, "is_goo", true)){
         get_car_by_shop_goo($goo_url, get_the_title(), $user_id, get_the_permalink()); 
     }
 }elseif($car_url){
-	echo $car_url;
-	get_car_by_shop($car_url, get_the_title(), $user_id, get_the_permalink());
+	//get_car_by_shop($car_url, get_the_title(), $user_id, get_the_permalink());
 	break;
 }
 ?>
@@ -79,7 +78,7 @@ function regist_car_goo($car_single_url, $cat_id, $car_title, $user_id, $shop_ur
             preg_match_all($pattern, $text, $matches);
             $pattern = '/sub_src\[[0-9]*\]=\'(.*?)\';/';
             foreach($matches[1] as $img_c){
-                $img_c = mb_convert_encoding($img_c, "UTF-8", "auto");
+                $img_c = mb_convert_encoding($img_c, "UTF-8", "EUC-JP");
                 $item['img_c'] .= $img_c.",";
             }
             //img_s
@@ -94,7 +93,9 @@ function regist_car_goo($car_single_url, $cat_id, $car_title, $user_id, $shop_ur
             preg_match_all($pattern, $text, $matches_img_l);
             foreach($matches_img_l[1] as $img_l){
                 $item['img_l'] .= $img_l.",";
-            }
+	    }
+
+	    print_r($item);
 
             /*
             for($i = 1 ;$i < 30; $i++){
