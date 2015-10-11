@@ -98,16 +98,28 @@ echo $tel = get_user_meta($user_id, "tel", true);
 
       <!-- 画像 -->
       <section class="l-seclv1">
-      <div class="bknDtl_mainImg" id="photoBox" <?php if(get_post_meta($post->ID, "is_goo", true)){ ?>style="width:200px;"<?php } ?>>
-        <img src="<?php 
- $imgs = get_post_meta($post->ID, "imgList", true); 
-$images = explode(",", $imgs);
-echo $images[0];
 
-?>" width="100%" alt="<?php the_title(); ?>" id="mainPhoto" itemprop="image">
-          </a>
-
-        </div>
+      <div class="bknDtl_mainImg" id="photoBox">
+<!-- Place somewhere in the <body> of your page -->
+<div class="flexslider">
+  <ul class="slides">
+<?php 
+$img_cs = explode(",", get_post_meta($post->ID, "img_c", true));
+$img_ss = explode(",", get_post_meta($post->ID, "img_s", true));
+$img_ls = explode(",", get_post_meta($post->ID, "img_l", true));
+for($i = 0;$i < count($img_ss); $i++){
+    if($img_ss[$i]){
+?>
+    <li data-thumb="<?php echo $img_ss[$i]; ?>">
+      <img src="<?php echo $img_ls[$i]; ?>" />
+     <p class="flex-caption"><?php echo $img_cs[$i]; ?></p>
+    </li>
+<?php 
+    }    
+} ?>
+  </ul>
+</div>
+     </div>
         
         <div class="mb20">
           <p class="note">※写真はイメージの場合があります。詳細は販売店にご確認ください。</p>

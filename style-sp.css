@@ -119,8 +119,7 @@ h1{
 }
 .bknDtlMainPhoto img{
     margin:0px;
-width: 60%;
-    margin-left: -25px;
+    margin-left: -26px;
 }
 .pageBody{
     background-color:#fff;
@@ -537,4 +536,26 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 }
 .btnType1{
     display:none;
+}
+
+.flex-caption {
+    left: -26px;
+    width: 380px;
+    bottom: 0;
+    position: relative;
+    top: -150px;
+    height: 150px;
+    /* margin-bottom: -62px; */
+    /* height: 60px; */
+    color: #FFFFFF;
+    background: rgba(0,0,0,0.5) !important;
+    /* text-shadow: 0 -1px 0 rgba(0,0,0,.3); */
+    font-size: 14px;
+    line-height: 18px;
+    z-index: 10000;
+}
+.flexslider .slides img {
+    width:380px;
+    height:auto;
+
 }

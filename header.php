@@ -15,6 +15,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<?php bloginfo("template_url"); ?>/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php bloginfo("template_url"); ?>/dist/css/flexslider.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="<?php bloginfo("template_url"); ?>/non-responsive.css" rel="stylesheet">

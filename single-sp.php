@@ -16,15 +16,26 @@ $user_id = $post->post_author;
         <div class="flickElement"><!-- ← フリックエレメント -->
           <div class="container" style="left: 45px; position: relative;"><!-- ← フリックさせる要素 -->
             <div class="containerInner" id="containerInner" style="width: 7705px; height: 215px; position: relative; left: 0px;">
-            <div class="item <?php if(get_post_meta($post->ID, "is_goo", true)){ echo "goo_img"; } ?>" style="float: left;">
-                                                  <img id="img1" src="<?php 
- $imgs = get_post_meta($post->ID, "imgList", true); 
-$images = explode(",", $imgs);
-echo $images[0];
-
-?>" alt="<?php the_title(); ?>" width="275" height="200" class="bknImg">
-              </div>
-                        </div><!-- /.containerInner -->
+<!-- Place somewhere in the <body> of your page -->
+<div class="flexslider">
+  <ul class="slides">
+<?php 
+$img_cs = explode(",", get_post_meta($post->ID, "img_c", true));
+$img_ss = explode(",", get_post_meta($post->ID, "img_s", true));
+$img_ls = explode(",", get_post_meta($post->ID, "img_l", true));
+for($i = 0;$i < count($img_ss); $i++){
+    if($img_ss[$i]){
+?>
+    <li data-thumb="<?php echo $img_ss[$i]; ?>">
+      <img src="<?php echo $img_ls[$i]; ?>" />
+     <p class="flex-caption"><?php echo $img_cs[$i]; ?></p>
+    </li>
+<?php 
+    }    
+} ?>
+  </ul>
+</div>
+            </div><!-- /.containerInner -->
           </div><!-- /.container -->
         </div><!-- /.flickElement -->
               </figure>

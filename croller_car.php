@@ -87,6 +87,7 @@ function regist_car_goo($car_single_url, $cat_id, $car_title, $user_id, $shop_ur
                 $item['img_s'] .= $img_s.",";
             }
             //img_l
+    if($car_)
             $pattern = '/sub_src_b\[[0-9]*\]=\'(.*?)\';/';
             preg_match_all($pattern, $text, $matches_img_l);
             foreach($matches_img_l[1] as $img_l){

@@ -14,6 +14,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<?php bloginfo("template_url"); ?>/dist-sp/css/bootstrap.min.css" rel="stylesheet">
+<link href="<?php bloginfo("template_url"); ?>/dist/css/flexslider.css" rel="stylesheet">
+
 
     <!-- Custom styles for this template -->
     <link href="<?php bloginfo("template_url"); ?>/starter-template-sp.css" rel="stylesheet">

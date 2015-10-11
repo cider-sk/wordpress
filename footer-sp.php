@@ -127,6 +127,7 @@ foreach ( $models as $model )
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="<?php bloginfo("template_url"); ?>/dist-sp/js/bootstrap.min.js"></script>
+    <script src="<?php bloginfo("template_url"); ?>/dist/js/jquery.flexslider-min.js"></script>
     <script src="<?php bloginfo("template_url"); ?>/bootstrapSlideInMenu-1.0.0.min.js"></script>
     <script type="text/javascript" charset="UTF-8">
         $(document).ready(function() {
@@ -239,6 +240,14 @@ $(function(){
 	    $("input[name='text-134']").val("<?php the_title(); ?>");
 	});
 });
+// Can also be used with $(document).ready()
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    //animation: "slide",
+  });
+});
+
+
 </script>
 <?php wp_footer(); ?>
   </body>
