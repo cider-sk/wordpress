@@ -8,15 +8,17 @@ if (have_posts()) :
 ?>
 <?php while (have_posts()) : the_post(); ?>
 <?php
-echo $user_id = get_post_meta($post->ID, "user_id", true);
+$user_id = get_post_meta($post->ID, "user_id", true);
 $car_url = get_user_meta($user_id, "carsensor", true);
-echo $goo_url = get_user_meta($user_id, "goo_car", true);
+$goo_url = get_user_meta($user_id, "goo_car", true);
 if(get_post_meta($post->ID, "is_goo", true)){
     if($goo_url){
         get_car_by_shop_goo($goo_url, get_the_title(), $user_id, get_the_permalink()); 
     }
 }elseif($car_url){
-    get_car_by_shop($car_url, get_the_title(), $user_id, get_the_permalink());
+	echo $car_url;
+	get_car_by_shop($car_url, get_the_title(), $user_id, get_the_permalink());
+	break;
 }
 ?>
 <?php endwhile; ?><?php else : ?>
@@ -86,8 +88,8 @@ function regist_car_goo($car_single_url, $cat_id, $car_title, $user_id, $shop_ur
             foreach($matches_img_s[1] as $img_s){
                 $item['img_s'] .= $img_s.",";
             }
-            //img_l
-    if($car_)
+	    //img_l
+	    
             $pattern = '/sub_src_b\[[0-9]*\]=\'(.*?)\';/';
             preg_match_all($pattern, $text, $matches_img_l);
             foreach($matches_img_l[1] as $img_l){
@@ -226,7 +228,8 @@ function regist_car($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $
                 }else{
                     break;
                 }
-            }
+	    }
+	    print_r($item);
             //お店
             $item["shop_url"] = $tuku_shop_url;
             //燃費
@@ -319,7 +322,8 @@ function regist_car($car_single_url, $cat_id, $car_title, $user_id, $shop_url, $
                 foreach($item as $key => $value){
                     update_post_meta($car_id, $key, $value);
                 }
-            }
+	    }
+	    echo $car_id.PHP_EOL;
             return $car_id;
         }
     }
