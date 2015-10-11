@@ -1,38 +1,29 @@
 <?php
 $text =<<<EOF
-subphoto_comment[0]='レクサス　ＣＴ２００ｈ　バージョンＣ入庫しました。 ワンオーナー　純正ＨＤＤナビ　フルセグ　コーナーセンサー　バックカメラ';
-sub_src[0]='http://picture1.goo-net.com/7000503300/30151009/P/70005033003015100900100.jpg';
-sub_src_b[0]='http://picture1.goo-net.com/7000503300/30151009/J/70005033003015100900100.jpg';
-sub_l[0]='';
-
-sub_src[1]='http://picture1.goo-net.com/050/0503300/P/0503300A30151009W00101.jpg';
-subphoto_comment[1]='◇電車でお越しの際にも、モノレール舎人ライナー西新井大師西駅まで送り迎えができますのでご安心ください。西新井大師西駅に到着するお時間を電話にてお伝えいただければ、迎えをすぐにご用意いたします。';
-sub_src_b[1]='http://picture1.goo-net.com/050/0503300/J/0503300A30151009W00101.jpg';
-sub_l[1]='/cgi-bin/goojp/used/sub_log.cgi?700050330030151009001+0503300A30151009W001+1';
-
-sub_src[2]='http://picture1.goo-net.com/050/0503300/P/0503300A30151009W00102.jpg';
-subphoto_comment[2]='◇全国販売納車承ります。北は北海道から南は沖縄まで、ご自宅までお車をお届け致します。遠方にお住まいの方もお気軽にお問い合わせください。';
-sub_src_b[2]='http://picture1.goo-net.com/050/0503300/J/0503300A30151009W00102.jpg';
-sub_l[2]='/cgi-bin/goojp/used/sub_log.cgi?700050330030151009001+0503300A30151009W001+2';
-
-sub_src[3]='http://picture1.goo-net.com/050/0503300/P/0503300A30151009W00103.jpg';
-subphoto_comment[3]='◇全国からＮＥＴを通してお問合せを頂いております。お申し付け頂ければ指定箇所の写真もお送りいたしております。遠方で現車をご覧になれない方は特に、メール、お電話にて、お気軽にお問い合わせくださいませ。';
-sub_src_b[3]='http://picture1.goo-net.com/050/0503300/J/0503300A30151009W00103.jpg';
-sub_l[3]='/cgi-bin/goojp/used/sub_log.cgi?700050330030151009001+0503300A30151009W001+3';
+<a id="main_SB_S035_nn" href="/usedcar/map/bSB/s035/index.html" onclick="compare_car.doClickChk(this);"><img class="catImg--op lazy" src="/CSphoto/cat/nophoto_M.png" data-original="http://www.carsensor.net/CSphoto/cat/SB/S035/SB_S035_F001_M004_1.jpg" width="180" height="135" alt="インプレッサハッチバックの中古車"></a>
+                                                <!--<![endif]-->
+                                            </div>
+                                            <div class="l-wrap">
+                                                <div class="l-box w20"><input id="carSB_S035_nn" type="checkbox" name="CARC[]" value="SB_S035" onclick="dispButton(); return compare_car.doShashuChked(this, '');" onkeypress="return true" tabindex="1" class="f-check"></div>
+                                                <div class="l-gutter5"></div>
+                                                <div class="l-box">
+                                                    <p><a id="main_SB_S035_nn" href="/usedcar/map/bSB/s035/index.html" class="txt" onclick="compare_car.doClickChk(this);">インプレッサハッチバック <span class="linkNo">(310)</span></a></p>
+                                                                <p><a href="/newcar/calist.php?STID=CS110500&amp;CARC%5B%5D=SB_S035" class="note">カタログ</a></p>
+                                                            </div>
+                                            </div><!-- /.l-wrap -->
+                                        </div><!-- /.l-box -->
+                                                    <div class="l-gutter20"></div>
+                                                                                                <div class="l-box">
+                                            <div class="txt-r">
+                                                <!--[if IE 6]>
+                                                <a id="main_SB_S037_nn" href="/usedcar/map/bSB/s037/index.html" onclick="compare_car.doClickChk(this);"><img src="http://www.carsensor.net/CSphoto/cat/SB/S037/SB_S037_F001_M005_1.jpg" width="180" height="135" alt="インプレッサハッチバックSTIの中古車"></a>
+                                                <![endif]-->
+                                                <!--[if !IE 6]><!-->
+                                                <a id="main_SB_S037_nn" href="/usedcar/map/bSB/s037/index.html" onclick="compare_car.doClickChk(this);"><img class="catImg--op lazy" src="/CSphoto/cat/nophoto_M.png" data-original="http://www.carsensor.net/CSphoto/cat/SB/S037/SB_S037_F001_M005_1.jpg" width="180" height="135" alt="インプレッサハッチバックSTIの中古車"></a>
 
 EOF;
-$pattern = '/subphoto_comment\[[0-9]*\]=\'(.*?)\';/';
+$pattern = '/<img class=".*?".*src=".*?".*?"(.*?)".*alt="(.*)の中古車/';
 preg_match_all($pattern, $text, $matches);
 print_r($matches);
-
-$pattern = '/sub_src\[[0-9]*\]=\'(.*?)\';/';
-preg_match_all($pattern, $text, $matches_img_s);
-print_r($matches_img_s);
-
-$pattern = '/sub_src_b\[[0-9]*\]=\'(.*?)\';/';
-preg_match_all($pattern, $text, $matches_img_l);
-print_r($matches_img_l);
-
-
 
 ?>
